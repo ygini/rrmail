@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E12EF15C17B2472B007414D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12EF15B17B2472B007414D1 /* Foundation.framework */; };
 		E12EF15F17B2472B007414D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E12EF15E17B2472B007414D1 /* main.m */; };
+		E188A5E717B24BAE006DE441 /* libMailCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E188A5E617B24BAE006DE441 /* libMailCore.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 		E12EF15E17B2472B007414D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1880D7A17B247E300EC588F /* rrmail.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = rrmail.1; sourceTree = "<group>"; };
 		E1880D7C17B247E300EC588F /* rrmail-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rrmail-Prefix.pch"; sourceTree = "<group>"; };
+		E188A5E617B24BAE006DE441 /* libMailCore.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libMailCore.a; path = "../vendors/mailcore2/build-mac/build/Release/libMailCore.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E188A5E717B24BAE006DE441 /* libMailCore.a in Frameworks */,
 				E12EF15C17B2472B007414D1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +49,7 @@
 		E12EF14F17B2472B007414D1 = {
 			isa = PBXGroup;
 			children = (
+				E188A5E617B24BAE006DE441 /* libMailCore.a */,
 				E12EF15D17B2472B007414D1 /* rrmail */,
 				E12EF15A17B2472B007414D1 /* Frameworks */,
 				E12EF15917B2472B007414D1 /* Products */,
@@ -214,6 +218,21 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rrmail/Supporting Files/rrmail-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-lctemplate",
+					"-letpan",
+					"-licudata",
+					"-licui18n",
+					"-licuuc",
+					"-lxml2",
+					"-lsasl2",
+					"-liconv",
+					"-ltidy",
+					"-lz",
+					"-lc++",
+					"-stdlib=libc++",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -223,6 +242,21 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rrmail/Supporting Files/rrmail-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-lctemplate",
+					"-letpan",
+					"-licudata",
+					"-licui18n",
+					"-licuuc",
+					"-lxml2",
+					"-lsasl2",
+					"-liconv",
+					"-ltidy",
+					"-lz",
+					"-lc++",
+					"-stdlib=libc++",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
