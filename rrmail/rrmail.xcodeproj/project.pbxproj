@@ -10,6 +10,10 @@
 		E12EF15C17B2472B007414D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12EF15B17B2472B007414D1 /* Foundation.framework */; };
 		E12EF15F17B2472B007414D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E12EF15E17B2472B007414D1 /* main.m */; };
 		E188A5E717B24BAE006DE441 /* libMailCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E188A5E617B24BAE006DE441 /* libMailCore.a */; };
+		E188A5E917B24CE8006DE441 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E188A5E817B24CE8006DE441 /* Security.framework */; };
+		E188A5ED17B24D85006DE441 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E188A5EC17B24D85006DE441 /* CFNetwork.framework */; };
+		E188A5EF17B24DCC006DE441 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E188A5EE17B24DCC006DE441 /* libcrypto.dylib */; };
+		E188A5F117B24DD5006DE441 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E188A5F017B24DD5006DE441 /* libssl.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +35,10 @@
 		E1880D7A17B247E300EC588F /* rrmail.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = rrmail.1; sourceTree = "<group>"; };
 		E1880D7C17B247E300EC588F /* rrmail-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rrmail-Prefix.pch"; sourceTree = "<group>"; };
 		E188A5E617B24BAE006DE441 /* libMailCore.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libMailCore.a; path = "../vendors/mailcore2/build-mac/build/Release/libMailCore.a"; sourceTree = "<group>"; };
+		E188A5E817B24CE8006DE441 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E188A5EC17B24D85006DE441 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E188A5EE17B24DCC006DE441 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		E188A5F017B24DD5006DE441 /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +46,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E188A5F117B24DD5006DE441 /* libssl.dylib in Frameworks */,
+				E188A5EF17B24DCC006DE441 /* libcrypto.dylib in Frameworks */,
+				E188A5ED17B24D85006DE441 /* CFNetwork.framework in Frameworks */,
+				E188A5E917B24CE8006DE441 /* Security.framework in Frameworks */,
 				E188A5E717B24BAE006DE441 /* libMailCore.a in Frameworks */,
 				E12EF15C17B2472B007414D1 /* Foundation.framework in Frameworks */,
 			);
@@ -49,7 +61,6 @@
 		E12EF14F17B2472B007414D1 = {
 			isa = PBXGroup;
 			children = (
-				E188A5E617B24BAE006DE441 /* libMailCore.a */,
 				E12EF15D17B2472B007414D1 /* rrmail */,
 				E12EF15A17B2472B007414D1 /* Frameworks */,
 				E12EF15917B2472B007414D1 /* Products */,
@@ -67,6 +78,11 @@
 		E12EF15A17B2472B007414D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E188A5F017B24DD5006DE441 /* libssl.dylib */,
+				E188A5EE17B24DCC006DE441 /* libcrypto.dylib */,
+				E188A5EC17B24D85006DE441 /* CFNetwork.framework */,
+				E188A5E817B24CE8006DE441 /* Security.framework */,
+				E188A5E617B24BAE006DE441 /* libMailCore.a */,
 				E12EF15B17B2472B007414D1 /* Foundation.framework */,
 			);
 			name = Frameworks;
