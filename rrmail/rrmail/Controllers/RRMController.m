@@ -84,6 +84,10 @@
 			if ([serverType isEqualToString:(NSString*)kRRMSourceServerTypePOP3Value]) {
 				OperationClass = [RRMOperationPOP3 class];
 			}
+            else
+            {
+                OperationClass = nil;
+            }
 			
 			if (OperationClass) {
 				serverAddress = [serverConfig objectForKey:kRRMSourceServerAddressKey];
