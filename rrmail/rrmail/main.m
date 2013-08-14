@@ -31,9 +31,6 @@ int main(int argc, const char * argv[])
 		do {
 			@autoreleasepool {
 				// Default and Common are differents modes, we need to run both with NSURLConnection
-                
-               
-
 				[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
 				[[NSRunLoop currentRunLoop] runMode:NSRunLoopCommonModes beforeDate:[NSDate distantFuture]];
 			}

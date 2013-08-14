@@ -37,16 +37,6 @@
 					<key>targetServer</key>
 					<string>localhost</string>
 				</dict>
-				<dict>
-					<key>sourceServerLogin</key>
-					<string>hui2sier@gmail.com</string>
-					<key>sourceServerPassword</key>
-					<string>bistoufly13</string>
-					<key>targetServerAccount</key>
-					<string>bobby</string>
-					<key>targetServer</key>
-					<string>localhost</string>
-				</dict>
 			</array>
 		</dict>
 	</array>
