@@ -23,13 +23,17 @@ int main(int argc, const char * argv[])
 			else
 			{
 				[[RRMController sharedInstance] startOperationsAndWait];
-				allOperationsAreDone = YES;
+//				allOperationsAreDone = YES;
 			}
 		}];
 	    
+        
 		do {
 			@autoreleasepool {
 				// Default and Common are differents modes, we need to run both with NSURLConnection
+                
+               
+
 				[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
 				[[NSRunLoop currentRunLoop] runMode:NSRunLoopCommonModes beforeDate:[NSDate distantFuture]];
 			}
@@ -37,4 +41,5 @@ int main(int argc, const char * argv[])
 	}
     return 0;
 }
+
 

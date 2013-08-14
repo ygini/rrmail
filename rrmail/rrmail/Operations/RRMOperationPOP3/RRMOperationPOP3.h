@@ -8,6 +8,8 @@
 
 #import "RRMOperation.h"
 #import "RRMOperationMail.h"
+#import <MailCore/MailCore.h>
+
 
 @interface RRMOperationPOP3 : RRMOperation <RRMOperationMail>
 
