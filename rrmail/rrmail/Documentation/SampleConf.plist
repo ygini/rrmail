@@ -31,7 +31,17 @@
 					<key>sourceServerLogin</key>
 					<string>bob</string>
 					<key>sourceServerPassword</key>
-					<string>MyP@ssw0rd42</string>
+					<string>MyP@ssw0rd</string>
+					<key>targetServerAccount</key>
+					<string>bobby</string>
+					<key>targetServer</key>
+					<string>localhost</string>
+				</dict>
+				<dict>
+					<key>sourceServerLogin</key>
+					<string>hui2sier@gmail.com</string>
+					<key>sourceServerPassword</key>
+					<string>bistoufly13</string>
 					<key>targetServerAccount</key>
 					<string>bobby</string>
 					<key>targetServer</key>
