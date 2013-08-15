@@ -120,6 +120,7 @@
 																							andUserSettings:userSettings];
 					
 					[operationQueue addOperation:operationMail];
+					[operationMail release];
 				}
 			}
 			else
