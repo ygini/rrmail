@@ -14,27 +14,15 @@ int main(int argc, const char * argv[])
 {
 
 	@autoreleasepool {
-	    __block BOOL allOperationsAreDone = NO;
-		
-	    [[RRMController sharedInstance] readConfigurationfFile:^(NSError *error) {
-			if (error) {
-				// ... Error handling ...
-			}
-			else
-			{
-				[[RRMController sharedInstance] startOperationsAndWait];
-//				allOperationsAreDone = YES;
-			}
-		}];
+	    [[RRMController sharedInstance] readConfigurationfFile];
+	    [[RRMController sharedInstance] startOperations];
 	    
-        
 		do {
 			@autoreleasepool {
-				// Default and Common are differents modes, we need to run both with NSURLConnection
 				[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
 				[[NSRunLoop currentRunLoop] runMode:NSRunLoopCommonModes beforeDate:[NSDate distantFuture]];
 			}
-		} while (!allOperationsAreDone);
+		} while ([[RRMController sharedInstance] totalOperationCount] > 0);
 	}
     return 0;
 }
