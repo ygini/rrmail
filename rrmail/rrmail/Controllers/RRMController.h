@@ -15,6 +15,7 @@
 -(RRMController*)initWithConfigurationFilePath:(const NSString*)configurationFilePath;
 
 -(void)readConfigurationfFile:(void(^)(NSError *error))completionHandler;
+-(NSError*)readConfigurationfFile;
 
 -(void)startOperations;
 -(void)startOperationsAndWait;

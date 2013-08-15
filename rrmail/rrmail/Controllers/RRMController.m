@@ -9,6 +9,7 @@
 #import "RRMController.h"
 
 #import "RRMOperationPOP3.h"
+#import "RRMOperationIMAP.h"
 #import "RRMConstants.h"
 
 #import <libkern/OSAtomic.h>
@@ -84,6 +85,10 @@
 			if ([serverType isEqualToString:(NSString*)kRRMSourceServerTypePOP3Value]) {
 				OperationClass = [RRMOperationPOP3 class];
 			}
+			else if ([serverType isEqualToString:(NSString*)kRRMSourceServerTypeIMAPValue])
+			{
+				OperationClass = [RRMOperationIMAP class];
+			}
             else
             {
                 OperationClass = nil;
@@ -120,6 +125,7 @@
 			else
 			{
 				// ... Server type unsupported ...
+#warning ygi: add error handling
 			}
 		}
 		
@@ -148,48 +154,55 @@
 
 -(NSUInteger)totalOperationCount
 {
-	return 0;
+	NSUInteger count = 0;
+	
+	OSSpinLockLock(&_operationQueueLock);
+	for (NSOperationQueue *queue in [_operationQueues allValues]) {
+		count += [queue operationCount];
+	}
+	OSSpinLockUnlock(&_operationQueueLock);
+
+	return count;
 }
 
 -(NSUInteger)operationQueueCount
 {
-	return 0;
+	return [_operationQueues count];
 }
-
-#pragma mark Internal
 
 -(void)readConfigurationfFile:(void(^)(NSError *error))completionHandler
 {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-		OSSpinLockLock(&_configurationLock);
-		NSDictionary *configuration = [[NSDictionary alloc] initWithContentsOfFile:_configurationFilePath];
-		
-		if (!configuration) {
-			NSError *error = [NSError errorWithDomain:(NSString*)kRRMErrorDomain
-												 code:kRRMErrorCodeUnableToReadConfigFile
-											 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-													   _configurationFilePath, kRRMErrorFilePathKey,
-													   nil]];
-			
-			dispatch_async(dispatch_get_main_queue(), ^{
-				completionHandler(error);
-			});
-			
-			return;
-		}
-		
-		[_configuration release], _configuration = nil;
-		_configuration = [configuration copy];
-		// ... check configuration if needed? ...
-		
-		[configuration release];
-		OSSpinLockUnlock(&_configurationLock);
-		
-		// Configuration read with success, call the completion handler without error to continue operations.
+		NSError *err = [self readConfigurationfFile];
 		dispatch_async(dispatch_get_main_queue(), ^{
-			completionHandler(nil);
+			completionHandler(err);
 		});
 	});
+}
+
+
+-(NSError*)readConfigurationfFile
+{
+	OSSpinLockLock(&_configurationLock);
+	NSDictionary *configuration = [[NSDictionary alloc] initWithContentsOfFile:_configurationFilePath];
+	
+	if (!configuration) {
+		NSError *error = [NSError errorWithDomain:(NSString*)kRRMErrorDomain
+											 code:kRRMErrorCodeUnableToReadConfigFile
+										 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+												   _configurationFilePath, kRRMErrorFilePathKey,
+												   nil]];
+		return error;
+	}
+	
+	[_configuration release], _configuration = nil;
+	_configuration = [configuration copy];
+	// ... check configuration if needed? ...
+	
+	[configuration release];
+	OSSpinLockUnlock(&_configurationLock);
+
+	return nil;
 }
 
 @end
