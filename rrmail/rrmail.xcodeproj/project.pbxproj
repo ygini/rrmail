@@ -18,6 +18,7 @@
 		E18B1BBD17B275010007D731 /* RRMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E18B1BBC17B275010007D731 /* RRMOperation.m */; };
 		E18B1BC117B275330007D731 /* RRMOperationPOP3.m in Sources */ = {isa = PBXBuildFile; fileRef = E18B1BC017B275330007D731 /* RRMOperationPOP3.m */; };
 		E18B1BC517B27BA00007D731 /* RRMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E18B1BC417B27BA00007D731 /* RRMConstants.m */; };
+		E1E8CD6F17BD5E5500979984 /* RRMOperationIMAP.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8CD6E17BD5E5500979984 /* RRMOperationIMAP.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +64,8 @@
 		E18B1BC217B27B030007D731 /* RRMOperationMail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRMOperationMail.h; sourceTree = "<group>"; };
 		E18B1BC317B27BA00007D731 /* RRMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMConstants.h; sourceTree = "<group>"; };
 		E18B1BC417B27BA00007D731 /* RRMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMConstants.m; sourceTree = "<group>"; };
+		E1E8CD6D17BD5E5500979984 /* RRMOperationIMAP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMOperationIMAP.h; sourceTree = "<group>"; };
+		E1E8CD6E17BD5E5500979984 /* RRMOperationIMAP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMOperationIMAP.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,7 @@
 				E18B1BBB17B275010007D731 /* RRMOperation.h */,
 				E18B1BBC17B275010007D731 /* RRMOperation.m */,
 				E18B1BC217B27B030007D731 /* RRMOperationMail.h */,
+				E1E8CD6C17BD5E3700979984 /* RRMOperationIMAP */,
 				E18B1BBE17B275260007D731 /* RRMOperationPOP3 */,
 			);
 			path = Operations;
@@ -171,6 +175,15 @@
 				E18B1BC017B275330007D731 /* RRMOperationPOP3.m */,
 			);
 			path = RRMOperationPOP3;
+			sourceTree = "<group>";
+		};
+		E1E8CD6C17BD5E3700979984 /* RRMOperationIMAP */ = {
+			isa = PBXGroup;
+			children = (
+				E1E8CD6D17BD5E5500979984 /* RRMOperationIMAP.h */,
+				E1E8CD6E17BD5E5500979984 /* RRMOperationIMAP.m */,
+			);
+			path = RRMOperationIMAP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +243,7 @@
 				E18B1BBD17B275010007D731 /* RRMOperation.m in Sources */,
 				E18B1BC117B275330007D731 /* RRMOperationPOP3.m in Sources */,
 				E18B1BC517B27BA00007D731 /* RRMConstants.m in Sources */,
+				E1E8CD6F17BD5E5500979984 /* RRMOperationIMAP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

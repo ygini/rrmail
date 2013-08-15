@@ -16,6 +16,7 @@ const NSString * kRRMServerListKey									= @"serverList";
 const NSString * kRRMSourceServerAddressKey							= @"sourceServerAddress";
 const NSString * kRRMSourceServerTypeKey							= @"sourceServerType";
 const NSString * kRRMSourceServerTypePOP3Value						= @"pop3";
+const NSString * kRRMSourceServerTypeIMAPValue						= @"imap";
 const NSString * kRRMSourceServerRequireSSLKey						= @"sourceServerRequireSSL"; // Optional, default yes
 const NSString * kRRMSourceServerTCPPortKey							= @"sourceServerTCPPort"; // Optional, default related to SSL settings
 const NSString * kRRMSourceServerMaxConcurrentOperationsKey			= @"sourceServerMaxConcurrentOperations"; // Optional, default 10

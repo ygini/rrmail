@@ -23,6 +23,7 @@ extern const NSString * kRRMServerListKey;
 extern const NSString * kRRMSourceServerAddressKey;
 extern const NSString * kRRMSourceServerTypeKey;
 extern const NSString * kRRMSourceServerTypePOP3Value;
+extern const NSString * kRRMSourceServerTypeIMAPValue;
 extern const NSString * kRRMSourceServerRequireSSLKey; // Optional, default yes
 extern const NSString * kRRMSourceServerTCPPortKey; // Optional, default related to SSL settings
 extern const NSString * kRRMSourceServerMaxConcurrentOperationsKey; // Optional, default 10
