@@ -17,7 +17,19 @@
 	NSDictionary *_serverConfig;
 	NSDictionary *_userSettings;
     
+    NSUInteger _messageCount;
+	
+	OSSpinLock _messageCountLock;
+	
+	MCOPOPSession *_popSession;
+	MCOSMTPSession *_smtpSession;
+    
+    BOOL doIt;
 }
+
+- (void)getMessageContentWithFetchedMessages:(NSArray *)fetchedHeaders;
+- (void)transferData:(NSData*)fetchedData;
+- (void)decreaseMessageCount;
 
 @end
 
@@ -31,12 +43,19 @@
     if (self) {
         _serverConfig = [serverConfig copy];
 		_userSettings = [userSettings copy];
+        
+        _messageCountLock = OS_SPINLOCK_INIT;
+        
+        doIt = YES;
+
     }
     return self;
 }
 
 - (void)dealloc
 {
+    [_popSession release], _popSession = nil;
+    [_smtpSession release], _smtpSession = nil;
     [_serverConfig release], _serverConfig = nil;
 	[_userSettings release], _userSettings = nil;
     [super dealloc];
@@ -45,171 +64,97 @@
 #pragma mark RRMOperation
 
 - (void)operationGo {
-	    
 	NSLog(@"Get e-mail from %@ for %@ and redirect it to %@ for %@", [_serverConfig objectForKey:kRRMSourceServerAddressKey], [_userSettings objectForKey:kRRMSourceServerLoginKey], [_userSettings objectForKey:kRRMTargetServerKey], [_userSettings objectForKey:kRRMTargetServerAccountKey]);
 	
-    // Create session to get mail from selected account 
-    
-    MCOIMAPSession *session = [[MCOIMAPSession alloc] init];
-    [session setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
-    
-    NSString * strPort = (NSString *)[_serverConfig objectForKey:kRRMSourceServerTCPPortKey];
-    [session setPort:strPort.intValue];
-    
-    [session setUsername:[_userSettings objectForKey:kRRMSourceServerLoginKey]];
-    [session setPassword:[_userSettings objectForKey:kRRMSourceServerPasswordKey]];
-    [session setConnectionType:MCOConnectionTypeTLS];
-    
-    
-    // Get header's mail using for test
-
-    MCOIMAPMessagesRequestKind requestKind = MCOIMAPMessagesRequestKindHeaders;
-    
-    
-    // Select target folder
-    
-    NSString *folder = @"INBOX";
-    
-    MCOIndexSet *uids = [MCOIndexSet indexSetWithRange:MCORangeMake(1, UINT64_MAX)];
+#warning ygi: settings are used without data validation, we need to fix that ASAP.
+    _popSession = [[MCOPOPSession alloc] init];
+    [_popSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
+//    NSString * strPort = (NSString *)[_serverConfig objectForKey:kRRMSourceServerTCPPortKey];
+//    [_popSession setPort:strPort.intValue];
+    [_popSession setUsername:[_userSettings objectForKey:kRRMSourceServerLoginKey]];
+    [_popSession setPassword:[_userSettings objectForKey:kRRMSourceServerPasswordKey]];
+    [_popSession setConnectionType:MCOConnectionTypeStartTLS];
+	
+	_smtpSession = [[MCOSMTPSession alloc] init];
+    [_smtpSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
+    [_smtpSession setPort:25];
+    [_smtpSession setUsername:[_userSettings objectForKey:kRRMSourceServerLoginKey]];
+    [_smtpSession setPassword:[_userSettings objectForKey:kRRMSourceServerPasswordKey]];
+    [_smtpSession setConnectionType:MCOConnectionTypeStartTLS];
     
     
-    // Create your request
+    MCOPOPFetchMessagesOperation *fetchMessagesOperation = [_popSession fetchMessagesOperation];
+	
     
-    MCOIMAPFetchMessagesOperation *fetchOperation = [session fetchMessagesByUIDOperationWithFolder:folder requestKind:requestKind uids:uids];
-   
-    
-    [fetchOperation start:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
-        //We've finished downloading the messages!
+    [fetchMessagesOperation start:^(NSError * error, NSArray * fetchedMessages) {
         
-        //Let's check if there was an error:
         if(error) {
-            NSLog(@"Error downloading message headers:%@", error);
+            NSLog(@"Error downloading messages :%@", error);
+
+			[self operationDone];
         }
         else
         {
-            // if succes you've got email header, so get mail content using uid's mail
-            
-            [self getMessageContentWithFetchedMessages:fetchedMessages andSession:session];
+			_messageCount = [fetchedMessages count];
+			if (_messageCount == 0)
+			{
+				[self operationDone];
+			}
+			else
+			{
+				[self getMessageContentWithFetchedMessages:fetchedMessages];
+			}
         }
-        //And, let's print out the messages...
-//        NSLog(@"The post man delivereth:%@", fetchedMessages);
-        
-        
     }];
-    
-    
-	// Start async operation and when it's done, call [self operationDone]; from anywhere in this instance.
-    
-    [self operationDone];
-
 }
 
+#pragma mark - IMAP handling
 
-
-- (void)getMessageContentWithFetchedMessages:(NSArray *)fetchedMessages andSession:(MCOIMAPSession*)_session
+- (void)getMessageContentWithFetchedMessages:(NSArray *)fetchedMessages
 {
-    
-    // if no error you've got email header, so get mail content using uid's mail
+    for (MCOPOPMessageInfo * header in fetchedMessages) {
 
-    for (MCOIMAPMessage * message in fetchedMessages) {
-                
-        MCOIMAPFetchContentOperation * op = [_session fetchMessageByUIDOperationWithFolder:@"INBOX" uid:[message uid]];
+        MCOPOPFetchMessageOperation * op = [_popSession fetchMessageOperationWithIndex:header.index];
         [op start:^(NSError * error, NSData * data) {
             if ([error code] != MCOErrorNone) {
-                return;
+#warning ygi: need to add error handling
+                [self decreaseMessageCount];
             }
-            
-            // if succes parse message using MCOMessageParser
-            
-            MCOMessageParser * messageParser = [MCOMessageParser messageParserWithData:data];
-            
-            
-            // Create new message to send 
-            
-            [self transferDataWithFetchedMessages:message andSession:_session andParsedMessage:messageParser];
-
-            
+			else
+			{
+				[self transferData:data];
+			}
         }];
-        
     }
 }
 
-- (void)transferDataWithFetchedMessages:(MCOIMAPMessage *)message andSession:(MCOIMAPSession*)_session andParsedMessage:(MCOMessageParser *)parsedMessage
+- (void)transferData:(NSData*)fetchedData
 {
+#warning ygi: we need to update MailCore2 to handle SMTP operation with custom rcpt list, otherwise it will work only if original rcpt list are correctly reconized by remote server
     
-    // Create session to send mail using target server
-    
-    MCOSMTPSession *smtpSession = [[MCOSMTPSession alloc] init];
-
-    [smtpSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
-    [smtpSession setPort:25];
-    [smtpSession setUsername:[_userSettings objectForKey:kRRMSourceServerLoginKey]];
-    [smtpSession setPassword:[_userSettings objectForKey:kRRMSourceServerPasswordKey]];
-    [smtpSession setConnectionType:MCOConnectionTypeStartTLS];
-    
-    // Build your new message using MCOMessageBuilder
-    // You can use "[builder setHeader:message.header]" to set directly the header from "message.header" or custom you own message
-    MCOMessageBuilder * builder = [[MCOMessageBuilder alloc] init];
-        
-//    NSMutableArray *to = [[NSMutableArray alloc] init];
-//    for(MCOAddress *toAddress in message.header.to) {
-//        NSLog(@"ladresse est : %@", toAddress.nonEncodedRFC822String);
-//        MCOAddress *newAddress = [MCOAddress addressWithDisplayName:nil mailbox:@"hui2sier@gmail.com"];
-//        [to addObject:newAddress];
-//    }
-    
-    
-    // Redirect your mail on target address    
-    NSMutableArray *to = [[NSMutableArray alloc] init];
-    MCOAddress *newAddress = [MCOAddress addressWithDisplayName:nil mailbox:[_userSettings objectForKey:kRRMTargetServerAccountKey]];
-    [to addObject:newAddress];
-    
-    [[builder header] setTo:to];
-    
-    // Set Date
-    [[builder header] setDate:parsedMessage.header.date];
-    
-    // Set Sender
-    [[builder header] setSender:message.header.sender];
-    
-    // Set From
-    [[builder header] setFrom:message.header.from];
-    
-    // Set References
-    [[builder header] setReferences:message.header.references];
-    
-    // Set ReplyTo as the first recipient from downloaded mail
-    [[builder header] setReplyTo:message.header.to];
-
-    // Set cc
-    [[builder header] setCc:message.header.cc];
-        
-    // Set bcc
-    [[builder header] setBcc:message.header.bcc];
-    
-    // Set subject
-    [[builder header] setSubject:message.header.subject];
-        
-    // Set Html body from parsed message
-    [builder setHTMLBody:parsedMessage.htmlBodyRendering];
-    
-    // Set Attachments body from parsed message
-    [builder setAttachments:parsedMessage.attachments];
-    
-    // Create data from builder
-    NSData * rfc822Data = [builder data];
-    
-    
-    // Send data using MCOSMTPSendOperation
-    MCOSMTPSendOperation *sendOperation = [smtpSession sendOperationWithData:rfc822Data];
+    MCOSMTPSendOperation *sendOperation = [_smtpSession sendOperationWithData:fetchedData];
     [sendOperation start:^(NSError *error) {
         if(error) {
             NSLog(@"%@ Error sending email:%@", [_userSettings objectForKey:kRRMSourceServerLoginKey], error);
         } else {
             NSLog(@"%@ Successfully sent email!", [_userSettings objectForKey:kRRMSourceServerLoginKey]);
         }
+		[self decreaseMessageCount];
     }];
-     
+	
+}
+
+#pragma mark - Internal
+
+- (void)decreaseMessageCount
+{
+	OSSpinLockLock(&_messageCountLock);
+	_messageCount--;
+	
+	if (_messageCount == 0) {
+		[self operationDone];
+	}
+	OSSpinLockUnlock(&_messageCountLock);
 }
 
 @end

@@ -61,8 +61,9 @@
 
 - (void)operationGo {
 	NSLog(@"Get e-mail from %@ for %@ and redirect it to %@ for %@", [_serverConfig objectForKey:kRRMSourceServerAddressKey], [_userSettings objectForKey:kRRMSourceServerLoginKey], [_userSettings objectForKey:kRRMTargetServerKey], [_userSettings objectForKey:kRRMTargetServerAccountKey]);
-	
+
 #warning ygi: settings are used without data validation, we need to fix that ASAP.
+    
     _imapSession = [[MCOIMAPSession alloc] init];
     [_imapSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
     NSString * strPort = (NSString *)[_serverConfig objectForKey:kRRMSourceServerTCPPortKey];
@@ -126,6 +127,7 @@
 - (void)transferData:(NSData*)fetchedData
 {
 #warning ygi: we need to update MailCore2 to handle SMTP operation with custom rcpt list, otherwise it will work only if original rcpt list are correctly reconized by remote server
+    
     MCOSMTPSendOperation *sendOperation = [_smtpSession sendOperationWithData:fetchedData];
     [sendOperation start:^(NSError *error) {
         if(error) {
