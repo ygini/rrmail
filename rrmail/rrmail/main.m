@@ -12,8 +12,14 @@
 
 int main(int argc, const char * argv[])
 {
-
 	@autoreleasepool {
+		[[CocoaSyslog sharedInstance] setApplicationIdentity:@"rrmail"];
+		[[CocoaSyslog sharedInstance] setConsoleOutput:YES];
+		[[CocoaSyslog sharedInstance] setFacility:CSLLogFacilityMail];
+		[[CocoaSyslog sharedInstance] openLog];
+		
+		[[CocoaSyslog sharedInstance] messageLevel6Info:@"Application did start"];
+		
 	    [[RRMController sharedInstance] readConfigurationfFile];
 	    [[RRMController sharedInstance] startOperations];
 	    
@@ -23,6 +29,8 @@ int main(int argc, const char * argv[])
 				[[NSRunLoop currentRunLoop] runMode:NSRunLoopCommonModes beforeDate:[NSDate distantFuture]];
 			}
 		} while ([[RRMController sharedInstance] totalOperationCount] > 0);
+		
+		[[CocoaSyslog sharedInstance] closeLog];
 	}
     return 0;
 }
