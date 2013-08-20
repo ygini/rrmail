@@ -26,7 +26,7 @@
 }
 
 - (void)getMessageContentWithFetchedHeaders:(NSArray *)fetchedHeaders;
-- (void)transferData:(NSData*)fetchedData;
+- (void)transferData:(NSData*)fetchedData withOriginalIMAPMessageUID:(uint32_t)uid;
 - (void)decreaseMessageCount;
 
 @end
@@ -118,13 +118,13 @@
             }
 			else
 			{
-				[self transferData:data];
+				[self transferData:data withOriginalIMAPMessageUID:[header uid]];
 			}
         }];
     }
 }
 
-- (void)transferData:(NSData*)fetchedData
+- (void)transferData:(NSData*)fetchedData withOriginalIMAPMessageUID:(uint32_t)uid
 {
 
 	MCOMessageParser * messageParser = [[MCOMessageParser alloc] initWithData:fetchedData];
@@ -134,10 +134,34 @@
     [sendOperation start:^(NSError *error) {
         if(error) {
             NSLog(@"%@ Error sending email:%@", [_userSettings objectForKey:kRRMSourceServerLoginKey], error);
+			[self decreaseMessageCount];
         } else {
             NSLog(@"%@ Successfully sent email!", [_userSettings objectForKey:kRRMSourceServerLoginKey]);
+			
+			MCOIMAPOperation *changeFlagsIMAPOperation = [_imapSession storeFlagsOperationWithFolder:@"INBOX"
+																								uids:[MCOIndexSet indexSetWithIndex:uid]
+																								kind:MCOIMAPStoreFlagsRequestKindSet
+																							   flags:MCOMessageFlagDeleted];
+			
+			[changeFlagsIMAPOperation start:^(NSError * error) {
+				if(!error) {
+					NSLog(@"Message marked for deletion");
+					MCOIMAPOperation *deleteIMAPOperation = [_imapSession expungeOperation:@"INBOX"];
+					[deleteIMAPOperation start:^(NSError *error) {
+						if(error) {
+							NSLog(@"Error expunging folder:%@", error);
+						} else {
+							NSLog(@"Successfully expunged folder");
+						}
+						[self decreaseMessageCount];
+					}];
+				} else {
+					NSLog(@"Error marking message for deletion:%@", error);
+					[self decreaseMessageCount];
+				}
+			}];
+			
         }
-		[self decreaseMessageCount];
     }];
 	[messageParser release];
 }
