@@ -12,6 +12,8 @@
 
 #import <MailCore/MailCore.h>
 
+#include <syslog.h>
+
 @interface RRMOperationIMAP ()
 {
 	NSDictionary *_serverConfig;
@@ -60,8 +62,12 @@
 #pragma mark RRMOperation
 
 - (void)operationGo {
-	NSLog(@"Get e-mail from %@ for %@ and redirect it to %@ for %@", [_serverConfig objectForKey:kRRMSourceServerAddressKey], [_userSettings objectForKey:kRRMSourceServerLoginKey], [_userSettings objectForKey:kRRMTargetServerKey], [_userSettings objectForKey:kRRMTargetServerAccountKey]);
+	openlog ("rrmail", LOG_CONS | LOG_PID, LOG_MAIL);
 
+	[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP] Start fetch operation for %@ at %@",
+	   [_userSettings objectForKey:kRRMSourceServerLoginKey],
+	   [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
+	
 #warning ygi: settings are used without data validation, we need to fix that ASAP.
     
     _imapSession = [[MCOIMAPSession alloc] init];
@@ -85,14 +91,20 @@
     MCOIMAPFetchMessagesOperation *fetchHeadersOperation = [_imapSession fetchMessagesByUIDOperationWithFolder:folder requestKind:requestKind uids:uids];
 	
     
-    [fetchHeadersOperation start:^(NSError * error, NSArray * fetchedHeaders, MCOIndexSet * vanishedMessages) {
+    [fetchHeadersOperation start:^(NSError * error, NSArray * fetchedHeaders, MCOIndexSet * vanishedMessages)
+	 {
         if(error) {
             NSLog(@"Error downloading message headers:%@", error);
+			[[CocoaSyslog sharedInstance] messageLevel3Error:@"[IMAP] Unable to download message headers"];
+			[[CocoaSyslog sharedInstance] messageLevel7Debug:@"[IMAP] MailCore2 error message: %@", error];
 			[self operationDone];
         }
         else
         {
 			_messageCount = [fetchedHeaders count];
+			
+			
+			[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP] Found %d message(s) from %@ at %@", _messageCount, [_imapSession username], [_imapSession hostname]];
 			if (_messageCount == 0)
 			{
 				[self operationDone];
@@ -109,19 +121,43 @@
 
 - (void)getMessageContentWithFetchedHeaders:(NSArray *)fetchedHeaders
 {
-    for (MCOIMAPMessage * header in fetchedHeaders) {
+	NSMutableArray *fetchedAndOrderedHeaders = [fetchedHeaders mutableCopy];
+	
+	[fetchedAndOrderedHeaders sortUsingComparator:^NSComparisonResult(MCOIMAPMessage * obj1, MCOIMAPMessage * obj2)
+	 {
+		if ([obj1 uid] < [obj2 uid])
+		{
+			return NSOrderedAscending;
+		}
+		else if ([obj1 uid] == [obj2 uid])
+		{
+			return NSOrderedSame;
+		}
+		else
+		{
+			return NSOrderedDescending;
+		}
+	}];
+	
+    for (MCOIMAPMessage * header in fetchedAndOrderedHeaders) {
         MCOIMAPFetchContentOperation * op = [_imapSession fetchMessageByUIDOperationWithFolder:@"INBOX" uid:[header uid]];
-        [op start:^(NSError * error, NSData * data) {
-            if ([error code] != MCOErrorNone) {
-#warning ygi: need to add error handling
-                [self decreaseMessageCount];
+        [op start:^(NSError * error, NSData * data)
+		{
+            if ([error code] != MCOErrorNone)
+			{
+				[[CocoaSyslog sharedInstance] messageLevel3Error:@"[IMAP] Unable to download message with UID %u", [header uid]];
+				[[CocoaSyslog sharedInstance] messageLevel7Debug:@"[IMAP] MailCore2 error message: %@", error];
+				[self decreaseMessageCount];
             }
 			else
 			{
+				[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP] Message %u from %@ at %@ fetched (%u bytes)", [header uid], [_imapSession username], [_imapSession hostname], [data length]];
 				[self transferData:data withOriginalIMAPMessageUID:[header uid]];
 			}
         }];
     }
+	
+	[fetchedAndOrderedHeaders release];
 }
 
 - (void)transferData:(NSData*)fetchedData withOriginalIMAPMessageUID:(uint32_t)uid
@@ -131,32 +167,43 @@
     MCOSMTPSendOperation *sendOperation = [_smtpSession sendOperationWithData:fetchedData
 																		 from:messageParser.header.from
 																   recipients:[NSArray arrayWithObjects:[MCOAddress addressWithMailbox:[_userSettings objectForKey:kRRMTargetServerAccountKey]], nil]];
-    [sendOperation start:^(NSError *error) {
-        if(error) {
-            NSLog(@"%@ Error sending email:%@", [_userSettings objectForKey:kRRMSourceServerLoginKey], error);
+    [sendOperation start:^(NSError *error)
+	{
+        if(error)
+		{
+			[[CocoaSyslog sharedInstance] messageLevel3Error:@"[IMAP-SMTP] Unable to to send message %u to %@ at %@", uid, [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
+			[[CocoaSyslog sharedInstance] messageLevel7Debug:@"[IMAP-SMTP] MailCore2 error message: %@", error];
 			[self decreaseMessageCount];
-        } else {
-            NSLog(@"%@ Successfully sent email!", [_userSettings objectForKey:kRRMSourceServerLoginKey]);
-			
+        }
+		else
+		{
+			[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP-SMTP] Message %u transfered to %@ at %@", uid, [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
+
 			MCOIMAPOperation *changeFlagsIMAPOperation = [_imapSession storeFlagsOperationWithFolder:@"INBOX"
 																								uids:[MCOIndexSet indexSetWithIndex:uid]
 																								kind:MCOIMAPStoreFlagsRequestKindSet
 																							   flags:MCOMessageFlagDeleted];
 			
-			[changeFlagsIMAPOperation start:^(NSError * error) {
+			[changeFlagsIMAPOperation start:^(NSError * error)
+			 {
 				if(!error) {
-					NSLog(@"Message marked for deletion");
+					[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP-SMTP] Message %u marked for deletion (%@ at %@)", uid, [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
 					MCOIMAPOperation *deleteIMAPOperation = [_imapSession expungeOperation:@"INBOX"];
 					[deleteIMAPOperation start:^(NSError *error) {
-						if(error) {
-							NSLog(@"Error expunging folder:%@", error);
-						} else {
-							NSLog(@"Successfully expunged folder");
+						if(error)
+						{
+							[[CocoaSyslog sharedInstance] messageLevel3Error:@"[IMAP-SMTP] Unable to expunge inbox (%@ at %@)", [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
+							[[CocoaSyslog sharedInstance] messageLevel7Debug:@"[IMAP-SMTP] MailCore2 error message: %@", error];
+						}
+						else
+						{
+							[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP-SMTP] Successfully expunged inbox (%@ at %@)", [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
 						}
 						[self decreaseMessageCount];
 					}];
 				} else {
-					NSLog(@"Error marking message for deletion:%@", error);
+					[[CocoaSyslog sharedInstance] messageLevel3Error:@"[IMAP-SMTP] Unable to mark message %u for deletion (%@ at %@)", uid, [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
+					[[CocoaSyslog sharedInstance] messageLevel7Debug:@"[IMAP-SMTP] MailCore2 error message: %@", error];
 					[self decreaseMessageCount];
 				}
 			}];
