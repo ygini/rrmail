@@ -3,4 +3,4 @@
 	url = https://github.com/MailCore/mailcore2.git
 [submodule "vendors/CocoaSyslog"]
 	path = vendors/CocoaSyslog
-	url = https://ygini@bitbucket.org/ygini/cocoasyslog.git
+	url = git@bitbucket.org:ygini/cocoasyslog.git
