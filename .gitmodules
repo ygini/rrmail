@@ -1,3 +1,6 @@
 [submodule "vendors/mailcore2"]
 	path = vendors/mailcore2
 	url = https://github.com/MailCore/mailcore2.git
+[submodule "vendors/CocoaSyslog"]
+	path = vendors/CocoaSyslog
+	url = https://ygini@bitbucket.org/ygini/cocoasyslog.git
