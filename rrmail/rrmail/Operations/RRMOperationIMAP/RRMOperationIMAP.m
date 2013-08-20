@@ -126,9 +126,11 @@
 
 - (void)transferData:(NSData*)fetchedData
 {
-#warning ygi: we need to update MailCore2 to handle SMTP operation with custom rcpt list, otherwise it will work only if original rcpt list are correctly reconized by remote server
-    
-    MCOSMTPSendOperation *sendOperation = [_smtpSession sendOperationWithData:fetchedData];
+
+	MCOMessageParser * messageParser = [[MCOMessageParser alloc] initWithData:fetchedData];
+    MCOSMTPSendOperation *sendOperation = [_smtpSession sendOperationWithData:fetchedData
+																		 from:messageParser.header.from
+																   recipients:[NSArray arrayWithObjects:[MCOAddress addressWithMailbox:[_userSettings objectForKey:kRRMTargetServerAccountKey]], nil]];
     [sendOperation start:^(NSError *error) {
         if(error) {
             NSLog(@"%@ Error sending email:%@", [_userSettings objectForKey:kRRMSourceServerLoginKey], error);
@@ -137,7 +139,7 @@
         }
 		[self decreaseMessageCount];
     }];
-	
+	[messageParser release];
 }
 
 #pragma mark - Internal
