@@ -103,7 +103,6 @@
         {
 			_messageCount = [fetchedHeaders count];
 			
-			
 			[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP] Found %d message(s) from %@ at %@", _messageCount, [_imapSession username], [_imapSession hostname]];
 			if (_messageCount == 0)
 			{
