@@ -29,7 +29,7 @@
 }
 
 - (void)getMessageContentWithFetchedMessages:(NSArray *)fetchedHeaders;
-- (void)transferData:(NSData*)fetchedData;
+- (void)transferData:(NSData*)fetchedData withOriginalPOPMessageUID:(uint32_t)uid;
 - (void)decreaseMessageCount;
 
 @end
@@ -62,7 +62,11 @@
 #pragma mark RRMOperation
 
 - (void)operationGo {
-	NSLog(@"Get e-mail from %@ for %@ and redirect it to %@ for %@", [_serverConfig objectForKey:kRRMSourceServerAddressKey], [_userSettings objectForKey:kRRMSourceServerLoginKey], [_userSettings objectForKey:kRRMTargetServerKey], [_userSettings objectForKey:kRRMTargetServerAccountKey]);
+	openlog ("rrmail", LOG_CONS | LOG_PID, LOG_MAIL);
+    
+	[[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP] Start fetch operation for %@ at %@",
+     [_userSettings objectForKey:kRRMSourceServerLoginKey],
+     [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
 	
 #warning ygi: settings are used without data validation, we need to fix that ASAP.
     _popSession = [[MCOPOPSession alloc] init];
