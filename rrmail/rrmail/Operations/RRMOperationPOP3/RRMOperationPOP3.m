@@ -12,7 +12,7 @@
 
 #import <MailCore/MailCore.h>
 
-#include <syslog.h>
+#include "CocoaSyslog.h"
 
 @interface RRMOperationPOP3 ()
 {
@@ -62,8 +62,6 @@
 #pragma mark RRMOperation
 
 - (void)operationGo {
-	openlog ("rrmail", LOG_CONS | LOG_PID, LOG_MAIL);
-    
 	[[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP] Start fetch operation for %@ at %@",
      [_userSettings objectForKey:kRRMSourceServerLoginKey],
      [_serverConfig objectForKey:kRRMSourceServerAddressKey]];

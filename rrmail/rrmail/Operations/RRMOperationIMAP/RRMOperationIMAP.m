@@ -62,8 +62,6 @@
 #pragma mark RRMOperation
 
 - (void)operationGo {
-	openlog ("rrmail", LOG_CONS | LOG_PID, LOG_MAIL);
-
 	[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP] Start fetch operation for %@ at %@",
 	   [_userSettings objectForKey:kRRMSourceServerLoginKey],
 	   [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
