@@ -12,7 +12,7 @@
 
 #import <MailCore/MailCore.h>
 
-#include <syslog.h>
+#include "CocoaSyslog.h"
 
 @interface RRMOperationIMAP ()
 {
