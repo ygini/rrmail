@@ -20,17 +20,24 @@ int main(int argc, const char * argv[])
 		
 		[[CocoaSyslog sharedInstance] messageLevel6Info:@"Application did start"];
 		
-	    [[RRMController sharedInstance] readConfigurationfFile];
-	    [[RRMController sharedInstance] startOperations];
-	    
-		do {
-			@autoreleasepool {
-				[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-				[[NSRunLoop currentRunLoop] runMode:NSRunLoopCommonModes beforeDate:[NSDate distantFuture]];
-			}
-		} while ([[RRMController sharedInstance] totalOperationCount] > 0);
+	    NSError *error = [[RRMController sharedInstance] readConfigurationfFile];
+        if (!error) {
+            [[RRMController sharedInstance] startOperations];
+            
+            do {
+                @autoreleasepool {
+                    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+                    [[NSRunLoop currentRunLoop] runMode:NSRunLoopCommonModes beforeDate:[NSDate distantFuture]];
+                }
+            } while ([[RRMController sharedInstance] totalOperationCount] > 0);
+        }
+        else
+        {
+            // error
+        }
 		
 		[[CocoaSyslog sharedInstance] closeLog];
+        
 	}
     return 0;
 }

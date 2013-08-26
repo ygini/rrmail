@@ -14,6 +14,7 @@
 
 #include "CocoaSyslog.h"
 
+
 @interface RRMOperationPOP3 ()
 {
 	NSDictionary *_serverConfig;
@@ -62,6 +63,10 @@
 #pragma mark RRMOperation
 
 - (void)operationGo {
+    
+
+//    return;
+    
 	[[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP] Start fetch operation for %@ at %@",
      [_userSettings objectForKey:kRRMSourceServerLoginKey],
      [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
@@ -69,18 +74,24 @@
 #warning ygi: settings are used without data validation, we need to fix that ASAP.
     _popSession = [[MCOPOPSession alloc] init];
     [_popSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
-//    NSString * strPort = (NSString *)[_serverConfig objectForKey:kRRMSourceServerTCPPortKey];
-//    [_popSession setPort:strPort.intValue];
+    NSString * strPort = (NSString *)[_serverConfig objectForKey:kRRMSourceServerTCPPortKey];
+    [_popSession setPort:strPort.intValue];
     [_popSession setUsername:[_userSettings objectForKey:kRRMSourceServerLoginKey]];
     [_popSession setPassword:[_userSettings objectForKey:kRRMSourceServerPasswordKey]];
     [_popSession setConnectionType:MCOConnectionTypeStartTLS];
 	
-	_smtpSession = [[MCOSMTPSession alloc] init];
-    [_smtpSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
+    
+    _smtpSession = [[MCOSMTPSession alloc] init];
+    [_smtpSession setHostname:[_userSettings objectForKey:kRRMTargetServerKey]];
     [_smtpSession setPort:25];
-    [_smtpSession setUsername:[_userSettings objectForKey:kRRMSourceServerLoginKey]];
-    [_smtpSession setPassword:[_userSettings objectForKey:kRRMSourceServerPasswordKey]];
-    [_smtpSession setConnectionType:MCOConnectionTypeStartTLS];
+    [_smtpSession setConnectionType:MCOConnectionTypeClear];
+    
+//	_smtpSession = [[MCOSMTPSession alloc] init];
+//    [_smtpSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
+//    [_smtpSession setPort:25];
+//    [_smtpSession setUsername:[_userSettings objectForKey:kRRMSourceServerLoginKey]];
+//    [_smtpSession setPassword:[_userSettings objectForKey:kRRMSourceServerPasswordKey]];
+//    [_smtpSession setConnectionType:MCOConnectionTypeStartTLS];
     
     
     MCOPOPFetchMessagesOperation *fetchMessagesOperation = [_popSession fetchMessagesOperation];

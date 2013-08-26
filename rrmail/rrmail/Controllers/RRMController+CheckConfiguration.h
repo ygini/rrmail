@@ -10,4 +10,7 @@
 
 @interface RRMController (CheckConfiguration)
 
+-(NSError *)ccWithConfiguration:(NSDictionary *)_configuration;
+-(BOOL)verifyHost:(NSString *)_hostName;
+
 @end

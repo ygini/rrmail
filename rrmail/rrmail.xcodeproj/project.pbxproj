@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C447094317CB87EE003A79B2 /* RRMController+CheckConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C447094217CB87EE003A79B2 /* RRMController+CheckConfiguration.m */; };
 		C4CB42FA17B90CB000DC72C2 /* libMailCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CB42F917B90CB000DC72C2 /* libMailCore.a */; };
 		E111E3D217C3C95700AA40E7 /* CocoaSyslog.m in Sources */ = {isa = PBXBuildFile; fileRef = E111E3D117C3C95700AA40E7 /* CocoaSyslog.m */; };
 		E12EF15C17B2472B007414D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12EF15B17B2472B007414D1 /* Foundation.framework */; };
@@ -44,6 +45,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C447094117CB87EE003A79B2 /* RRMController+CheckConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRMController+CheckConfiguration.h"; sourceTree = "<group>"; };
+		C447094217CB87EE003A79B2 /* RRMController+CheckConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRMController+CheckConfiguration.m"; sourceTree = "<group>"; };
 		C4CB42F917B90CB000DC72C2 /* libMailCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMailCore.a; path = "../../Library/Developer/Xcode/DerivedData/reroutemail-elycicnwifipzcbycpxukgdhwvwe/Build/Products/Debug/libMailCore.a"; sourceTree = "<group>"; };
 		C4CB433F17B91B5500DC72C2 /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../../Library/Developer/Xcode/DerivedData/reroutemail-elycicnwifipzcbycpxukgdhwvwe/Build/Products/Debug/MailCore.framework"; sourceTree = "<group>"; };
 		C4E2D9CC17BA2A3D00A03791 /* SampleConf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleConf.plist; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 			children = (
 				E18B1BB617B264E00007D731 /* RRMController.h */,
 				E18B1BB717B264E00007D731 /* RRMController.m */,
+				C447094117CB87EE003A79B2 /* RRMController+CheckConfiguration.h */,
+				C447094217CB87EE003A79B2 /* RRMController+CheckConfiguration.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				E18B1BC517B27BA00007D731 /* RRMConstants.m in Sources */,
 				E1E8CD6F17BD5E5500979984 /* RRMOperationIMAP.m in Sources */,
 				E111E3D217C3C95700AA40E7 /* CocoaSyslog.m in Sources */,
+				C447094317CB87EE003A79B2 /* RRMController+CheckConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

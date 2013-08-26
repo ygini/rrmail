@@ -25,3 +25,12 @@ const NSString * kRRMSourceServerLoginKey							= @"sourceServerLogin";
 const NSString * kRRMSourceServerPasswordKey						= @"sourceServerPassword";
 const NSString * kRRMTargetServerAccountKey							= @"targetServerAccount";
 const NSString * kRRMTargetServerKey								= @"targetServer"; // Optional, default localhost
+
+
+// Error configuration plist
+
+const NSString * kRRMErrorSourceServerTypeKey                       = @"kRRMErrorSourceServerTypeKey";
+const NSString * kRRMErrorSourceServerTCPPortKey                    = @"kRRMErrorSourceServerTCPPortKey";
+const NSString * kRRMErrorSourceServerLoginKey                      = @"kRRMErrorSourceServerLoginKey";
+const NSString * kRRMErrorSourceServerAddressKey                    = @"kRRMErrorSourceServerAddressKey";
+const NSString * kRRMErrorTargetServerKey                           = @"kRRMErrorTargetServerKey";

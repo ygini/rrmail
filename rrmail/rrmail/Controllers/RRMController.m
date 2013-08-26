@@ -7,12 +7,14 @@
 //
 
 #import "RRMController.h"
+#import "RRMController+CheckConfiguration.h"
 
 #import "RRMOperationPOP3.h"
 #import "RRMOperationIMAP.h"
 #import "RRMConstants.h"
 
 #import <libkern/OSAtomic.h>
+
 
 @interface RRMController ()
 {
@@ -185,25 +187,31 @@
 -(NSError*)readConfigurationfFile
 {
 	OSSpinLockLock(&_configurationLock);
+ 
+    NSError *error = nil;
 	NSDictionary *configuration = [[NSDictionary alloc] initWithContentsOfFile:_configurationFilePath];
 	
 	if (!configuration) {
-		NSError *error = [NSError errorWithDomain:(NSString*)kRRMErrorDomain
+		error = [NSError errorWithDomain:(NSString*)kRRMErrorDomain
 											 code:kRRMErrorCodeUnableToReadConfigFile
 										 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 												   _configurationFilePath, kRRMErrorFilePathKey,
 												   nil]];
-		return error;
 	}
-	
-	[_configuration release], _configuration = nil;
-	_configuration = [configuration copy];
-	// ... check configuration if needed? ...
-	
-	[configuration release];
+    else
+    {
+        [_configuration release], _configuration = nil;
+        _configuration = [configuration copy];
+        
+        // ... check configuration if needed? ...
+        error = [self ccWithConfiguration:_configuration];
+        
+        [configuration release];
+    }
+
 	OSSpinLockUnlock(&_configurationLock);
 
-	return nil;
+	return error;
 }
 
 @end
