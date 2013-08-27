@@ -22,6 +22,7 @@
         
         // Check for valid Host
         NSString * strSourceServerAddressKey = [_serverConfig objectForKey:kRRMSourceServerAddressKey];
+
         if (strSourceServerAddressKey != nil) {
             
             if ([self verifyHost:strSourceServerAddressKey] == NO) {
@@ -32,9 +33,17 @@
                                                             [_serverConfig objectForKey:kRRMSourceServerAddressKey], kRRMSourceServerAddressKey,
                                                             nil]];
                 
+                [[CocoaSyslog sharedInstance] messageLevel3Error:@"[Config Check] Invalid kRRMSourceServerAddressKey %@", [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
+                [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[Config Check] RRMail error message: %@", error];
+                
+                
                 NSLog(@"SourceServerAddressKey doesn't work");
                 
                 return error;
+            }
+            else
+            {
+                [[CocoaSyslog sharedInstance] messageLevel6Info:@"[Config Check] Valid kRRMSourceServerAddressKey %@", [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
             }
         }
         else
@@ -44,6 +53,9 @@
                                               userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
                                                         [_serverConfig objectForKey:kRRMSourceServerAddressKey], kRRMSourceServerAddressKey,
                                                         nil]];
+            
+            [[CocoaSyslog sharedInstance] messageLevel3Error:@"[Config Check] Invalid kRRMSourceServerAddressKey %@", [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
+            [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[Config Check] RRMail error message: %@", error];
             
             NSLog(@"SourceServerAddressKey is not configured");
             
@@ -84,8 +96,9 @@
         NSString * strSourceServerType = [_serverConfig objectForKey:kRRMSourceServerTypeKey];
         
         if (strSourceServerType != nil) {
-            if ([strSourceServerType isEqualToString:(NSString*)kRRMSourceServerTypePOP3Value] || [strSourceServerType isEqualToString:(NSString*)kRRMSourceServerTypeIMAPValue]) {
-                
+            if ([strSourceServerType isEqualToString:(NSString*)kRRMSourceServerTypePOP3Value] || [strSourceServerType isEqualToString:(NSString*)kRRMSourceServerTypeIMAPValue])
+            {
+                [[CocoaSyslog sharedInstance] messageLevel6Info:@"[Config Check] Valid kRRMSourceServerTypeKey %@", [_serverConfig objectForKey:kRRMSourceServerTypeKey]];
             }
             else
             {
@@ -94,6 +107,9 @@
                                                   userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
                                                             [_serverConfig objectForKey:kRRMSourceServerTypeKey], kRRMSourceServerTypeKey,
                                                             nil]];
+                
+                [[CocoaSyslog sharedInstance] messageLevel3Error:@"[Config Check] Invalid kRRMSourceServerTypeKey %@", [_serverConfig objectForKey:kRRMSourceServerTypeKey]];
+                [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[Config Check] RRMail error message: %@", error];
                 
                 NSLog(@"SourceServerType doesn't seem to be valid");
                 
@@ -108,6 +124,9 @@
                                     userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
                                               [_serverConfig objectForKey:kRRMSourceServerTypeKey], kRRMSourceServerTypeKey,
                                               nil]];
+            
+            [[CocoaSyslog sharedInstance] messageLevel3Error:@"[Config Check] Invalid kRRMSourceServerTypeKey %@", [_serverConfig objectForKey:kRRMSourceServerTypeKey]];
+            [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[Config Check] RRMail error message: %@", error];
             
             NSLog(@"SourceServerType is not configured");
             
@@ -125,8 +144,12 @@
             if ([numericOnly isSupersetOfSet: myStringSet])
             {
                 //String entirely contains decimal numbers only.
-                if (numberTCPPort.intValue >= 1 && numberTCPPort.intValue <= 65535) {
+                if (numberTCPPort.intValue >= 1 && numberTCPPort.intValue <= 65535)
+                {
+                    [[CocoaSyslog sharedInstance] messageLevel6Info:@"[Config Check] Valid kRRMSourceServerTCPPortKey %@", [_serverConfig objectForKey:kRRMSourceServerTCPPortKey]];
+    
                     NSLog(@"Valid TCPPort");
+                    
                 }
                 else
                 {
@@ -135,6 +158,9 @@
                                                       userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
                                                                 [_serverConfig objectForKey:kRRMSourceServerTCPPortKey], kRRMSourceServerTCPPortKey,
                                                                 nil]];
+                    
+                    [[CocoaSyslog sharedInstance] messageLevel3Error:@"[Config Check] Invalid kRRMSourceServerTCPPortKey %@", [_serverConfig objectForKey:kRRMSourceServerTCPPortKey]];
+                    [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[Config Check] RRMail error message: %@", error];
                     
                     NSLog(@"TCPPort must be between 1 & 65535");
                     
@@ -150,6 +176,9 @@
                                                             [_serverConfig objectForKey:kRRMSourceServerTCPPortKey], kRRMSourceServerTCPPortKey,
                                                             nil]];
                 
+                [[CocoaSyslog sharedInstance] messageLevel3Error:@"[Config Check] Invalid kRRMSourceServerTCPPortKey %@", [_serverConfig objectForKey:kRRMSourceServerTCPPortKey]];
+                [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[Config Check] RRMail error message: %@", error];
+                
                 NSLog(@"Unvalid TCPPort");
                 
                 return error;
@@ -157,7 +186,6 @@
         }
         else
         {
-            NSLog(@"type is %@",[_serverConfig objectForKey:kRRMSourceServerTypeKey]);
             
             if ([[_serverConfig objectForKey:kRRMSourceServerTypeKey] isEqualToString:(NSString*)kRRMSourceServerTypePOP3Value]) {
                 
@@ -190,16 +218,24 @@
         {
             // Check for valid kRRMSourceServerLoginKey
             NSString *strSourceServerLogin = [_userSettings objectForKey:kRRMSourceServerLoginKey];
-            if (strSourceServerLogin != nil && [strSourceServerLogin rangeOfString:@" "].location == NSNotFound) {
+
+            if (strSourceServerLogin != nil && [strSourceServerLogin rangeOfString:@" "].location == NSNotFound)
+            {
+                [[CocoaSyslog sharedInstance] messageLevel6Info:@"[Config Check] Valid kRRMSourceServerLoginKey %@", [_userSettings objectForKey:kRRMSourceServerLoginKey]];
+
                 NSLog(@"Valid username or email");
+                
             }
             else
             {
                 NSError * error = [NSError errorWithDomain:(NSString*)kRRMErrorSourceServerLoginKey
                                                       code:kRRMErrorCodeUnableToReadSourceServerLoginKey
                                                   userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                            [_serverConfig objectForKey:kRRMSourceServerLoginKey], kRRMSourceServerLoginKey,
+                                                            [_userSettings objectForKey:kRRMSourceServerLoginKey], kRRMSourceServerLoginKey,
                                                             nil]];
+                
+                [[CocoaSyslog sharedInstance] messageLevel3Error:@"[Config Check] Invalid kRRMSourceServerLoginKey %@", [_userSettings objectForKey:kRRMSourceServerLoginKey]];
+                [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[Config Check] RRMail error message: %@", error];
                 
                 NSLog(@"Unvalid username or email");
                 
@@ -209,16 +245,23 @@
             
             // Check for valid kRRMTargetServerAccountKey
             NSString *strTargetServerAccount = [_userSettings objectForKey:kRRMTargetServerAccountKey];
-            if (strTargetServerAccount != nil && [strTargetServerAccount rangeOfString:@" "].location == NSNotFound) {
+
+            if (strTargetServerAccount != nil && [strTargetServerAccount rangeOfString:@" "].location == NSNotFound)
+            {
+                [[CocoaSyslog sharedInstance] messageLevel6Info:@"[Config Check] Valid kRRMTargetServerAccountKey %@", [_userSettings objectForKey:kRRMSourceServerLoginKey]];
+
                 NSLog(@"Valid username or email");
             }
             else
             {
-                NSError * error = [NSError errorWithDomain:(NSString*)kRRMErrorSourceServerLoginKey
-                                                      code:kRRMErrorCodeUnableToReadSourceServerLoginKey
+                NSError * error = [NSError errorWithDomain:(NSString*)kRRMErrorTargetServerAccountKey
+                                                      code:kRRMErrorCodeUnableToReadTargetServerAccountKey
                                                   userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                            [_serverConfig objectForKey:kRRMSourceServerLoginKey], kRRMSourceServerLoginKey,
+                                                            [_userSettings objectForKey:kRRMTargetServerAccountKey], kRRMTargetServerAccountKey,
                                                             nil]];
+                
+                [[CocoaSyslog sharedInstance] messageLevel3Error:@"[Config Check] Invalid kRRMTargetServerAccountKey %@", [_userSettings objectForKey:kRRMTargetServerAccountKey]];
+                [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[Config Check] RRMail error message: %@", error];
                 
                 NSLog(@"Unvalid username or email");
                 
@@ -227,25 +270,28 @@
             
             
             // Check for valid Host
-            NSString * strTargetServerKey = [_serverConfig objectForKey:kRRMTargetServerKey];
+            NSString * strTargetServerKey = [_userSettings objectForKey:kRRMTargetServerKey];
             if (strTargetServerKey == nil) {
                 
-                //if host is nil set it to "localhost"
+                //if host is nil set it to "localhost" as default
                 strTargetServerKey = @"localhost";
+                [_userSettings setValue:strTargetServerKey forKey:(NSString *)kRRMTargetServerKey];
+                
+                
             }
             
-            if ([self verifyHost:strTargetServerKey] == NO) {
-               
-                NSError * error = [NSError errorWithDomain:(NSString*)kRRMErrorTargetServerKey
-                                                      code:kRRMErrorCodeUnableToReadTargetServerKey
-                                                  userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                            [_serverConfig objectForKey:kRRMTargetServerKey], kRRMTargetServerKey,
-                                                            nil]];
-                
-                NSLog(@"TargerServerKey doesn't work");
-                
-                return error;
-            }
+//            if ([self verifyHost:strTargetServerKey] == NO) {
+//               
+//                NSError * error = [NSError errorWithDomain:(NSString*)kRRMErrorTargetServerKey
+//                                                      code:kRRMErrorCodeUnableToReadTargetServerKey
+//                                                  userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+//                                                            [_userSettings objectForKey:kRRMTargetServerKey], kRRMTargetServerKey,
+//                                                            nil]];
+//                
+//                NSLog(@"TargerServerKey doesn't work");
+//                
+//                return error;
+//            }
         
         }
     }
@@ -288,6 +334,7 @@
             return NO;
         }
         
+        CFRelease(hostRef);
 
     }
     return NO;

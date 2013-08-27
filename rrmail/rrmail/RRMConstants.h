@@ -18,7 +18,9 @@ typedef enum {
     kRRMErrorCodeUnableToReadSourceServerTCPPortKey = 1002,
     kRRMErrorCodeUnableToReadSourceServerLoginKey = 1003,
     kRRMErrorCodeUnableToReadSourceServerAddressKey = 1004,
-    kRRMErrorCodeUnableToReadTargetServerKey = 1005
+    kRRMErrorCodeUnableToReadTargetServerKey = 1005,
+    kRRMErrorCodeUnableToReadTargetServerAccountKey = 1006,
+    kRRMErrorCodeUnableToReadTargetServerLoginKey = 1007
 
 } kRRMErrorCode;
 
@@ -47,3 +49,4 @@ extern const NSString * kRRMErrorSourceServerTCPPortKey;
 extern const NSString * kRRMErrorSourceServerLoginKey;
 extern const NSString * kRRMErrorSourceServerAddressKey;
 extern const NSString * kRRMErrorTargetServerKey;
+extern const NSString * kRRMErrorTargetServerAccountKey;

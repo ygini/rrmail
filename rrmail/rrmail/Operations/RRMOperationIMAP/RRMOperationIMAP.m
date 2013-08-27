@@ -74,12 +74,22 @@
     [_imapSession setPort:strPort.intValue];
     [_imapSession setUsername:[_userSettings objectForKey:kRRMSourceServerLoginKey]];
     [_imapSession setPassword:[_userSettings objectForKey:kRRMSourceServerPasswordKey]];
-    [_imapSession setConnectionType:MCOConnectionTypeTLS];
-	
+
+    NSString * useSLL = [_serverConfig objectForKey:kRRMSourceServerRequireSSLKey];
+    if ( useSLL.boolValue == YES) {
+        [_imapSession setConnectionType:MCOConnectionTypeTLS];
+    }
+    else
+    {
+        [_imapSession setConnectionType:MCOConnectionTypeClear];
+    }
+    
+    
 	_smtpSession = [[MCOSMTPSession alloc] init];
     [_smtpSession setHostname:[_userSettings objectForKey:kRRMTargetServerKey]];
     [_smtpSession setPort:25];
     [_smtpSession setConnectionType:MCOConnectionTypeClear];
+    
     
     
     MCOIMAPMessagesRequestKind requestKind = MCOIMAPMessagesRequestKindHeaders;

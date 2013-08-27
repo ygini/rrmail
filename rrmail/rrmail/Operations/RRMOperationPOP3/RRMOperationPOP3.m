@@ -64,13 +64,13 @@
 
 - (void)operationGo {
     
-
-//    return;
     
 	[[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP] Start fetch operation for %@ at %@",
      [_userSettings objectForKey:kRRMSourceServerLoginKey],
      [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
 	
+
+    
 #warning ygi: settings are used without data validation, we need to fix that ASAP.
     _popSession = [[MCOPOPSession alloc] init];
     [_popSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
@@ -78,8 +78,15 @@
     [_popSession setPort:strPort.intValue];
     [_popSession setUsername:[_userSettings objectForKey:kRRMSourceServerLoginKey]];
     [_popSession setPassword:[_userSettings objectForKey:kRRMSourceServerPasswordKey]];
-    [_popSession setConnectionType:MCOConnectionTypeStartTLS];
-	
+    
+    NSString * useSLL = [_serverConfig objectForKey:kRRMSourceServerRequireSSLKey];
+    if ( useSLL.boolValue == YES) {
+        [_popSession setConnectionType:MCOConnectionTypeTLS];
+    }
+    else
+    {
+        [_popSession setConnectionType:MCOConnectionTypeClear];
+    }
     
     _smtpSession = [[MCOSMTPSession alloc] init];
     [_smtpSession setHostname:[_userSettings objectForKey:kRRMTargetServerKey]];

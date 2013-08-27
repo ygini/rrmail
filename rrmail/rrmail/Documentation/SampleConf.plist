@@ -12,7 +12,7 @@
 			<key>sourceServerRequireSSL</key>
 			<true/>
 			<key>sourceServerTCPPort</key>
-			<integer>993</integer>
+			<integer>995</integer>
 			<key>sourceServerMaxConcurrentOperations</key>
 			<integer>10</integer>
 			<key>sourceServerAccountList</key>

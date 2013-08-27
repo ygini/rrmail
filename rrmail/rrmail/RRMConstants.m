@@ -34,3 +34,4 @@ const NSString * kRRMErrorSourceServerTCPPortKey                    = @"kRRMErro
 const NSString * kRRMErrorSourceServerLoginKey                      = @"kRRMErrorSourceServerLoginKey";
 const NSString * kRRMErrorSourceServerAddressKey                    = @"kRRMErrorSourceServerAddressKey";
 const NSString * kRRMErrorTargetServerKey                           = @"kRRMErrorTargetServerKey";
+const NSString * kRRMErrorTargetServerAccountKey                    = @"kRRMErrorTargetServerAccountKey";

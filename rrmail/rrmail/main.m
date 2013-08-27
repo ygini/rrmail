@@ -34,6 +34,8 @@ int main(int argc, const char * argv[])
         else
         {
             // error
+            [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[Config Check] RRMail error message: %@", error];
+
         }
 		
 		[[CocoaSyslog sharedInstance] closeLog];
