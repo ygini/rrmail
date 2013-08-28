@@ -15,19 +15,8 @@
 
 #import <libkern/OSAtomic.h>
 
+#import "RRMController_Internal.h"
 
-@interface RRMController ()
-{
-	NSString *_configurationFilePath;
-	
-	OSSpinLock _configurationLock;
-	OSSpinLock _operationQueueLock;
-	NSDictionary *_configuration;
-	
-	NSMutableDictionary *_operationQueues;
-}
-
-@end
 
 @implementation RRMController
 
@@ -203,8 +192,7 @@
         [_configuration release], _configuration = nil;
         _configuration = [configuration copy];
         
-        // ... check configuration if needed? ...
-        error = [self ccWithConfiguration:_configuration];
+        error = [self checkConfigurationAndAddDefaults];
         
         [configuration release];
     }

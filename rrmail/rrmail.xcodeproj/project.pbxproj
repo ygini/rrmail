@@ -70,6 +70,7 @@
 		E18B1BC217B27B030007D731 /* RRMOperationMail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRMOperationMail.h; sourceTree = "<group>"; };
 		E18B1BC317B27BA00007D731 /* RRMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMConstants.h; sourceTree = "<group>"; };
 		E18B1BC417B27BA00007D731 /* RRMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMConstants.m; sourceTree = "<group>"; };
+		E1A2414F17CE032800557CA4 /* RRMController_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRMController_Internal.h; sourceTree = "<group>"; };
 		E1E8CD6D17BD5E5500979984 /* RRMOperationIMAP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMOperationIMAP.h; sourceTree = "<group>"; };
 		E1E8CD6E17BD5E5500979984 /* RRMOperationIMAP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMOperationIMAP.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				E18B1BB617B264E00007D731 /* RRMController.h */,
+				E1A2414F17CE032800557CA4 /* RRMController_Internal.h */,
 				E18B1BB717B264E00007D731 /* RRMController.m */,
 				C447094117CB87EE003A79B2 /* RRMController+CheckConfiguration.h */,
 				C447094217CB87EE003A79B2 /* RRMController+CheckConfiguration.m */,

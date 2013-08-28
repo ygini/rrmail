@@ -9,10 +9,11 @@
 #import "RRMController+CheckConfiguration.h"
 #import "RRMConstants.h"
 
+#import "RRMController_Internal.h"
 
 @implementation RRMController (CheckConfiguration)
 
--(NSError *)ccWithConfiguration:(NSDictionary *)_configuration
+-(NSError *)checkConfigurationAndAddDefaults
 {
     for (NSDictionary * _serverConfig in [_configuration objectForKey:@"serverList"])
     {
@@ -280,18 +281,18 @@
                 
             }
             
-//            if ([self verifyHost:strTargetServerKey] == NO) {
-//               
-//                NSError * error = [NSError errorWithDomain:(NSString*)kRRMErrorTargetServerKey
-//                                                      code:kRRMErrorCodeUnableToReadTargetServerKey
-//                                                  userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-//                                                            [_userSettings objectForKey:kRRMTargetServerKey], kRRMTargetServerKey,
-//                                                            nil]];
-//                
-//                NSLog(@"TargerServerKey doesn't work");
-//                
-//                return error;
-//            }
+            if ([self verifyHost:strTargetServerKey] == NO) {
+               
+                NSError * error = [NSError errorWithDomain:(NSString*)kRRMErrorTargetServerKey
+                                                      code:kRRMErrorCodeUnableToReadTargetServerKey
+                                                  userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                            [_userSettings objectForKey:kRRMTargetServerKey], kRRMTargetServerKey,
+                                                            nil]];
+                
+                NSLog(@"TargerServerKey doesn't work");
+                
+                return error;
+            }
         
         }
     }
