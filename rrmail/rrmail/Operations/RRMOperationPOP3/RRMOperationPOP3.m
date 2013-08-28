@@ -63,9 +63,6 @@
 #pragma mark RRMOperation
 
 - (void)operationGo {
-    
-//    return;
-    
 	[[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP] Start fetch operation for %@ at %@",
      [_userSettings objectForKey:kRRMSourceServerLoginKey],
      [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
@@ -92,16 +89,7 @@
     [_smtpSession setPort:25];
     [_smtpSession setConnectionType:MCOConnectionTypeClear];
     
-//	_smtpSession = [[MCOSMTPSession alloc] init];
-//    [_smtpSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
-//    [_smtpSession setPort:25];
-//    [_smtpSession setUsername:[_userSettings objectForKey:kRRMSourceServerLoginKey]];
-//    [_smtpSession setPassword:[_userSettings objectForKey:kRRMSourceServerPasswordKey]];
-//    [_smtpSession setConnectionType:MCOConnectionTypeStartTLS];
-    
-    
     MCOPOPFetchMessagesOperation *fetchMessagesOperation = [_popSession fetchMessagesOperation];
-	
     
     [fetchMessagesOperation start:^(NSError * error, NSArray * fetchedMessages) {
         
