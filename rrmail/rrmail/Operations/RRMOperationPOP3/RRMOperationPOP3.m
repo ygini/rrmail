@@ -30,7 +30,7 @@
 }
 
 - (void)getMessageContentWithFetchedMessages:(NSArray *)fetchedHeaders;
-- (void)transferData:(NSData*)fetchedData withOriginalPOPMessageUID:(uint32_t)uid;
+- (void)transferData:(NSData*)fetchedData withOriginalPOPMessageIndex:(uint32_t)index;
 - (void)decreaseMessageCount;
 
 @end
@@ -64,14 +64,13 @@
 
 - (void)operationGo {
     
+//    return;
     
 	[[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP] Start fetch operation for %@ at %@",
      [_userSettings objectForKey:kRRMSourceServerLoginKey],
      [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
 	
 
-    
-#warning ygi: settings are used without data validation, we need to fix that ASAP.
     _popSession = [[MCOPOPSession alloc] init];
     [_popSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
     NSString * strPort = (NSString *)[_serverConfig objectForKey:kRRMSourceServerTCPPortKey];
@@ -107,7 +106,6 @@
     [fetchMessagesOperation start:^(NSError * error, NSArray * fetchedMessages) {
         
         if(error) {
-            NSLog(@"Error downloading messages :%@", error);
 			[[CocoaSyslog sharedInstance] messageLevel3Error:@"[POP] Unable to download message"];
 			[[CocoaSyslog sharedInstance] messageLevel7Debug:@"[POP] MailCore2 error message: %@", error];
 			[self operationDone];
@@ -138,11 +136,11 @@
 	
 	[fetchedAndOrderedMessage sortUsingComparator:^NSComparisonResult(MCOPOPMessageInfo * obj1, MCOPOPMessageInfo * obj2)
 	 {
-         if ([obj1 uid] < [obj2 uid])
+         if ([obj1 index] < [obj2 index])
          {
              return NSOrderedAscending;
          }
-         else if ([obj1 uid] == [obj2 uid])
+         else if ([obj1 index] == [obj2 index])
          {
              return NSOrderedSame;
          }
@@ -158,14 +156,14 @@
         [op start:^(NSError * error, NSData * data) {
             if ([error code] != MCOErrorNone)
             {
-                [[CocoaSyslog sharedInstance] messageLevel3Error:@"[POP] Unable to download message with UID %u", [header uid]];
+                [[CocoaSyslog sharedInstance] messageLevel3Error:@"[POP] Unable to download message with Index %d", [header index]];
 				[[CocoaSyslog sharedInstance] messageLevel7Debug:@"[POP] MailCore2 error message: %@", error];
                 [self decreaseMessageCount];
             }
 			else
 			{
-                [[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP] Message %u from %@ at %@ fetched (%u bytes)", [header uid], [_popSession username], [_popSession hostname], [data length]];
-				[self transferData:data withOriginalPOPMessageUID:[header uid].intValue];
+                [[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP] Message %d from %@ at %@ fetched (%u bytes)", [header index], [_popSession username], [_popSession hostname], [data length]];
+				[self transferData:data withOriginalPOPMessageIndex:[header index]];
 			}
         }];
     }
@@ -174,7 +172,7 @@
 }
 
 
-- (void)transferData:(NSData*)fetchedData withOriginalPOPMessageUID:(uint32_t)uid
+- (void)transferData:(NSData*)fetchedData withOriginalPOPMessageIndex:(uint32_t)index
 {
     
 	MCOMessageParser * messageParser = [[MCOMessageParser alloc] initWithData:fetchedData];
@@ -185,21 +183,32 @@
      {
          if(error)
          {
-             [[CocoaSyslog sharedInstance] messageLevel3Error:@"[POP-SMTP] Unable to to send message %u to %@ at %@", uid, [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
+             [[CocoaSyslog sharedInstance] messageLevel3Error:@"[POP-SMTP] Unable to to send message %u to %@ at %@", index, [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
              [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[POP-SMTP] MailCore2 error message: %@", error];
              
-             NSLog(@"%@ Error sending email:%@", [_userSettings objectForKey:kRRMSourceServerLoginKey], error);
              [self decreaseMessageCount];
          }
          else
          {
-             [[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP-SMTP] Message %u transfered to %@ at %@", uid, [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
-             
-             NSLog(@"%@ Successfully sent email!", [_userSettings objectForKey:kRRMSourceServerLoginKey]);
-
+             [[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP-SMTP] Message %u transfered to %@ at %@", index, [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
     
-             [self decreaseMessageCount];
+             MCOIndexSet * indexes = [MCOIndexSet indexSet];
+             [indexes addIndex:index];
              
+             MCOPOPOperation *deletePOPOperation = [_popSession deleteMessagesOperationWithIndexes:indexes];
+             [deletePOPOperation start:^(NSError *error) {
+                 if(error)
+                 {
+                     [[CocoaSyslog sharedInstance] messageLevel3Error:@"[POP-SMTP] Unable to expunge inbox (%@ at %@)", [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
+                     [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[POP-SMTP] MailCore2 error message: %@", error];
+                 }
+                 else
+                 {
+                     [[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP-SMTP] Successfully expunged inbox (%@ at %@)", [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
+                 }
+                                  
+                 [self decreaseMessageCount];
+             }];
          }
      }];
     

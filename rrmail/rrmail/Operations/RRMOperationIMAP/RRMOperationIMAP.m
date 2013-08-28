@@ -66,7 +66,6 @@
 	   [_userSettings objectForKey:kRRMSourceServerLoginKey],
 	   [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
 	
-#warning ygi: settings are used without data validation, we need to fix that ASAP.
     
     _imapSession = [[MCOIMAPSession alloc] init];
     [_imapSession setHostname:[_serverConfig objectForKey:kRRMSourceServerAddressKey]];
@@ -102,7 +101,6 @@
     [fetchHeadersOperation start:^(NSError * error, NSArray * fetchedHeaders, MCOIndexSet * vanishedMessages)
 	 {
         if(error) {
-            NSLog(@"Error downloading message headers:%@", error);
 			[[CocoaSyslog sharedInstance] messageLevel3Error:@"[IMAP] Unable to download message headers"];
 			[[CocoaSyslog sharedInstance] messageLevel7Debug:@"[IMAP] MailCore2 error message: %@", error];
 			[self operationDone];
