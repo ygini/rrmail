@@ -17,6 +17,8 @@
 
 #import "RRMController_Internal.h"
 
+#import "CocoaSyslog.h"
+
 
 @implementation RRMController
 
@@ -87,6 +89,7 @@
 			
 			if (OperationClass) {
 				serverAddress = [serverConfig objectForKey:kRRMSourceServerAddressKey];
+				[[CocoaSyslog sharedInstance] messageLevel5Notice:@"Load operations for server %@", serverAddress];
 				
 				operationQueue = [_operationQueues objectForKey:serverAddress];
 				if (!operationQueue) {
@@ -107,6 +110,7 @@
 											nil];
 				
 				for (NSDictionary *userSettings in [serverConfig objectForKey:kRRMSourceServerAccountListKey]) {
+					[[CocoaSyslog sharedInstance] messageLevel6Info:@"Load operation for user %@ on server %@", [userSettings objectForKey:kRRMSourceServerLoginKey], serverAddress];
 					operationMail = [(id<RRMOperationMail>)[OperationClass alloc] initWithServerConfiguration:serverConfigForOperation
 																							andUserSettings:userSettings];
 					
@@ -116,8 +120,9 @@
 			}
 			else
 			{
-				// ... Server type unsupported ...
-#warning ygi: add error handling
+				[[CocoaSyslog sharedInstance] messageLevel3Error:@"Unsupported protocol \"%@\" for server %@.",
+				 serverType,
+				 [serverConfig objectForKey:kRRMSourceServerAddressKey]];
 			}
 		}
 		

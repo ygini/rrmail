@@ -187,12 +187,12 @@
              [deletePOPOperation start:^(NSError *error) {
                  if(error)
                  {
-                     [[CocoaSyslog sharedInstance] messageLevel3Error:@"[POP-SMTP] Unable to expunge inbox (%@ at %@)", [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
+                     [[CocoaSyslog sharedInstance] messageLevel3Error:@"[POP-SMTP] Unable to delete message (%@ at %@)", [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
                      [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[POP-SMTP] MailCore2 error message: %@", error];
                  }
                  else
                  {
-                     [[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP-SMTP] Successfully expunged inbox (%@ at %@)", [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
+                     [[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP-SMTP] Successfully delete message (%@ at %@)", [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
                  }
                                   
                  [self decreaseMessageCount];

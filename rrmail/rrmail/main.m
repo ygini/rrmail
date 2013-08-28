@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "RRMController.h"
+#import "RRMConstants.h"
 
 int main(int argc, const char * argv[])
 {
@@ -33,10 +34,12 @@ int main(int argc, const char * argv[])
         }
         else
         {
-            // error
-            [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[Config Check] RRMail error message: %@", error];
+			[[CocoaSyslog sharedInstance] messageLevel3Error:@"Impossible to read application settings, please check content of %@", kRRMControllerDefaultConfigFile];
+            [[CocoaSyslog sharedInstance] messageLevel7Debug:@"Error message: %@", error];
 
         }
+		
+		[[CocoaSyslog sharedInstance] messageLevel6Info:@"Process did end, application gonna terminate"];
 		
 		[[CocoaSyslog sharedInstance] closeLog];
         
