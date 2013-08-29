@@ -94,8 +94,8 @@
 				operationQueue = [_operationQueues objectForKey:serverAddress];
 				if (!operationQueue) {
 					maxConcurrentOperations = [serverConfig objectForKey:kRRMSourceServerMaxConcurrentOperationsKey];
-					if (!maxConcurrentOperations) {
-						maxConcurrentOperations = [NSNumber numberWithInt:10];
+					if (maxConcurrentOperations.intValue == 0) {
+						maxConcurrentOperations = [NSNumber numberWithInt:NSOperationQueueDefaultMaxConcurrentOperationCount];
 					}
 					operationQueue = [[NSOperationQueue alloc] init];
 					[operationQueue setMaxConcurrentOperationCount:[maxConcurrentOperations integerValue]];

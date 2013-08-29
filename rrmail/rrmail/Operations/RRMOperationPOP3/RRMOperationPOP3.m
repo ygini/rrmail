@@ -63,6 +63,7 @@
 #pragma mark RRMOperation
 
 - (void)operationGo {
+
 	[[CocoaSyslog sharedInstance] messageLevel6Info:@"[POP] Start fetch operation for %@ at %@",
      [_userSettings objectForKey:kRRMSourceServerLoginKey],
      [_serverConfig objectForKey:kRRMSourceServerAddressKey]];
