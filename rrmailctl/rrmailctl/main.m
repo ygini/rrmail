@@ -26,7 +26,6 @@ int main(int argc, const char * argv[])
         
         // Update RRMailConfig
         NSDictionary * serverConfig = [arguments objectForKey:@"rrmailConfig"];
-        NSLog(@"%@", serverConfig);
         if (serverConfig)
         {
             [[RRMailConfigController sharedInstance]updateRRMailConfig:serverConfig];

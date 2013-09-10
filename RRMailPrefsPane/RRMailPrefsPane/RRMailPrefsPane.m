@@ -78,9 +78,9 @@
         argvIndex++;
     }
     argv[argvIndex] = nil;
-    
-    OSErr processError = AuthorizationExecuteWithPrivileges([[authView authorization] authorizationRef], [@"/Users/florianbonniec/ConfigureRRMail" UTF8String],
-                                                            kAuthorizationFlagDefaults, (char *const *)argv, nil);
+        
+    OSErr processError = AuthorizationExecuteWithPrivileges([[authView authorization] authorizationRef], [@"/Users/florianbonniec/rrmailctl" UTF8String],
+                                                            kAuthorizationFlagDefaults, (char *const *)argv, NULL);
     free(argv);
     
     if (processError != errAuthorizationSuccess)

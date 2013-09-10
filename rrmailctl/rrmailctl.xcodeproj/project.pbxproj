@@ -215,7 +215,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ConfigureRRMail/rrmailctl-Prefix.pch";
+				GCC_PREFIX_HEADER = "rrmailctl/rrmailctl-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -224,7 +224,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ConfigureRRMail/rrmailctl-Prefix.pch";
+				GCC_PREFIX_HEADER = "rrmailctl/rrmailctl-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
