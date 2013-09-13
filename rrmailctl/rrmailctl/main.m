@@ -53,6 +53,12 @@ int main(int argc, const char * argv[])
             }
         }
         
+        // Create RRMailConfig File createRRMailConfigFile
+        NSString * strCreateRRMailConfigFile = [arguments objectForKey:@"createRRMailConfigFile"];
+        if (strCreateRRMailConfigFile) {
+            [[RRMailConfigController sharedInstance]createRRMailConfigFile];
+        }
+        
     }
     
     return 0;

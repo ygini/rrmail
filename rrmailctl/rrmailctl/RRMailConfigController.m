@@ -175,4 +175,15 @@
     }
 }
 
+- (void)createRRMailConfigFile
+{
+    NSBundle * bundle = [NSBundle mainBundle];
+    
+    NSString * path  = [NSString stringWithFormat:@"%@", [bundle pathForResource:@"rrmailconfig" ofType:@"plist"]];
+        
+    NSMutableDictionary *savedStock = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+    
+    [savedStock writeToFile:@"/etc/rrmail.plist" atomically:YES];
+}
+
 @end

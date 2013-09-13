@@ -15,4 +15,6 @@
 -(void)updateRRMailConfig:(NSDictionary *)rrmailConfig;
 -(void)loadUnloadSchedulerWithInit:(int)value;
 -(BOOL)checkIfSchedulerIsLoading;
+-(void)createRRMailConfigFile;
+
 @end

@@ -92,13 +92,17 @@
     [self.textFieldSSPassword setEditable:NO];
     [self.textFieldTSAccount setEditable:NO];
     [self.textFieldTSAddress setEditable:NO];
-    
-    [self updatePrefPaneInterfaceTimeInterval];
-    
+        
     [self.textFieldTimeInterval setTarget:self];
     [self.textFieldTimeInterval setAction:@selector(actionSetTimeInterval:)];
     
     if (boolValue == YES) {
+        
+        if (!self._rrmailConfig)
+        {
+            [self createRRMailConfigFile];
+            self._rrmailConfig = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/etc/rrmail.plist"];
+        }
         
         // Collect arguments into an array.
         NSMutableArray *args = [NSMutableArray array];
@@ -114,6 +118,8 @@
             [self.checkBoxEnableStartInterval setState:0];
         }
     }
+    
+    [self updatePrefPaneInterfaceTimeInterval];
     
 }
 
@@ -585,5 +591,14 @@
     [textField setStringValue:strippedString];
 }
 
+- (void)createRRMailConfigFile
+{
+    // Collect arguments into an array.
+    NSMutableArray *args = [NSMutableArray array];
+    [args addObject:@"-createRRMailConfigFile"];
+    [args addObject:@"1"];
+    
+    [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
+}
 
 @end
