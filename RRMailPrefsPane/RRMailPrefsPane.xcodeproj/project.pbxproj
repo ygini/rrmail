@@ -28,7 +28,7 @@
 		C4DE4F5C17DF17C600BED91F /* ConfirmDeleteViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C4DE4F5917DF17C600BED91F /* ConfirmDeleteViewController.h */; };
 		C4DE4F5D17DF17C600BED91F /* ConfirmDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DE4F5A17DF17C600BED91F /* ConfirmDeleteViewController.m */; };
 		C4DE4F5E17DF17C600BED91F /* ConfirmDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4DE4F5B17DF17C600BED91F /* ConfirmDeleteViewController.xib */; };
-		C4DE4F6217DF214400BED91F /* RRMailPrefsPane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C4DE4F6117DF214400BED91F /* RRMailPrefsPane.tiff */; };
+		C4FE7CAF17E0A9EB00376319 /* RRMailPrefsPane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C4FE7CAE17E0A9EB00376319 /* RRMailPrefsPane.tiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +60,7 @@
 		C4DE4F5917DF17C600BED91F /* ConfirmDeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmDeleteViewController.h; sourceTree = "<group>"; };
 		C4DE4F5A17DF17C600BED91F /* ConfirmDeleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmDeleteViewController.m; sourceTree = "<group>"; };
 		C4DE4F5B17DF17C600BED91F /* ConfirmDeleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmDeleteViewController.xib; sourceTree = "<group>"; };
-		C4DE4F6117DF214400BED91F /* RRMailPrefsPane.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = RRMailPrefsPane.tiff; sourceTree = "<group>"; };
+		C4FE7CAE17E0A9EB00376319 /* RRMailPrefsPane.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = RRMailPrefsPane.tiff; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 				C4B71CDB17D4D79100B180EE /* RRMailPrefsPane.h */,
 				C4B71CDC17D4D79100B180EE /* RRMailPrefsPane.m */,
 				C4B71CE017D4D79100B180EE /* RRMailPrefsPane.xib */,
-				C4DE4F6117DF214400BED91F /* RRMailPrefsPane.tiff */,
+				C4FE7CAE17E0A9EB00376319 /* RRMailPrefsPane.tiff */,
 				C4B71D3917D7434E00B180EE /* ViewController */,
 				C4B71D3A17D7436800B180EE /* Constant */,
 				C4B71CD517D4D79100B180EE /* Supporting Files */,
@@ -243,7 +243,7 @@
 				C4B71D3217D742C100B180EE /* AddSourceServerView.xib in Resources */,
 				C4B71D3817D742F000B180EE /* AddSourceServerAccountView.xib in Resources */,
 				C4DE4F5E17DF17C600BED91F /* ConfirmDeleteViewController.xib in Resources */,
-				C4DE4F6217DF214400BED91F /* RRMailPrefsPane.tiff in Resources */,
+				C4FE7CAF17E0A9EB00376319 /* RRMailPrefsPane.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

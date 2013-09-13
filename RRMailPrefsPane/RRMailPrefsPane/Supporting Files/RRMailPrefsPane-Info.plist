@@ -29,7 +29,7 @@
 	<key>NSPrefPaneIconFile</key>
 	<string>RRMailPrefsPane.tiff</string>
 	<key>NSPrefPaneIconLabel</key>
-	<string>RRMailPrefsPane</string>
+	<string>RRMailPrefs</string>
 	<key>NSPrincipalClass</key>
 	<string>RRMailPrefsPane</string>
 </dict>

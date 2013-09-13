@@ -15,16 +15,23 @@
 @class DisplayInfoViewController;
 
 @protocol DisplayInfoViewControllerDelegate <NSObject>
-- (void)displayInfoViewController:(DisplayInfoViewController *)controller callRRMailConfigWithParameters:(NSMutableArray *)parameters;
+- (BOOL)displayInfoViewController:(DisplayInfoViewController *)controller callRRMailConfigWithParameters:(NSMutableArray *)parameters;
 
 @end
 
-@interface DisplayInfoViewController : NSViewController <AddSourceServerViewControllerDelegate, AddSourceServerAccountViewControllerDelegate, ConfirmDeleteViewControllerDelegate>
+@interface DisplayInfoViewController : NSViewController <AddSourceServerViewControllerDelegate, AddSourceServerAccountViewControllerDelegate, ConfirmDeleteViewControllerDelegate, NSTextFieldDelegate>
 {
 }
 
 @property (nonatomic, weak) id <DisplayInfoViewControllerDelegate> delegate;
 
+
+@property (weak) IBOutlet NSButton *checkBoxEnableStartInterval;
+- (IBAction)actionEnableStartInterval:(id)sender;
+
+
+@property (weak) IBOutlet NSPopUpButton *buttonSelectLogLevel;
+- (IBAction)actionSelectLogLevel:(id)sender;
 
 @property (weak) IBOutlet NSTextField *textFieldTimeInterval;
 @property (weak) IBOutlet NSButton *buttonSetTimeInterval;

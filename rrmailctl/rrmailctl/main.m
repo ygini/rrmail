@@ -15,11 +15,11 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
         
-        // Update Scheduler
         NSDictionary * arguments = [[NSUserDefaults standardUserDefaults] volatileDomainForName:NSArgumentDomain];
         
+        
+        // Update Scheduler
         NSString * intervalTime = [arguments objectForKey:@"intervalTime"];
-
         if (intervalTime) {
             [[RRMailConfigController sharedInstance]setCheckMailIntervalTime:intervalTime.intValue];
         }
@@ -30,7 +30,29 @@ int main(int argc, const char * argv[])
         {
             [[RRMailConfigController sharedInstance]updateRRMailConfig:serverConfig];
         }
-
+        
+        // LoadUnload Sheduler
+        NSString * strLoadUnloadScheduler = [arguments objectForKey:@"luScheduler"];
+        if (strLoadUnloadScheduler) {
+            [[RRMailConfigController sharedInstance]loadUnloadSchedulerWithInit:strLoadUnloadScheduler.intValue];
+        }
+        
+        // LoadUnload Sheduler
+        NSString * strCheckSchedulerLoading = [arguments objectForKey:@"checkSchedulerLoading"];
+        if (strCheckSchedulerLoading) {
+           BOOL isLoading = [[RRMailConfigController sharedInstance]checkIfSchedulerIsLoading];
+            
+            if (isLoading == YES) {
+                NSLog(@"YES");
+                printf("YES");
+            }
+            else
+            {
+                NSLog(@"NO");
+                printf("NO");
+            }
+        }
+        
     }
     
     return 0;

@@ -20,6 +20,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
+        
+
     }
     
     return self;
@@ -47,24 +49,33 @@
     }
     [self clearAllStrings];
     [self.delegate cancelSourceServerViewController:self];
-
 }
 
 - (void)updateData
 {
-    [self.buttonSSRequireSSL removeAllItems];
-    [self.buttonSSRequireSSL addItemWithTitle:@"YES"];
-    [self.buttonSSRequireSSL addItemWithTitle:@"NO"];
-    
-    [self.buttonSSMaxConcurrentOperations removeAllItems];
-    
-    for (int i = 1; i <=10; i++) {
-        [self.buttonSSMaxConcurrentOperations addItemWithTitle:[NSString stringWithFormat:@"%d", i]];
-    }
+
+    [self.buttonOk setKeyEquivalent:@"\r"];
+//    [self.buttonSSMaxConcurrentOperations removeAllItems];
+//    
+//    for (int i = 1; i <=10; i++) {
+//        [self.buttonSSMaxConcurrentOperations addItemWithTitle:[NSString stringWithFormat:@"%d", i]];
+//    }
     
     [self.buttonSSType removeAllItems];
     [self.buttonSSType addItemWithTitle:@"pop3"];
     [self.buttonSSType addItemWithTitle:@"imap"];
+    
+    [self.textFieldMaxConcurrentOperations setStringValue:@"10"];
+    
+//    NSNumberFormatter * numberFormatter = [[NSNumberFormatter alloc]init];
+//    [numberFormatter setNumberStyle:NSNumberFormatterNoStyle];
+//    //    [numberFormatter setAllowsFloats:NO];
+//    
+//    [self.textFieldMaxConcurrentOperations setFormatter:numberFormatter];
+//    [self.textFieldSSTCPPort setFormatter:numberFormatter];
+    
+    
+//    self.textFieldSSTCPPort.ise
 
     if (self._serverConfig != nil) {
         
@@ -76,17 +87,15 @@
         
         NSString * strSSL = [self._serverConfig objectForKey:kRRMSourceServerRequireSSLKey];
         if (strSSL) {
-            
-            if (strSSL.intValue == 1) {
-                [self.buttonSSRequireSSL selectItemWithTitle:@"YES"];
-            }
-            else
-                [self.buttonSSRequireSSL selectItemWithTitle:@"NO"];
+            [self.checkBoxSSRequireSSL setState:strSSL.intValue];
         }
         
         NSNumber * numberMaxConcurrentOperations = [self._serverConfig objectForKey:kRRMSourceServerMaxConcurrentOperationsKey];
         if (numberMaxConcurrentOperations) {
-            [self.buttonSSMaxConcurrentOperations selectItemWithTitle:numberMaxConcurrentOperations.stringValue];            }
+//            [self.buttonSSMaxConcurrentOperations selectItemWithTitle:numberMaxConcurrentOperations.stringValue];
+            [self.textFieldMaxConcurrentOperations setStringValue:numberMaxConcurrentOperations.stringValue];
+
+        }
         
         NSString * strSSType = [self._serverConfig objectForKey:kRRMSourceServerTypeKey];
         if (strSSType) {
@@ -109,8 +118,8 @@
 - (void)updateSettings
 {
     [self._serverConfig setObject:self.textFieldSSAddress.stringValue forKey:kRRMSourceServerAddressKey];
-    [self._serverConfig setObject:[NSNumber numberWithBool:[[self.buttonSSRequireSSL selectedItem]title].boolValue] forKey:kRRMSourceServerRequireSSLKey];
-    [self._serverConfig setObject:[NSNumber numberWithInt:[[self.buttonSSMaxConcurrentOperations selectedItem]title].intValue]  forKey:kRRMSourceServerMaxConcurrentOperationsKey];
+    [self._serverConfig setObject:[NSNumber numberWithBool:self.checkBoxSSRequireSSL.stringValue.boolValue] forKey:kRRMSourceServerRequireSSLKey];
+    [self._serverConfig setObject:[NSNumber numberWithInt:self.textFieldMaxConcurrentOperations.stringValue.intValue]  forKey:kRRMSourceServerMaxConcurrentOperationsKey];
     [self._serverConfig setObject:self.buttonSSType.selectedItem.title forKey:kRRMSourceServerTypeKey];
     [self._serverConfig setObject:[NSNumber numberWithInt:self.textFieldSSTCPPort.intValue]  forKey:kRRMSourceServerTCPPortKey];
 
@@ -121,8 +130,8 @@
     NSMutableDictionary * newServerConfig = [[NSMutableDictionary alloc]init];
     
     [newServerConfig setObject:self.textFieldSSAddress.stringValue forKey:kRRMSourceServerAddressKey];
-    [newServerConfig setObject:[NSNumber numberWithBool:[[self.buttonSSRequireSSL selectedItem]title].boolValue] forKey:kRRMSourceServerRequireSSLKey];
-    [newServerConfig setObject:[NSNumber numberWithInt:[[self.buttonSSMaxConcurrentOperations selectedItem]title].intValue]  forKey:kRRMSourceServerMaxConcurrentOperationsKey];
+    [newServerConfig setObject:[NSNumber numberWithBool:self.checkBoxSSRequireSSL.stringValue.boolValue] forKey:kRRMSourceServerRequireSSLKey];
+    [newServerConfig setObject:[NSNumber numberWithInt:self.textFieldMaxConcurrentOperations.stringValue.intValue]  forKey:kRRMSourceServerMaxConcurrentOperationsKey];
     [newServerConfig setObject:self.buttonSSType.selectedItem.title forKey:kRRMSourceServerTypeKey];
     [newServerConfig setObject:[NSNumber numberWithInt:self.textFieldSSTCPPort.intValue]  forKey:kRRMSourceServerTCPPortKey];
     [newServerConfig setObject:[[NSMutableArray alloc]init] forKey:kRRMSourceServerAccountListKey];
@@ -132,5 +141,28 @@
 }
 
 
+
+- (void)controlTextDidChange:(NSNotification *)notification {
+
+    NSTextField *textField = [notification object];
+    
+    NSString * originalString = [[NSString alloc]initWithString:textField.stringValue];
+    
+    NSMutableString *strippedString = [NSMutableString stringWithCapacity:originalString.length];
+    
+    NSScanner *scanner = [NSScanner scannerWithString:originalString];
+    NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    
+    while ([scanner isAtEnd] == NO) {
+        NSString *buffer;
+        if ([scanner scanCharactersFromSet:numbers intoString:&buffer]) {
+            [strippedString appendString:buffer];
+            
+        } else {
+            [scanner setScanLocation:([scanner scanLocation] + 1)];
+        }
+    }
+    [textField setStringValue:strippedString];
+}
 
 @end

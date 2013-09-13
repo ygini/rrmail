@@ -30,6 +30,7 @@
 @property (weak) IBOutlet NSSecureTextField *textFieldSSPassword;
 @property (weak) IBOutlet NSTextField *textFieldTSAccount;
 @property (weak) IBOutlet NSTextField *textFieldTSAddress;
+@property (weak) IBOutlet NSButton *buttonOk;
 
 - (void)updateData;
 

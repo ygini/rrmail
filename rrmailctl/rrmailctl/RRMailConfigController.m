@@ -25,6 +25,12 @@
 
 -(void) setCheckMailIntervalTime:(int)timeInterval
 {
+    BOOL isSchedulerLoaded = [self checkIfSchedulerIsLoading];
+    
+    if (isSchedulerLoaded == YES) {
+        [self loadUnloadSchedulerWithInit:0];
+    }
+    
     NSError *error = nil;
     NSString *stringPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSLocalDomainMask, YES)objectAtIndex:0];
     NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/LaunchDaemons", stringPath]  error:&error];
@@ -38,6 +44,11 @@
         [savedStock setObject:[NSNumber numberWithInt:timeInterval] forKey:@"StartInterval"];
         
         [savedStock writeToFile:path atomically:YES];
+    }
+    
+    if (isSchedulerLoaded == YES)
+    {
+        [self loadUnloadSchedulerWithInit:1];
     }
 }
 
@@ -78,6 +89,90 @@
     
   
     [plistDataDic writeToFile:@"/etc/rrmail.plist" atomically:YES];
+}
+
+-(void)loadUnloadSchedulerWithInit:(int)value
+{
+    NSString *path;
+    NSData* data;
+    NSTask * buildTask;
+    NSPipe *pingpipe = [NSPipe pipe];
+    NSFileHandle *pingfile;
+
+    if (value == 0) {
+        path  = [NSString stringWithFormat:@"%@", [[NSBundle mainBundle] pathForResource:@"UnLoadRRMailScheduler" ofType:@"command"]];
+    }
+    else if (value == 1) {
+        path  = [NSString stringWithFormat:@"%@", [[NSBundle mainBundle] pathForResource:@"LoadRRMailScheduler" ofType:@"command"]];
+    }
+    else
+        return;
+    
+    @try {
+        buildTask = [[NSTask alloc] init];
+        buildTask.launchPath = path;
+        [buildTask setStandardOutput:pingpipe];
+        pingfile = [pingpipe fileHandleForReading];
+        [buildTask launch];
+        [buildTask waitUntilExit];
+    }
+    @catch (NSException * exception) {
+        NSLog(@"\n\n\nmon exeption : %@\n\n\n ", [exception description]);
+    }
+    @finally {
+        
+        NSString* tmpString;
+        
+        data = [pingfile readDataToEndOfFile];
+        
+        if ((data != nil) && [data length]) {
+            tmpString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        }
+    
+}
+    
+
+    
+  
+}
+
+-(BOOL)checkIfSchedulerIsLoading
+{
+    NSString *path;
+    NSData* data;
+    NSTask * buildTask;
+    NSPipe *pingpipe = [NSPipe pipe];
+    NSFileHandle *pingfile;
+    
+    path  = [NSString stringWithFormat:@"%@", [[NSBundle mainBundle] pathForResource:@"CheckSchedulerLoading" ofType:@"command"]];
+    
+    @try {
+        buildTask = [[NSTask alloc] init];
+        buildTask.launchPath = path;
+        [buildTask setStandardOutput:pingpipe];
+        pingfile = [pingpipe fileHandleForReading];
+        [buildTask launch];
+        [buildTask waitUntilExit];
+    }
+    @catch (NSException * exception) {
+        NSLog(@"\n\n\nmon exeption : %@\n\n\n ", [exception description]);
+    }
+    @finally {
+        
+        NSString* tmpString;
+        
+        data = [pingfile readDataToEndOfFile];
+        
+        if ((data != nil) && [data length]) {
+            tmpString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        }
+        
+        if (tmpString == nil) {
+            return NO;
+        }
+        else
+            return YES;
+    }
 }
 
 @end

@@ -34,6 +34,9 @@
 		C4B71D1317D61B3A00B180EE /* ConfigureRRMail.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ConfigureRRMail.1; sourceTree = "<group>"; };
 		C4B71D1A17D6226500B180EE /* RRMailConfigController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMailConfigController.h; sourceTree = "<group>"; };
 		C4B71D1B17D6226500B180EE /* RRMailConfigController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMailConfigController.m; sourceTree = "<group>"; };
+		C4FE7CE117E0DF2700376319 /* LoadRRMailScheduler.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = LoadRRMailScheduler.command; path = rrmailctl/LoadRRMailScheduler.command; sourceTree = "<group>"; };
+		C4FE7CE217E0DF2700376319 /* UnLoadRRMailScheduler.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = UnLoadRRMailScheduler.command; path = rrmailctl/UnLoadRRMailScheduler.command; sourceTree = "<group>"; };
+		C4FE7D1B17E213EE00376319 /* CheckSchedulerLoading.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = CheckSchedulerLoading.command; path = rrmailctl/CheckSchedulerLoading.command; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +55,9 @@
 			isa = PBXGroup;
 			children = (
 				C4B71D0E17D61B3A00B180EE /* rrmailctl */,
+				C4FE7D1B17E213EE00376319 /* CheckSchedulerLoading.command */,
+				C4FE7CE117E0DF2700376319 /* LoadRRMailScheduler.command */,
+				C4FE7CE217E0DF2700376319 /* UnLoadRRMailScheduler.command */,
 				C4B71D0B17D61B3A00B180EE /* Frameworks */,
 				C4B71D0A17D61B3A00B180EE /* Products */,
 			);

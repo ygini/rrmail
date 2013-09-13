@@ -68,8 +68,10 @@
     [self.displayInfoViewController enableOrDisableAllButton:[self isUnlocked]];
 }
 
-- (void)callRRMailConfigWithParameters:(NSMutableArray *)args
+- (BOOL)callRRMailConfigWithParameters:(NSMutableArray *)args
 {
+	FILE *processOutput;
+
     // Convert array into void-* array.
     const char **argv = (const char **)malloc(sizeof(char *) * [args count] + 1);
     int argvIndex = 0;
@@ -80,96 +82,30 @@
     argv[argvIndex] = nil;
         
     OSErr processError = AuthorizationExecuteWithPrivileges([[authView authorization] authorizationRef], [@"/Users/florianbonniec/rrmailctl" UTF8String],
-                                                            kAuthorizationFlagDefaults, (char *const *)argv, NULL);
+                                                            kAuthorizationFlagDefaults, (char *const *)argv, &processOutput);
     free(argv);
     
     if (processError != errAuthorizationSuccess)
         NSLog(@"Error: %d", processError);
+    
+
+    // Setup the two-way pipe.
+    NSFileHandle * helperHandle = [[NSFileHandle alloc] initWithFileDescriptor:fileno(processOutput)];
+    NSData *data = [helperHandle readDataToEndOfFile];
+    NSString * tmpString;
+    
+    // Convert the data into a string.
+    tmpString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+	fclose(processOutput);
+    
+    return tmpString.boolValue;
 }
 
-
-//- (void)updatePrefPaneInterface
-//{    
-//    NSError *error = nil;
-//    NSString *stringPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSLocalDomainMask, YES)objectAtIndex:0];
-//    NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/LaunchDaemons", stringPath]  error:&error];
-//    
-//    if ([filePathsArray indexOfObject:@"com.rrmail.scheduler.plist"] != NSNotFound) {
-//        
-//        NSString *path = [NSString stringWithFormat:@"%@/LaunchDaemons/com.rrmail.scheduler.plist", stringPath];
-//        NSMutableDictionary *savedStock = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-//
-//        NSNumber * startInterval = [savedStock valueForKey:@"StartInterval"];
-//        
-//        [textFieldTimeIntrval setStringValue:startInterval.stringValue];
-//    }
-//    
-//    
-//    NSMutableDictionary *rrmailConfig = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/etc/rrmail.plist"];
-//    
-//    for (NSMutableDictionary * _serverConfig in [rrmailConfig objectForKey:@"serverList"])
-//    {
-//        NSString * strSourceServerAddressKey = [_serverConfig objectForKey:kRRMSourceServerAddressKey];
-//        [buttonSelectSSAddress addItemWithTitle:strSourceServerAddressKey];
-//
-////        NSString * strSSL = [_serverConfig objectForKey:kRRMSourceServerRequireSSLKey];
-////
-////        NSNumber * numberMaxConcurrentOperations = [_serverConfig objectForKey:kRRMSourceServerMaxConcurrentOperationsKey];
-//
-//        NSNumber * numberTCPPort = [_serverConfig objectForKey:kRRMSourceServerTCPPortKey];
-//
-//        [textFieldSourceServerPort setStringValue:numberTCPPort.stringValue];
-//        for (NSMutableDictionary * _userSettings in  [_serverConfig objectForKey:@"sourceServerAccountList"])
-//        {
-//            NSLog(@"%@", _userSettings);
-//        }
-//    }
-//
-//}
-
-//- (IBAction)goAddSourceServerView:(id)sender
-//{
-//    [self.windowSheet setFrame:self.addSSViewController.view.bounds display:NO];
-//    [self.windowSheet.contentView addSubview:self.addSSViewController.view];
-//    
-//    [self.addSSViewController setDelegate:self];
-//    
-//    
-//    [NSApp beginSheet:self.windowSheet
-//       modalForWindow:self.mainView.window
-//        modalDelegate:self
-//       didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
-//          contextInfo:NULL];
-//}
-
-
-
-- (void)closeSheet
+- (BOOL)displayInfoViewController:(DisplayInfoViewController *)controller callRRMailConfigWithParameters:(NSMutableArray *)parameters
 {
-    [self.windowSheet orderOut:self];
-    [NSApp endSheet:self.windowSheet];
-}
-
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-	
+    return [self callRRMailConfigWithParameters:parameters];
 }
 
 
-- (void)displayInfoViewController:(DisplayInfoViewController *)controller callRRMailConfigWithParameters:(NSMutableArray *)parameters
-{
-    [self callRRMailConfigWithParameters:parameters];
-}
-
-- (void)addSourceServerViewController:(AddSourceServerViewController *)controller
-{
-    [self closeSheet];
-    [self.windowSheet.contentView remove:self.addSSViewController];
-}
-
-- (void)addSourceServerAccountViewController:(AddSourceServerAccountViewController *)controller
-{
-    [self closeSheet];
-    [self.windowSheet.contentView remove:self.addSSAccountViewController];
-}
 @end

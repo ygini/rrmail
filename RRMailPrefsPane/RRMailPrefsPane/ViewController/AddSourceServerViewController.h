@@ -16,7 +16,7 @@
 
 @end
 
-@interface AddSourceServerViewController : NSViewController
+@interface AddSourceServerViewController : NSViewController <NSTextFieldDelegate>
 
 @property (nonatomic, weak) id <AddSourceServerViewControllerDelegate> delegate;
 
@@ -27,10 +27,13 @@
 - (IBAction)actionCancel:(id)sender;
 
 @property (weak) IBOutlet NSTextField *textFieldSSAddress;
-@property (weak) IBOutlet NSPopUpButton *buttonSSRequireSSL;
-@property (weak) IBOutlet NSPopUpButton *buttonSSMaxConcurrentOperations;
+//@property (weak) IBOutlet NSPopUpButton *buttonSSMaxConcurrentOperations;
+@property (weak) IBOutlet NSTextField *textFieldMaxConcurrentOperations;
+
 @property (weak) IBOutlet NSPopUpButton *buttonSSType;
 @property (weak) IBOutlet NSTextField *textFieldSSTCPPort;
+@property (weak) IBOutlet NSButton *checkBoxSSRequireSSL;
+@property (weak) IBOutlet NSButton *buttonOk;
 
 - (void)updateData;
 

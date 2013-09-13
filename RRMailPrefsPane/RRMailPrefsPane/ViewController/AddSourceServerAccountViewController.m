@@ -53,6 +53,8 @@
 
 - (void)updateData
 {
+    [self.buttonOk setKeyEquivalent:@"\r"];
+
     if (self._userConfig) {
         
         NSString *strSourceServerLogin = [self._userConfig objectForKey:kRRMSourceServerLoginKey];

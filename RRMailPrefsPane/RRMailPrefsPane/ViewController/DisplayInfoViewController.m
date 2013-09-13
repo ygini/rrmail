@@ -53,7 +53,8 @@
         self._rrmailConfig = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/etc/rrmail.plist"];
         
         [self updatePrefPaneInterfaceTimeInterval];
-
+        
+       
     }
     
     return self;
@@ -61,6 +62,8 @@
 
 - (void)enableOrDisableAllButton:(BOOL)boolValue
 {
+    [self.buttonSelectLogLevel setEnabled:boolValue];
+    [self.checkBoxEnableStartInterval setEnabled:boolValue];
     [self.textFieldTimeInterval setEnabled:boolValue];
     [self.buttonSetTimeInterval setEnabled:boolValue];
     [self.buttonSelectSSAddress setEnabled:boolValue];
@@ -92,10 +95,33 @@
     
     [self updatePrefPaneInterfaceTimeInterval];
     
+    [self.textFieldTimeInterval setTarget:self];
+    [self.textFieldTimeInterval setAction:@selector(actionSetTimeInterval:)];
+    
+    if (boolValue == YES) {
+        
+        // Collect arguments into an array.
+        NSMutableArray *args = [NSMutableArray array];
+        [args addObject:@"-checkSchedulerLoading"];
+        [args addObject:@"1"];
+        
+        if ([self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args] == YES)
+        {
+            [self.checkBoxEnableStartInterval setState:1];
+        }
+        else
+        {
+            [self.checkBoxEnableStartInterval setState:0];
+        }
+    }
+    
 }
+
+  
 
 - (void)updatePrefPaneInterfaceTimeInterval
 {
+    //
     NSError *error = nil;
     NSString *stringPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSLocalDomainMask, YES)objectAtIndex:0];
     NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/LaunchDaemons", stringPath]  error:&error];
@@ -110,7 +136,18 @@
         [self.textFieldTimeInterval setStringValue:startInterval.stringValue];
     }
     
+    //
+    NSArray * arrayLogLevel = [NSArray arrayWithObjects:@"CSLLogLevel0Emergency", @"CSLLogLevel1Alert", @"CSLLogLevel2Critical", @"CSLLogLevel3Error", @"CSLLogLevel4Warning", @"CSLLogLevel5Notice", @"CSLLogLevel6Info", @"CSLLogLevel7Debug", nil];
     
+    [self.buttonSelectLogLevel removeAllItems];
+    [self.buttonSelectLogLevel addItemsWithTitles:arrayLogLevel];
+    
+    NSNumber * appLogLevel = [self._rrmailConfig valueForKey:@"appLogLevel"];
+    
+    [self.buttonSelectLogLevel selectItemAtIndex:appLogLevel.intValue];
+    
+    
+    //
     NSArray * arrayServerList = [self._rrmailConfig objectForKey:@"serverList"];
     
     if (arrayServerList && arrayServerList.count != 0) {
@@ -163,10 +200,6 @@
 
 - (void)updateServerConfigDisplay
 {
-//    if (!self._selectedServerConfig) {
-//        return;
-//    }
-    
     NSString * strSourceServerAddressKey = [self._selectedServerConfig objectForKey:kRRMSourceServerAddressKey];
     if (strSourceServerAddressKey) {
         [self.buttonSelectSSAddress selectItemWithTitle:strSourceServerAddressKey];
@@ -269,7 +302,17 @@
     [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
 }
 
+- (IBAction)actionSelectLogLevel:(id)sender {
+    
+    NSArray * arrayLogLevel = [NSArray arrayWithObjects:@"CSLLogLevel0Emergency", @"CSLLogLevel1Alert", @"CSLLogLevel2Critical", @"CSLLogLevel3Error", @"CSLLogLevel4Warning", @"CSLLogLevel5Notice", @"CSLLogLevel6Info", @"CSLLogLevel7Debug", nil];
 
+    
+    NSInteger i = [arrayLogLevel indexOfObject:self.buttonSelectLogLevel.titleOfSelectedItem];
+    
+    [self._rrmailConfig setObject:[NSNumber numberWithInteger:i] forKey:@"appLogLevel"];
+    
+    [self sendNewRRMailConfig];
+}
 
 - (IBAction)goAddSourceServerView:(id)sender
 {
@@ -378,7 +421,6 @@
                 
                 self._selectedUserConfig = nil;
                 self._selectedUserConfig = _userSettings;
-                NSLog(@"ok");
             }
         }
     }
@@ -393,7 +435,8 @@
     
     [self.confirmDeleteViewController setDelegate:self];
     [self.confirmDeleteViewController setIsSourceServerAddress:YES];
-    
+    [self.confirmDeleteViewController.buttonOk setKeyEquivalent:@"\r"];
+
     
     [NSApp beginSheet:self.windowSheet
        modalForWindow:self.view.window
@@ -409,6 +452,7 @@
     
     [self.confirmDeleteViewController setDelegate:self];
     [self.confirmDeleteViewController setIsSourceServerAddress:NO];
+    [self.confirmDeleteViewController.buttonOk setKeyEquivalent:@"\r"];
     
     
     [NSApp beginSheet:self.windowSheet
@@ -418,18 +462,14 @@
           contextInfo:NULL];
 }
 
+
+
 - (void)addSourceServerViewController:(AddSourceServerViewController *)controller
 {
     [self closeSheet];
     [self.addSSViewController.view removeFromSuperview];
 
-    
-    // Collect arguments into an array.
-    NSMutableArray *args = [NSMutableArray array];
-    [args addObject:@"-rrmailConfig"];
-    [args addObject:self._rrmailConfig.description];
-    
-    [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
+    [self sendNewRRMailConfig];
     
     [self updatePrefPaneInterfaceTimeInterval];
 
@@ -440,19 +480,7 @@
     [self closeSheet];
     [self.addSSAccountViewController.view removeFromSuperview];
     
-    NSString * stringErr = nil;
-    NSData *data =[NSPropertyListSerialization dataFromPropertyList:self._rrmailConfig
-                                                             format:NSPropertyListXMLFormat_v1_0
-                                                   errorDescription:&stringErr];
-    
-    NSString *strValue = [NSString stringWithUTF8String:[data bytes]];
-    
-    // Collect arguments into an array.
-    NSMutableArray *args = [NSMutableArray array];
-    [args addObject:@"-rrmailConfig"];
-    [args addObject:strValue];
-            
-    [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
+    [self sendNewRRMailConfig];
     
     [self updatePrefPaneInterfaceTimeInterval];
 }
@@ -494,12 +522,7 @@
     [[self._selectedServerConfig objectForKey:@"sourceServerAccountList"] removeObject:self._selectedUserConfig];
     }
     
-    // Collect arguments into an array.
-    NSMutableArray *args = [NSMutableArray array];
-    [args addObject:@"-rrmailConfig"];
-    [args addObject:self._rrmailConfig.description];
-    
-    [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
+    [self sendNewRRMailConfig];
     
     [self updatePrefPaneInterfaceTimeInterval];
     
@@ -512,6 +535,55 @@
     [self.confirmDeleteViewController.view removeFromSuperview];
 }
 
-//- (void)
+- (void)sendNewRRMailConfig
+{
+    NSString * stringErr = nil;
+    NSData *data =[NSPropertyListSerialization dataFromPropertyList:self._rrmailConfig
+                                                             format:NSPropertyListXMLFormat_v1_0
+                                                   errorDescription:&stringErr];
+    
+    NSString *strValue = [NSString stringWithUTF8String:[data bytes]];
+    
+    // Collect arguments into an array.
+    NSMutableArray *args = [NSMutableArray array];
+    [args addObject:@"-rrmailConfig"];
+    [args addObject:strValue];
+    
+    [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
+}
+
+- (IBAction)actionEnableStartInterval:(id)sender {
+    
+    // Collect arguments into an array.
+    NSMutableArray *args = [NSMutableArray array];
+    [args addObject:@"-luScheduler"];
+    [args addObject:[NSString stringWithFormat:@"%d",[NSNumber numberWithInteger:[self.checkBoxEnableStartInterval state]].intValue]];
+    
+    [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
+}
+
+- (void)controlTextDidChange:(NSNotification *)notification {
+    
+    NSTextField *textField = [notification object];
+    
+    NSString * originalString = [[NSString alloc]initWithString:textField.stringValue];
+    
+    NSMutableString *strippedString = [NSMutableString stringWithCapacity:originalString.length];
+    
+    NSScanner *scanner = [NSScanner scannerWithString:originalString];
+    NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    
+    while ([scanner isAtEnd] == NO) {
+        NSString *buffer;
+        if ([scanner scanCharactersFromSet:numbers intoString:&buffer]) {
+            [strippedString appendString:buffer];
+            
+        } else {
+            [scanner setScanLocation:([scanner scanLocation] + 1)];
+        }
+    }
+    [textField setStringValue:strippedString];
+}
+
 
 @end

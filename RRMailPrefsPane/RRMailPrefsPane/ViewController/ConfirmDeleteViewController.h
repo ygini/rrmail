@@ -22,6 +22,7 @@
 @property (nonatomic, weak) id <ConfirmDeleteViewControllerDelegate> delegate;
 
 @property (nonatomic, assign) BOOL isSourceServerAddress;
+@property (weak) IBOutlet NSButton *buttonOk;
 
 - (IBAction)actionDelete:(id)sender;
 - (IBAction)actionCancel:(id)sender;
