@@ -86,13 +86,13 @@
         }
         
         NSString * strSSL = [self._serverConfig objectForKey:kRRMSourceServerRequireSSLKey];
-        if (strSSL) {
+        if (strSSL)
+        {
             [self.checkBoxSSRequireSSL setState:strSSL.intValue];
         }
         
         NSNumber * numberMaxConcurrentOperations = [self._serverConfig objectForKey:kRRMSourceServerMaxConcurrentOperationsKey];
         if (numberMaxConcurrentOperations) {
-//            [self.buttonSSMaxConcurrentOperations selectItemWithTitle:numberMaxConcurrentOperations.stringValue];
             [self.textFieldMaxConcurrentOperations setStringValue:numberMaxConcurrentOperations.stringValue];
 
         }
@@ -107,6 +107,22 @@
             [self.textFieldSSTCPPort setStringValue:numberTCPPort.stringValue];
         }
     }
+    else
+    {
+        [self setCorrectPortUsingSSLConfig];
+    }
+    
+  
+}
+
+- (IBAction)actionConfigSSLPort:(id)sender
+{    
+    [self setCorrectPortUsingSSLConfig];
+}
+
+- (IBAction)actionConfigSSType:(id)sender
+{
+    [self setCorrectPortUsingSSLConfig];
 }
 
 - (void)clearAllStrings
@@ -164,5 +180,54 @@
     }
     [textField setStringValue:strippedString];
 }
+
+-(void) setCorrectPortUsingSSLConfig
+{
+//    NSArray * arrayPorts = @[@"110",@"143",@"995",@"993"];
+    
+    if (self.checkBoxSSRequireSSL.state == 0)
+    {
+        if ([self.buttonSSType.selectedItem.title isEqualToString:@"pop3"]) {
+            
+//            if (![arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue])
+//            {
+//                return;
+//            }
+            [self.textFieldSSTCPPort setStringValue:@"110"];
+
+        }
+        else
+        {
+//            if (![arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue])
+//            {
+//                return;
+//            }
+            [self.textFieldSSTCPPort setStringValue:@"143"];
+
+        }
+    }
+    else
+    {
+        if ([self.buttonSSType.selectedItem.title isEqualToString:@"pop3"]) {
+//            if (![arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue])
+//            {
+//                return;
+//            }
+            [self.textFieldSSTCPPort setStringValue:@"995"];
+
+        }
+        else
+        {
+//            if (![arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue])
+//            {
+//                return;
+//            }
+            [self.textFieldSSTCPPort setStringValue:@"993"];
+
+        }
+    }
+}
+
+
 
 @end

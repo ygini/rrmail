@@ -37,4 +37,8 @@
 
 - (void)updateData;
 
+- (IBAction)actionConfigSSLPort:(id)sender;
+- (IBAction)actionConfigSSType:(id)sender;
+
+
 @end

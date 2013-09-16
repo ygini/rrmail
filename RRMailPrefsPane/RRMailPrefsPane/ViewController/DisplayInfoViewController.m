@@ -54,7 +54,6 @@
         
         [self updatePrefPaneInterfaceTimeInterval];
         
-       
     }
     
     return self;
@@ -127,6 +126,14 @@
 
 - (void)updatePrefPaneInterfaceTimeInterval
 {
+
+    self._rrmailConfig = nil;
+    self._selectedServerConfig = nil;
+    self._selectedUserConfig = nil;
+    
+    self._rrmailConfig = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/etc/rrmail.plist"];
+
+    
     //
     NSError *error = nil;
     NSString *stringPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSLocalDomainMask, YES)objectAtIndex:0];
@@ -143,7 +150,7 @@
     }
     
     //
-    NSArray * arrayLogLevel = [NSArray arrayWithObjects:@"CSLLogLevel0Emergency", @"CSLLogLevel1Alert", @"CSLLogLevel2Critical", @"CSLLogLevel3Error", @"CSLLogLevel4Warning", @"CSLLogLevel5Notice", @"CSLLogLevel6Info", @"CSLLogLevel7Debug", nil];
+      NSArray * arrayLogLevel = [NSArray arrayWithObjects:@"Emergency", @"Alert", @"Critical", @"Error", @"Warning", @"Notice", @"Info", @"Debug", nil];
     
     [self.buttonSelectLogLevel removeAllItems];
     [self.buttonSelectLogLevel addItemsWithTitles:arrayLogLevel];
@@ -194,6 +201,7 @@
         [self.textFieldSSTCPPort setStringValue:@""];
         
         self._selectedUserConfig = nil;
+        [self.buttonAddSSAccount setEnabled:NO];
         [self.buttonEditSSAccount setEnabled:NO];
         [self.buttonDeleteSSAccount setEnabled:NO];
         [self.buttonSelectSSAccountList removeAllItems];
@@ -264,6 +272,7 @@
     else
     {
         self._selectedUserConfig = nil;
+        [self.buttonAddSSAccount setEnabled:YES];
         [self.buttonEditSSAccount setEnabled:NO];
         [self.buttonDeleteSSAccount setEnabled:NO];
         [self.buttonSelectSSAccountList removeAllItems];
@@ -310,7 +319,7 @@
 
 - (IBAction)actionSelectLogLevel:(id)sender {
     
-    NSArray * arrayLogLevel = [NSArray arrayWithObjects:@"CSLLogLevel0Emergency", @"CSLLogLevel1Alert", @"CSLLogLevel2Critical", @"CSLLogLevel3Error", @"CSLLogLevel4Warning", @"CSLLogLevel5Notice", @"CSLLogLevel6Info", @"CSLLogLevel7Debug", nil];
+    NSArray * arrayLogLevel = [NSArray arrayWithObjects:@"Emergency", @"Alert", @"Critical", @"Error", @"Warning", @"Notice", @"Info", @"Debug", nil];
 
     
     NSInteger i = [arrayLogLevel indexOfObject:self.buttonSelectLogLevel.titleOfSelectedItem];
@@ -477,7 +486,7 @@
 
     [self sendNewRRMailConfig];
     
-    [self updatePrefPaneInterfaceTimeInterval];
+//    [self updatePrefPaneInterfaceTimeInterval];
 
 }
 
@@ -488,7 +497,7 @@
     
     [self sendNewRRMailConfig];
     
-    [self updatePrefPaneInterfaceTimeInterval];
+//    [self updatePrefPaneInterfaceTimeInterval];
 }
 
 - (void)cancelSourceServerViewController:(AddSourceServerViewController *)controller
@@ -519,20 +528,18 @@
     [self closeSheet];
     [self.confirmDeleteViewController.view removeFromSuperview];
     
-    if (boolValue == YES) {
+    if (boolValue == YES)
+    {
         [[self._rrmailConfig objectForKey:@"serverList"] removeObject:self._selectedServerConfig];
-
     }
     else
     {
-    [[self._selectedServerConfig objectForKey:@"sourceServerAccountList"] removeObject:self._selectedUserConfig];
+        [[self._selectedServerConfig objectForKey:@"sourceServerAccountList"] removeObject:self._selectedUserConfig];
     }
     
     [self sendNewRRMailConfig];
     
-    [self updatePrefPaneInterfaceTimeInterval];
-    
-    
+//    [self updatePrefPaneInterfaceTimeInterval];
 }
 
 - (void)cancelDeleteAccount:(ConfirmDeleteViewController *)controller
@@ -549,6 +556,8 @@
                                                    errorDescription:&stringErr];
     
     NSString *strValue = [NSString stringWithUTF8String:[data bytes]];
+    
+    NSLog(@"Mon dic est : %@", strValue);
     
     // Collect arguments into an array.
     NSMutableArray *args = [NSMutableArray array];

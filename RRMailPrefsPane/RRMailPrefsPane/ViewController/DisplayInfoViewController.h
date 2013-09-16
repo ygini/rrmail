@@ -74,5 +74,7 @@
 - (IBAction)actionDeleteSourceServerAddress:(id)sender;
 - (IBAction)actionDeleteSourceServerAccount:(id)sender;
 
+- (void)updatePrefPaneInterfaceTimeInterval;
+
 
 @end

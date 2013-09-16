@@ -81,7 +81,7 @@
     }
     argv[argvIndex] = nil;
         
-    OSErr processError = AuthorizationExecuteWithPrivileges([[authView authorization] authorizationRef], [@"/Users/florianbonniec/rrmailctl" UTF8String],
+    OSErr processError = AuthorizationExecuteWithPrivileges([[authView authorization] authorizationRef], [@"/usr/bin/rrmailctl/rrmailctl" UTF8String],
                                                             kAuthorizationFlagDefaults, (char *const *)argv, &processOutput);
     free(argv);
     
@@ -98,6 +98,8 @@
     tmpString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
 	fclose(processOutput);
+    
+    [self.displayInfoViewController updatePrefPaneInterfaceTimeInterval];
     
     return tmpString.boolValue;
 }
