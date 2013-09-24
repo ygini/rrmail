@@ -55,27 +55,13 @@
 {
 
     [self.buttonOk setKeyEquivalent:@"\r"];
-//    [self.buttonSSMaxConcurrentOperations removeAllItems];
-//    
-//    for (int i = 1; i <=10; i++) {
-//        [self.buttonSSMaxConcurrentOperations addItemWithTitle:[NSString stringWithFormat:@"%d", i]];
-//    }
-    
+
     [self.buttonSSType removeAllItems];
     [self.buttonSSType addItemWithTitle:@"pop3"];
     [self.buttonSSType addItemWithTitle:@"imap"];
     
     [self.textFieldMaxConcurrentOperations setStringValue:@"10"];
     
-//    NSNumberFormatter * numberFormatter = [[NSNumberFormatter alloc]init];
-//    [numberFormatter setNumberStyle:NSNumberFormatterNoStyle];
-//    //    [numberFormatter setAllowsFloats:NO];
-//    
-//    [self.textFieldMaxConcurrentOperations setFormatter:numberFormatter];
-//    [self.textFieldSSTCPPort setFormatter:numberFormatter];
-    
-    
-//    self.textFieldSSTCPPort.ise
 
     if (self._serverConfig != nil) {
         
@@ -109,6 +95,7 @@
     }
     else
     {
+        [self.textFieldSSTCPPort setStringValue:@"995"];
         [self setCorrectPortUsingSSLConfig];
     }
     
@@ -183,25 +170,25 @@
 
 -(void) setCorrectPortUsingSSLConfig
 {
-//    NSArray * arrayPorts = @[@"110",@"143",@"995",@"993"];
+    NSArray * arrayPorts = @[@"110",@"143",@"995",@"993"];
     
     if (self.checkBoxSSRequireSSL.state == 0)
     {
         if ([self.buttonSSType.selectedItem.title isEqualToString:@"pop3"]) {
             
-//            if (![arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue])
-//            {
-//                return;
-//            }
+            if ([arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue] == NSNotFound)
+            {
+                return;
+            }
             [self.textFieldSSTCPPort setStringValue:@"110"];
 
         }
         else
         {
-//            if (![arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue])
-//            {
-//                return;
-//            }
+            if ([arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue] == NSNotFound)
+            {
+                return;
+            }
             [self.textFieldSSTCPPort setStringValue:@"143"];
 
         }
@@ -209,19 +196,19 @@
     else
     {
         if ([self.buttonSSType.selectedItem.title isEqualToString:@"pop3"]) {
-//            if (![arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue])
-//            {
-//                return;
-//            }
+            if ([arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue] == NSNotFound)
+            {
+                return;
+            }
             [self.textFieldSSTCPPort setStringValue:@"995"];
 
         }
         else
         {
-//            if (![arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue])
-//            {
-//                return;
-//            }
+            if ([arrayPorts indexOfObject:self.textFieldSSTCPPort.stringValue] == NSNotFound)
+            {
+                return;
+            }
             [self.textFieldSSTCPPort setStringValue:@"993"];
 
         }

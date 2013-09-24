@@ -52,6 +52,11 @@
         
         self._rrmailConfig = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/etc/rrmail.plist"];
         
+        [self.checkBoxEnableStartInterval setOnOffSwitchControlColors:OnOffSwitchControlCustomColors];
+        [self.checkBoxEnableStartInterval setOnOffSwitchCustomOnColor:[NSColor magentaColor] offColor:[NSColor orangeColor]];
+        [self.checkBoxEnableStartInterval setOnSwitchLabel:@"YES"];
+        [self.checkBoxEnableStartInterval setOffSwitchLabel:@"NO"];
+        
         [self updatePrefPaneInterfaceTimeInterval];
         
     }
@@ -557,12 +562,12 @@
     
     NSString *strValue = [NSString stringWithUTF8String:[data bytes]];
     
-    NSLog(@"Mon dic est : %@", strValue);
+    NSLog(@"Mon dic est : %@ or error %@", strValue, stringErr);
     
     // Collect arguments into an array.
     NSMutableArray *args = [NSMutableArray array];
     [args addObject:@"-rrmailConfig"];
-    [args addObject:strValue];
+    [args addObject:self._rrmailConfig.description];
     
     [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
 }

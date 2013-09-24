@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C43F541B17F1D09B00FCDF30 /* OnOffSwitchControl.h in Headers */ = {isa = PBXBuildFile; fileRef = C43F541717F1D09B00FCDF30 /* OnOffSwitchControl.h */; };
+		C43F541C17F1D09B00FCDF30 /* OnOffSwitchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C43F541817F1D09B00FCDF30 /* OnOffSwitchControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C43F541D17F1D09B00FCDF30 /* OnOffSwitchControlCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C43F541917F1D09B00FCDF30 /* OnOffSwitchControlCell.h */; };
+		C43F541E17F1D09B00FCDF30 /* OnOffSwitchControlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C43F541A17F1D09B00FCDF30 /* OnOffSwitchControlCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C43F542017F1D20B00FCDF30 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43F541F17F1D20B00FCDF30 /* Carbon.framework */; };
 		C4B71CCD17D4D79100B180EE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B71CCC17D4D79100B180EE /* Cocoa.framework */; };
 		C4B71CCF17D4D79100B180EE /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B71CCE17D4D79100B180EE /* PreferencePanes.framework */; };
 		C4B71CD917D4D79100B180EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4B71CD717D4D79100B180EE /* InfoPlist.strings */; };
@@ -32,6 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C43F541717F1D09B00FCDF30 /* OnOffSwitchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnOffSwitchControl.h; sourceTree = "<group>"; };
+		C43F541817F1D09B00FCDF30 /* OnOffSwitchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControl.m; sourceTree = "<group>"; };
+		C43F541917F1D09B00FCDF30 /* OnOffSwitchControlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnOffSwitchControlCell.h; sourceTree = "<group>"; };
+		C43F541A17F1D09B00FCDF30 /* OnOffSwitchControlCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControlCell.m; sourceTree = "<group>"; };
+		C43F541F17F1D20B00FCDF30 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		C4B71CC917D4D79100B180EE /* RRMailPrefsPane.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RRMailPrefsPane.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B71CCC17D4D79100B180EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C4B71CCE17D4D79100B180EE /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
@@ -68,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C43F542017F1D20B00FCDF30 /* Carbon.framework in Frameworks */,
 				C4B71CEA17D4D7B200B180EE /* Security.framework in Frameworks */,
 				C4B71CEB17D4D7B200B180EE /* SecurityInterface.framework in Frameworks */,
 				C4B71CCD17D4D79100B180EE /* Cocoa.framework in Frameworks */,
@@ -78,6 +89,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C43F541617F1D07100FCDF30 /* OnOffSwitchControl */ = {
+			isa = PBXGroup;
+			children = (
+				C43F541717F1D09B00FCDF30 /* OnOffSwitchControl.h */,
+				C43F541817F1D09B00FCDF30 /* OnOffSwitchControl.m */,
+				C43F541917F1D09B00FCDF30 /* OnOffSwitchControlCell.h */,
+				C43F541A17F1D09B00FCDF30 /* OnOffSwitchControlCell.m */,
+			);
+			name = OnOffSwitchControl;
+			sourceTree = "<group>";
+		};
 		C4B71CBE17D4D79100B180EE = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +120,8 @@
 		C4B71CCB17D4D79100B180EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C43F541617F1D07100FCDF30 /* OnOffSwitchControl */,
+				C43F541F17F1D20B00FCDF30 /* Carbon.framework */,
 				C4B71CCC17D4D79100B180EE /* Cocoa.framework */,
 				C4B71CCE17D4D79100B180EE /* PreferencePanes.framework */,
 				C4B71CE817D4D7B200B180EE /* Security.framework */,
@@ -181,6 +205,8 @@
 				C4B71DA517D8AE6A00B180EE /* AddSourceServerViewController.h in Headers */,
 				C4B71DA717D8AE6A00B180EE /* DisplayInfoViewController.h in Headers */,
 				C4DE4F5C17DF17C600BED91F /* ConfirmDeleteViewController.h in Headers */,
+				C43F541B17F1D09B00FCDF30 /* OnOffSwitchControl.h in Headers */,
+				C43F541D17F1D09B00FCDF30 /* OnOffSwitchControlCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +296,8 @@
 				C4B71DA617D8AE6A00B180EE /* AddSourceServerViewController.m in Sources */,
 				C4B71DA817D8AE6A00B180EE /* DisplayInfoViewController.m in Sources */,
 				C4DE4F5D17DF17C600BED91F /* ConfirmDeleteViewController.m in Sources */,
+				C43F541C17F1D09B00FCDF30 /* OnOffSwitchControl.m in Sources */,
+				C43F541E17F1D09B00FCDF30 /* OnOffSwitchControlCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

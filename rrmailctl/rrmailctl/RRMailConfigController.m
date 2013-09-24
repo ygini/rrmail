@@ -130,10 +130,7 @@
         }
     
 }
-    
 
-    
-  
 }
 
 -(BOOL)checkIfSchedulerIsLoading

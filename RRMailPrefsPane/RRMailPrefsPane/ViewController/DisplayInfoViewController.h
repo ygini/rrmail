@@ -10,6 +10,7 @@
 #import "AddSourceServerViewController.h"
 #import "AddSourceServerAccountViewController.h"
 #import "ConfirmDeleteViewController.h"
+#import "OnOffSwitchControlCell.h"
 
 
 @class DisplayInfoViewController;
@@ -26,7 +27,7 @@
 @property (nonatomic, weak) id <DisplayInfoViewControllerDelegate> delegate;
 
 
-@property (weak) IBOutlet NSButton *checkBoxEnableStartInterval;
+@property (weak) IBOutlet OnOffSwitchControlCell *checkBoxEnableStartInterval;
 - (IBAction)actionEnableStartInterval:(id)sender;
 
 

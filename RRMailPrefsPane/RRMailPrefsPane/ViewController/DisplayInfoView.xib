@@ -48,14 +48,15 @@
 					<object class="NSButton" id="4325062">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{427, 417}, {22, 18}}</string>
+						<string key="NSFrame">{{547, 413}, {100, 27}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="116206100"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="49854130">
 							<int key="NSCellFlags">-2080374784</int>
-							<int key="NSCellFlags2">268435456</int>
+							<int key="NSCellFlags2">0</int>
 							<string key="NSContents"/>
 							<object class="NSFont" key="NSSupport" id="79777872">
 								<string key="NSName">LucidaGrande</string>
@@ -85,7 +86,8 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{427, 355}, {224, 26}}</string>
 						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSNextKeyView" ref="91158198"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="1000283495"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSPopUpButtonCell" key="NSCell" id="417476636">
@@ -160,6 +162,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{429, 253}, {96, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="500354713"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -201,6 +204,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{429, 228}, {96, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="257245585"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -222,6 +226,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{429, 203}, {96, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="362577331"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -243,6 +248,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{429, 178}, {96, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="472602409"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -264,6 +270,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{429, 70}, {219, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="294464918"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -288,6 +295,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{211, 134}, {208, 26}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="799272172"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -357,6 +365,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{29, 206}, {133, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="691139151"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -382,6 +391,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{211, 292}, {208, 26}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="157640667"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -451,6 +461,8 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{429, 20}, {219, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="1006113774">
@@ -471,6 +483,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{429, 45}, {219, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="381651177"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -492,6 +505,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{429, 95}, {219, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="125375778"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -513,6 +527,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{29, 181}, {156, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="129315645"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -533,6 +548,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 360}, {124, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1070603340"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -553,6 +569,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 418}, {211, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="4325062"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -571,14 +588,15 @@
 					<object class="NSTextField" id="689595209">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{429, 387}, {96, 22}}</string>
+						<string key="NSFrame">{{549, 387}, {96, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="1017556146"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="658300986">
 							<int key="NSCellFlags">-1804599231</int>
-							<int key="NSCellFlags2">4195328</int>
+							<int key="NSCellFlags2">71304192</int>
 							<string key="NSContents"/>
 							<reference key="NSSupport" ref="79777872"/>
 							<string key="NSCellIdentifier">_NS:9</string>
@@ -602,6 +620,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{29, 22}, {152, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="334027035"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -622,6 +641,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{29, 47}, {152, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="770872199"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -642,6 +662,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{29, 72}, {161, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="448882762"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -662,6 +683,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{29, 97}, {137, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1000392334"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -682,6 +704,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 139}, {153, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="257367116"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -702,6 +725,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{29, 231}, {277, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="631625106"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -722,6 +746,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{29, 256}, {175, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="372764611"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -737,35 +762,12 @@
 						</object>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 					</object>
-					<object class="NSTextField" id="817906968">
-						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{274, 465}, {121, 17}}</string>
-						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSNextKeyView" ref="1017556146"/>
-						<string key="NSReuseIdentifierKey">_NS:1535</string>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="995090160">
-							<int key="NSCellFlags">68157504</int>
-							<int key="NSCellFlags2">138413056</int>
-							<string key="NSContents">RRMail Settings</string>
-							<object class="NSFont" key="NSSupport">
-								<string key="NSName">LucidaGrande-Bold</string>
-								<double key="NSSize">13</double>
-								<int key="NSfFlags">16</int>
-							</object>
-							<string key="NSCellIdentifier">_NS:1535</string>
-							<reference key="NSControlView" ref="817906968"/>
-							<reference key="NSBackgroundColor" ref="314080096"/>
-							<reference key="NSTextColor" ref="166060789"/>
-						</object>
-						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
-					</object>
 					<object class="NSTextField" id="1000283495">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 297}, {153, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="270336962"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -786,6 +788,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 390}, {189, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="689595209"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -806,6 +809,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{574, 130}, {80, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="445143357"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -830,6 +834,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{498, 130}, {80, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="747828208"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -854,6 +859,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{574, 288}, {80, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="743038910"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -878,6 +884,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{423, 130}, {80, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="106740476"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -902,6 +909,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{423, 288}, {80, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="146688792"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -926,6 +934,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{498, 288}, {80, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="617678824"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -946,9 +955,10 @@
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 					</object>
 				</array>
-				<string key="NSFrameSize">{668, 482}</string>
+				<string key="NSFrameSize">{668, 492}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSNextKeyView" ref="817906968"/>
+				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="91158198"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 		</array>
@@ -1239,6 +1249,7 @@
 							<reference ref="617678824"/>
 							<reference ref="106740476"/>
 							<reference ref="747828208"/>
+							<reference ref="116206100"/>
 							<reference ref="1000283495"/>
 							<reference ref="743038910"/>
 							<reference ref="500354713"/>
@@ -1247,6 +1258,8 @@
 							<reference ref="125375778"/>
 							<reference ref="294464918"/>
 							<reference ref="381651177"/>
+							<reference ref="91158198"/>
+							<reference ref="1017556146"/>
 							<reference ref="362577331"/>
 							<reference ref="1000392334"/>
 							<reference ref="770872199"/>
@@ -1259,13 +1272,9 @@
 							<reference ref="691139151"/>
 							<reference ref="631625106"/>
 							<reference ref="372764611"/>
-							<reference ref="817906968"/>
-							<reference ref="1017556146"/>
-							<reference ref="1070603340"/>
-							<reference ref="116206100"/>
 							<reference ref="689595209"/>
-							<reference ref="91158198"/>
 							<reference ref="4325062"/>
+							<reference ref="1070603340"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1314,14 +1323,6 @@
 						<reference key="object" ref="1000283495"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="691086731"/>
-						</array>
-						<reference key="parent" ref="1005"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">388</int>
-						<reference key="object" ref="817906968"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="995090160"/>
 						</array>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -1590,11 +1591,6 @@
 						<reference key="parent" ref="743038910"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">451</int>
-						<reference key="object" ref="995090160"/>
-						<reference key="parent" ref="817906968"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">452</int>
 						<reference key="object" ref="691086731"/>
 						<reference key="parent" ref="1000283495"/>
@@ -1795,7 +1791,6 @@
 				<string key="385.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="386.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="387.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="388.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="389.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="390.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="391.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1836,7 +1831,6 @@
 				<string key="448.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="449.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="450.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="451.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="452.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="453.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="454.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1865,16 +1859,373 @@
 				<string key="770.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="774.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="777.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="780.CustomClassName">OnOffSwitchControl</string>
 				<string key="780.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="781.CustomClassName">OnOffSwitchControlCell</string>
 				<string key="781.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">784</int>
+			<int key="maxID">786</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">AddSourceServerAccountViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="actionAddSourceServerAccount:">id</string>
+						<string key="actionCancel:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="actionAddSourceServerAccount:">
+							<string key="name">actionAddSourceServerAccount:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionCancel:">
+							<string key="name">actionCancel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="buttonOk">NSButton</string>
+						<string key="textFieldSSLogin">NSTextField</string>
+						<string key="textFieldSSPassword">NSSecureTextField</string>
+						<string key="textFieldTSAccount">NSTextField</string>
+						<string key="textFieldTSAddress">NSTextField</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="buttonOk">
+							<string key="name">buttonOk</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldSSLogin">
+							<string key="name">textFieldSSLogin</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldSSPassword">
+							<string key="name">textFieldSSPassword</string>
+							<string key="candidateClassName">NSSecureTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldTSAccount">
+							<string key="name">textFieldTSAccount</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldTSAddress">
+							<string key="name">textFieldTSAddress</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/AddSourceServerAccountViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">AddSourceServerViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="actionAddSourceServer:">id</string>
+						<string key="actionCancel:">id</string>
+						<string key="actionConfigSSLPort:">id</string>
+						<string key="actionConfigSSType:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="actionAddSourceServer:">
+							<string key="name">actionAddSourceServer:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionCancel:">
+							<string key="name">actionCancel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionConfigSSLPort:">
+							<string key="name">actionConfigSSLPort:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionConfigSSType:">
+							<string key="name">actionConfigSSType:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="buttonOk">NSButton</string>
+						<string key="buttonSSType">NSPopUpButton</string>
+						<string key="checkBoxSSRequireSSL">NSButton</string>
+						<string key="textFieldMaxConcurrentOperations">NSTextField</string>
+						<string key="textFieldSSAddress">NSTextField</string>
+						<string key="textFieldSSTCPPort">NSTextField</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="buttonOk">
+							<string key="name">buttonOk</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonSSType">
+							<string key="name">buttonSSType</string>
+							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="checkBoxSSRequireSSL">
+							<string key="name">checkBoxSSRequireSSL</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldMaxConcurrentOperations">
+							<string key="name">textFieldMaxConcurrentOperations</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldSSAddress">
+							<string key="name">textFieldSSAddress</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldSSTCPPort">
+							<string key="name">textFieldSSTCPPort</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/AddSourceServerViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ConfirmDeleteViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="actionCancel:">id</string>
+						<string key="actionDelete:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="actionCancel:">
+							<string key="name">actionCancel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionDelete:">
+							<string key="name">actionDelete:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">buttonOk</string>
+						<string key="NS.object.0">NSButton</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">buttonOk</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">buttonOk</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ConfirmDeleteViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">DisplayInfoViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="actionDeleteSourceServerAccount:">id</string>
+						<string key="actionDeleteSourceServerAddress:">id</string>
+						<string key="actionEnableStartInterval:">id</string>
+						<string key="actionSelectLogLevel:">id</string>
+						<string key="actionSelectSourceServerAccount:">id</string>
+						<string key="actionSelectSourceServerAddres:">id</string>
+						<string key="actionSetTimeInterval:">id</string>
+						<string key="goAddSourceServerView:">id</string>
+						<string key="goAddSoureServerAccountView:">id</string>
+						<string key="goEditSourceServerAccountView:">id</string>
+						<string key="goEditSourceServerView:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="actionDeleteSourceServerAccount:">
+							<string key="name">actionDeleteSourceServerAccount:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionDeleteSourceServerAddress:">
+							<string key="name">actionDeleteSourceServerAddress:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionEnableStartInterval:">
+							<string key="name">actionEnableStartInterval:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionSelectLogLevel:">
+							<string key="name">actionSelectLogLevel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionSelectSourceServerAccount:">
+							<string key="name">actionSelectSourceServerAccount:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionSelectSourceServerAddres:">
+							<string key="name">actionSelectSourceServerAddres:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="actionSetTimeInterval:">
+							<string key="name">actionSetTimeInterval:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="goAddSourceServerView:">
+							<string key="name">goAddSourceServerView:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="goAddSoureServerAccountView:">
+							<string key="name">goAddSoureServerAccountView:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="goEditSourceServerAccountView:">
+							<string key="name">goEditSourceServerAccountView:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="goEditSourceServerView:">
+							<string key="name">goEditSourceServerView:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="addSSAccountViewController">AddSourceServerAccountViewController</string>
+						<string key="addSSViewController">AddSourceServerViewController</string>
+						<string key="buttonAddSSAccount">NSButton</string>
+						<string key="buttonAddSSAddress">NSButton</string>
+						<string key="buttonDeleteSSAccount">NSButton</string>
+						<string key="buttonDeleteSSAddress">NSButton</string>
+						<string key="buttonEditSSAccount">NSButton</string>
+						<string key="buttonEditSSAddress">NSButton</string>
+						<string key="buttonSelectLogLevel">NSPopUpButton</string>
+						<string key="buttonSelectSSAccountList">NSPopUpButton</string>
+						<string key="buttonSelectSSAddress">NSPopUpButton</string>
+						<string key="buttonSetTimeInterval">NSButton</string>
+						<string key="checkBoxEnableStartInterval">OnOffSwitchControlCell</string>
+						<string key="confirmDeleteViewController">ConfirmDeleteViewController</string>
+						<string key="textFieldSSLogin">NSTextField</string>
+						<string key="textFieldSSMaxConcurrentOperations">NSTextField</string>
+						<string key="textFieldSSPassword">NSSecureTextField</string>
+						<string key="textFieldSSRequireSSL">NSTextField</string>
+						<string key="textFieldSSTCPPort">NSTextField</string>
+						<string key="textFieldSSType">NSTextField</string>
+						<string key="textFieldTSAccount">NSTextField</string>
+						<string key="textFieldTSAddress">NSTextField</string>
+						<string key="textFieldTimeInterval">NSTextField</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="addSSAccountViewController">
+							<string key="name">addSSAccountViewController</string>
+							<string key="candidateClassName">AddSourceServerAccountViewController</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="addSSViewController">
+							<string key="name">addSSViewController</string>
+							<string key="candidateClassName">AddSourceServerViewController</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonAddSSAccount">
+							<string key="name">buttonAddSSAccount</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonAddSSAddress">
+							<string key="name">buttonAddSSAddress</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonDeleteSSAccount">
+							<string key="name">buttonDeleteSSAccount</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonDeleteSSAddress">
+							<string key="name">buttonDeleteSSAddress</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonEditSSAccount">
+							<string key="name">buttonEditSSAccount</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonEditSSAddress">
+							<string key="name">buttonEditSSAddress</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonSelectLogLevel">
+							<string key="name">buttonSelectLogLevel</string>
+							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonSelectSSAccountList">
+							<string key="name">buttonSelectSSAccountList</string>
+							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonSelectSSAddress">
+							<string key="name">buttonSelectSSAddress</string>
+							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonSetTimeInterval">
+							<string key="name">buttonSetTimeInterval</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="checkBoxEnableStartInterval">
+							<string key="name">checkBoxEnableStartInterval</string>
+							<string key="candidateClassName">OnOffSwitchControlCell</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="confirmDeleteViewController">
+							<string key="name">confirmDeleteViewController</string>
+							<string key="candidateClassName">ConfirmDeleteViewController</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldSSLogin">
+							<string key="name">textFieldSSLogin</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldSSMaxConcurrentOperations">
+							<string key="name">textFieldSSMaxConcurrentOperations</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldSSPassword">
+							<string key="name">textFieldSSPassword</string>
+							<string key="candidateClassName">NSSecureTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldSSRequireSSL">
+							<string key="name">textFieldSSRequireSSL</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldSSTCPPort">
+							<string key="name">textFieldSSTCPPort</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldSSType">
+							<string key="name">textFieldSSType</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldTSAccount">
+							<string key="name">textFieldTSAccount</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldTSAddress">
+							<string key="name">textFieldTSAddress</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textFieldTimeInterval">
+							<string key="name">textFieldTimeInterval</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DisplayInfoViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">OnOffSwitchControl</string>
+					<string key="superclassName">NSButton</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/OnOffSwitchControl.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">OnOffSwitchControlCell</string>
+					<string key="superclassName">NSButtonCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/OnOffSwitchControlCell.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">

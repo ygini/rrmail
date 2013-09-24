@@ -20,8 +20,10 @@ int main(int argc, const char * argv[])
         
         // Update Scheduler
         NSString * intervalTime = [arguments objectForKey:@"intervalTime"];
-        if (intervalTime) {
+        if (intervalTime)
+        {
             [[RRMailConfigController sharedInstance]setCheckMailIntervalTime:intervalTime.intValue];
+            return 0;
         }
         
         // Update RRMailConfig
@@ -29,17 +31,21 @@ int main(int argc, const char * argv[])
         if (serverConfig)
         {
             [[RRMailConfigController sharedInstance]updateRRMailConfig:serverConfig];
+            return 0;
         }
         
         // LoadUnload Sheduler
         NSString * strLoadUnloadScheduler = [arguments objectForKey:@"luScheduler"];
-        if (strLoadUnloadScheduler) {
+        if (strLoadUnloadScheduler)
+        {
             [[RRMailConfigController sharedInstance]loadUnloadSchedulerWithInit:strLoadUnloadScheduler.intValue];
+            return 0;
         }
         
         // LoadUnload Sheduler
         NSString * strCheckSchedulerLoading = [arguments objectForKey:@"checkSchedulerLoading"];
-        if (strCheckSchedulerLoading) {
+        if (strCheckSchedulerLoading)
+        {
            BOOL isLoading = [[RRMailConfigController sharedInstance]checkIfSchedulerIsLoading];
             
             if (isLoading == YES) {
@@ -51,12 +57,15 @@ int main(int argc, const char * argv[])
                 NSLog(@"NO");
                 printf("NO");
             }
+            return 0;
         }
         
         // Create RRMailConfig File createRRMailConfigFile
         NSString * strCreateRRMailConfigFile = [arguments objectForKey:@"createRRMailConfigFile"];
-        if (strCreateRRMailConfigFile) {
+        if (strCreateRRMailConfigFile)
+        {
             [[RRMailConfigController sharedInstance]createRRMailConfigFile];
+            return 0;
         }
         
     }
