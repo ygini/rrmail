@@ -27,6 +27,11 @@ const NSString * kRRMTargetServerAccountKey							= @"targetServerAccount";
 const NSString * kRRMTargetServerKey								= @"targetServer"; // Optional, default localhost
 
 
+const NSString * kRRMLaunchdJobLabel								= @"com.rrmail.scheduler";
+const NSString * kRRMServiceFullPath								= @"/usr/local/bin/rrmail";
+
+const NSString * kRRMServiceConfigPath								= @"/etc/rrmail.plist";
+
 // Error configuration plist
 
 const NSString * kRRMErrorSourceServerTypeKey                       = @"kRRMErrorSourceServerTypeKey";

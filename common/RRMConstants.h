@@ -41,6 +41,10 @@ extern const NSString * kRRMSourceServerPasswordKey;
 extern const NSString * kRRMTargetServerAccountKey;
 extern const NSString * kRRMTargetServerKey; // Optional, default localhost
 
+extern const NSString * kRRMLaunchdJobLabel;
+extern const NSString * kRRMServiceFullPath;
+
+extern const NSString * kRRMServiceConfigPath;
 
 // Error configuration plist
 
