@@ -45,6 +45,7 @@ extern const NSString * kRRMLaunchdJobLabel;
 extern const NSString * kRRMServiceFullPath;
 
 extern const NSString * kRRMServiceConfigPath;
+extern const NSString * kRRMCommandLineFullPath;
 
 // Error configuration plist
 

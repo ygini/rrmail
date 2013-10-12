@@ -16,8 +16,7 @@
 @class DisplayInfoViewController;
 
 @protocol DisplayInfoViewControllerDelegate <NSObject>
-- (BOOL)displayInfoViewController:(DisplayInfoViewController *)controller callRRMailConfigWithParameters:(NSMutableArray *)parameters;
-
+- (void)runRrmailctlWithArguments:(NSArray*)arguments dataForSTDIN:(NSData*)stdinData andReturnSTDOUT:(NSData**)stdoutData;
 @end
 
 @interface DisplayInfoViewController : NSViewController <AddSourceServerViewControllerDelegate, AddSourceServerAccountViewControllerDelegate, ConfirmDeleteViewControllerDelegate, NSTextFieldDelegate>

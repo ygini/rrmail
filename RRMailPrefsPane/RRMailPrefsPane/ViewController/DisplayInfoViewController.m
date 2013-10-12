@@ -43,15 +43,24 @@
         [self.textFieldTSAccount setEditable:NO];
         [self.textFieldTSAddress setEditable:NO];
         
-        self.addSSViewController = [[AddSourceServerViewController alloc] initWithNibName:@"AddSourceServerView" bundle:[NSBundle bundleWithIdentifier:@"com.florianbonniec.RRMailPrefsPane"]];
-        self.addSSAccountViewController = [[AddSourceServerAccountViewController alloc] initWithNibName:@"AddSourceServerAccountView" bundle:[NSBundle bundleWithIdentifier:@"com.florianbonniec.RRMailPrefsPane"]];
+        self.addSSViewController = [[AddSourceServerViewController alloc] initWithNibName:@"AddSourceServerView" bundle:[NSBundle bundleWithIdentifier:@"com.inig-services.RRMailPrefsPane"]];
+        self.addSSAccountViewController = [[AddSourceServerAccountViewController alloc] initWithNibName:@"AddSourceServerAccountView" bundle:[NSBundle bundleWithIdentifier:@"com.inig-services.RRMailPrefsPane"]];
         
-        self.confirmDeleteViewController = [[ConfirmDeleteViewController alloc] initWithNibName:@"ConfirmDeleteViewController" bundle:[NSBundle bundleWithIdentifier:@"com.florianbonniec.RRMailPrefsPane"]];
+        self.confirmDeleteViewController = [[ConfirmDeleteViewController alloc] initWithNibName:@"ConfirmDeleteViewController" bundle:[NSBundle bundleWithIdentifier:@"com.inig-services.RRMailPrefsPane"]];
         
         self.windowSheet = [[NSWindow alloc]init];
-        
-        self._rrmailConfig = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/etc/rrmail.plist"];
-        
+		
+		NSData *commandData = nil;
+		[self.delegate runRrmailctlWithArguments:@[@"--rrmailConfig"] dataForSTDIN:nil andReturnSTDOUT:&commandData];
+		self._rrmailConfig = [NSPropertyListSerialization propertyListFromData:commandData
+															  mutabilityOption:NSPropertyListMutableContainersAndLeaves
+																		format:NULL
+															  errorDescription:nil];
+		
+		if (!self._rrmailConfig) {
+			self._rrmailConfig = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"rrmailconfig" ofType:@"plist"]];
+		}
+		
         [self.checkBoxEnableStartInterval setOnOffSwitchControlColors:OnOffSwitchControlCustomColors];
         [self.checkBoxEnableStartInterval setOnOffSwitchCustomOnColor:[NSColor magentaColor] offColor:[NSColor orangeColor]];
         [self.checkBoxEnableStartInterval setOnSwitchLabel:@"YES"];
@@ -101,19 +110,11 @@
     [self.textFieldTimeInterval setAction:@selector(actionSetTimeInterval:)];
     
     if (boolValue == YES) {
-        
-        if (!self._rrmailConfig)
-        {
-            [self createRRMailConfigFile];
-            self._rrmailConfig = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/etc/rrmail.plist"];
-        }
-        
-        // Collect arguments into an array.
-        NSMutableArray *args = [NSMutableArray array];
-        [args addObject:@"-checkSchedulerLoading"];
-        [args addObject:@"1"];
-        
-        if ([self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args] == YES)
+		NSData *stdoutData = nil;
+		[self.delegate runRrmailctlWithArguments:@[@"-s"] dataForSTDIN:nil andReturnSTDOUT:&stdoutData];
+		NSString *state = [NSString stringWithCString:[stdoutData bytes] encoding:NSUTF8StringEncoding];
+
+        if ([@"online" isEqualToString:state])
         {
             [self.checkBoxEnableStartInterval setState:1];
         }
@@ -131,31 +132,27 @@
 
 - (void)updatePrefPaneInterfaceTimeInterval
 {
-
-    self._rrmailConfig = nil;
+	NSString *errorString = nil;
+	NSData *commandData = nil;
+	[self.delegate runRrmailctlWithArguments:@[@"--rrmailConfig"] dataForSTDIN:nil andReturnSTDOUT:&commandData];
+	
+	self._rrmailConfig = [NSPropertyListSerialization propertyListFromData:commandData
+									 mutabilityOption:NSPropertyListMutableContainersAndLeaves
+											   format:NULL
+									 errorDescription:&errorString];
+	
+	if (!self._rrmailConfig) {
+		self._rrmailConfig = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"rrmailconfig" ofType:@"plist"]];
+	}
+	
     self._selectedServerConfig = nil;
     self._selectedUserConfig = nil;
     
-    self._rrmailConfig = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/etc/rrmail.plist"];
-
+	[self.delegate runRrmailctlWithArguments:@[@"-i"] dataForSTDIN:nil andReturnSTDOUT:&commandData];
+	if (commandData) [self.textFieldTimeInterval setStringValue:[NSString stringWithCString:[commandData bytes] encoding:NSUTF8StringEncoding]];
     
     //
-    NSError *error = nil;
-    NSString *stringPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSLocalDomainMask, YES)objectAtIndex:0];
-    NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/LaunchDaemons", stringPath]  error:&error];
-    
-    if ([filePathsArray indexOfObject:@"com.rrmail.scheduler.plist"] != NSNotFound) {
-        
-        NSString *path = [NSString stringWithFormat:@"%@/LaunchDaemons/com.rrmail.scheduler.plist", stringPath];
-        NSMutableDictionary *savedStock = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-        
-        NSNumber * startInterval = [savedStock valueForKey:@"StartInterval"];
-        
-        [self.textFieldTimeInterval setStringValue:startInterval.stringValue];
-    }
-    
-    //
-      NSArray * arrayLogLevel = [NSArray arrayWithObjects:@"Emergency", @"Alert", @"Critical", @"Error", @"Warning", @"Notice", @"Info", @"Debug", nil];
+	NSArray * arrayLogLevel = [NSArray arrayWithObjects:@"Emergency", @"Alert", @"Critical", @"Error", @"Warning", @"Notice", @"Info", @"Debug", nil];
     
     [self.buttonSelectLogLevel removeAllItems];
     [self.buttonSelectLogLevel addItemsWithTitles:arrayLogLevel];
@@ -314,12 +311,7 @@
 
 - (IBAction)actionSetTimeInterval:(id)sender
 {
-    // Collect arguments into an array.
-    NSMutableArray *args = [NSMutableArray array];
-    [args addObject:@"-intervalTime"];
-    [args addObject:self.textFieldTimeInterval.stringValue];
-    
-    [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
+    [self.delegate runRrmailctlWithArguments:@[@"-I", self.textFieldTimeInterval.stringValue] dataForSTDIN:nil andReturnSTDOUT:nil];
 }
 
 - (IBAction)actionSelectLogLevel:(id)sender {
@@ -559,27 +551,16 @@
     NSData *data =[NSPropertyListSerialization dataFromPropertyList:self._rrmailConfig
                                                              format:NSPropertyListXMLFormat_v1_0
                                                    errorDescription:&stringErr];
-    
-    NSString *strValue = [NSString stringWithUTF8String:[data bytes]];
-    
-    NSLog(@"Mon dic est : %@ or error %@", strValue, stringErr);
-    
-    // Collect arguments into an array.
-    NSMutableArray *args = [NSMutableArray array];
-    [args addObject:@"-rrmailConfig"];
-    [args addObject:self._rrmailConfig.description];
-    
-    [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
+    [self.delegate runRrmailctlWithArguments:@[@"--updateRrmailConfig"] dataForSTDIN:data andReturnSTDOUT:nil];
 }
 
 - (IBAction)actionEnableStartInterval:(id)sender {
-    
-    // Collect arguments into an array.
-    NSMutableArray *args = [NSMutableArray array];
-    [args addObject:@"-luScheduler"];
-    [args addObject:[NSString stringWithFormat:@"%d",[NSNumber numberWithInteger:[self.checkBoxEnableStartInterval state]].intValue]];
-    
-    [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
+	if (NSOnState == [self.checkBoxEnableStartInterval state]) {
+		[self.delegate runRrmailctlWithArguments:@[@"-l"] dataForSTDIN:nil andReturnSTDOUT:nil];
+	}
+	else {
+		[self.delegate runRrmailctlWithArguments:@[@"-u"] dataForSTDIN:nil andReturnSTDOUT:nil];
+	}
 }
 
 - (void)controlTextDidChange:(NSNotification *)notification {
@@ -603,16 +584,6 @@
         }
     }
     [textField setStringValue:strippedString];
-}
-
-- (void)createRRMailConfigFile
-{
-    // Collect arguments into an array.
-    NSMutableArray *args = [NSMutableArray array];
-    [args addObject:@"-createRRMailConfigFile"];
-    [args addObject:@"1"];
-    
-    [self.delegate displayInfoViewController:self callRRMailConfigWithParameters:args];
 }
 
 @end

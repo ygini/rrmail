@@ -26,15 +26,15 @@
 - (void)mainViewDidLoad
 {
     
-    self.displayInfoViewController = [[DisplayInfoViewController alloc] initWithNibName:@"DisplayInfoView" bundle:[NSBundle bundleWithIdentifier:@"com.florianbonniec.RRMailPrefsPane"]];
+    self.displayInfoViewController = [[DisplayInfoViewController alloc] initWithNibName:@"DisplayInfoView" bundle:[NSBundle bundleWithIdentifier:@"com.inig-services.RRMailPrefsPane"]];
     [self.displayInfoViewController setDelegate:self];
     
     [self.mainView addSubview:self.displayInfoViewController.view];
     [self.displayInfoViewController.view setFrame:NSRectFromCGRect(CGRectMake(0, 40, self.displayInfoViewController.view.frame.size.width, self.displayInfoViewController.view.frame.size.height))];
     
     
-    self.addSSViewController = [[AddSourceServerViewController alloc] initWithNibName:@"AddSourceServerView" bundle:[NSBundle bundleWithIdentifier:@"com.florianbonniec.RRMailPrefsPane"]];
-    self.addSSAccountViewController = [[AddSourceServerAccountViewController alloc] initWithNibName:@"AddSourceServerAccountView" bundle:[NSBundle bundleWithIdentifier:@"com.florianbonniec.RRMailPrefsPane"]];
+    self.addSSViewController = [[AddSourceServerViewController alloc] initWithNibName:@"AddSourceServerView" bundle:[NSBundle bundleWithIdentifier:@"com.inig-services.RRMailPrefsPane"]];
+    self.addSSAccountViewController = [[AddSourceServerAccountViewController alloc] initWithNibName:@"AddSourceServerAccountView" bundle:[NSBundle bundleWithIdentifier:@"com.inig-services.RRMailPrefsPane"]];
     
     self.windowSheet = [[NSWindow alloc]init];
     
@@ -68,46 +68,39 @@
     [self.displayInfoViewController enableOrDisableAllButton:[self isUnlocked]];
 }
 
-- (BOOL)callRRMailConfigWithParameters:(NSMutableArray *)args
+- (void)runRrmailctlWithArguments:(NSArray*)arguments dataForSTDIN:(NSData*)stdinData andReturnSTDOUT:(NSData**)stdoutData
 {
-	FILE *processOutput;
-
-    // Convert array into void-* array.
-    const char **argv = (const char **)malloc(sizeof(char *) * [args count] + 1);
+	FILE *commandSTDInAndOut = 0;
+	
+	OSErr processError =  errAuthorizationSuccess;
+	
+	// Convert array into void-* array.
+    const char **argv = (const char **)malloc(sizeof(char *) * [arguments count] + 1);
     int argvIndex = 0;
-    for (NSString *string in args) {
+    for (NSString *string in arguments) {
         argv[argvIndex] = [string UTF8String];
         argvIndex++;
     }
     argv[argvIndex] = nil;
-        
-    OSErr processError = AuthorizationExecuteWithPrivileges([[authView authorization] authorizationRef], [@"/usr/bin/rrmailctl/rrmailctl" UTF8String],
-                                                            kAuthorizationFlagDefaults, (char *const *)argv, &processOutput);
+	
+	processError = AuthorizationExecuteWithPrivileges([[authView authorization] authorizationRef], [kRRMCommandLineFullPath UTF8String],
+                                                            kAuthorizationFlagDefaults, (char *const *)argv, &commandSTDInAndOut);
     free(argv);
-    
-    if (processError != errAuthorizationSuccess)
-        NSLog(@"Error: %d", processError);
-    
-
-    // Setup the two-way pipe.
-    NSFileHandle * helperHandle = [[NSFileHandle alloc] initWithFileDescriptor:fileno(processOutput)];
-    NSData *data = [helperHandle readDataToEndOfFile];
-    NSString * tmpString;
-    
-    // Convert the data into a string.
-    tmpString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-	fclose(processOutput);
-    
-    [self.displayInfoViewController updatePrefPaneInterfaceTimeInterval];
-    
-    return tmpString.boolValue;
+	
+	if (processError != errAuthorizationSuccess) {
+		NSLog(@"Error returned by AuthorizationExecuteWithPrivileges: %d", processError);
+	}
+	else {
+		NSFileHandle * twoWayFileHandle = [[NSFileHandle alloc] initWithFileDescriptor:fileno(commandSTDInAndOut) closeOnDealloc:YES];
+		
+		if (stdinData) {
+			[twoWayFileHandle writeData:stdinData];
+		}
+		else if (stdoutData) {
+			*stdoutData = [twoWayFileHandle readDataToEndOfFile];
+		}
+		twoWayFileHandle = nil;
+	}
 }
-
-- (BOOL)displayInfoViewController:(DisplayInfoViewController *)controller callRRMailConfigWithParameters:(NSMutableArray *)parameters
-{
-    return [self callRRMailConfigWithParameters:parameters];
-}
-
 
 @end
