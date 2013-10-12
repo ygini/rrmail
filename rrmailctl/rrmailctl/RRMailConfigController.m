@@ -156,6 +156,11 @@
 		return EXIT_SUCCESS;
 	}
 	
+	if (self.status) {
+		[self printStatus];
+		return EXIT_SUCCESS;
+	}
+	
 	if (self.startInterval) {
 		printf("%li\n", (long)[self currentIntervalTime]);
 		printHelp = NO;
@@ -283,6 +288,16 @@
 	[[NSFileManager defaultManager]setAttributes:@{NSFilePosixPermissions: @0600}
 									ofItemAtPath:(NSString*)kRRMServiceConfigPath
 										   error:&err];
+}
+
+-(void)printStatus
+{
+	if ([self serviceIsLoaded]) {
+		printf("online\n");
+	}
+	else {
+		printf("offline\n");
+	}
 }
 
 
