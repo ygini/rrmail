@@ -39,7 +39,7 @@ int main(int argc, const char * argv[])
 
         }
 		
-		[[CocoaSyslog sharedInstance] messageLevel6Info:@"Process did end, application gonna terminate"];
+		[[CocoaSyslog sharedInstance] messageLevel6Info:@"Process did end, application will terminate"];
 		
 		[[CocoaSyslog sharedInstance] closeLog];
         
