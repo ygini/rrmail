@@ -11,6 +11,13 @@
 		C4B71D1017D61B3A00B180EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B71D0F17D61B3A00B180EE /* main.m */; };
 		C4B71D1417D61B3A00B180EE /* ConfigureRRMail.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4B71D1317D61B3A00B180EE /* ConfigureRRMail.1 */; };
 		C4B71D1C17D6226500B180EE /* RRMailConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B71D1B17D6226500B180EE /* RRMailConfigController.m */; };
+		E15DB8831809371300CE1FCA /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAA9E1809370800CE1FCA /* DDCliApplication.m */; };
+		E15DB8841809371300CE1FCA /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAAA01809370800CE1FCA /* DDCliParseException.m */; };
+		E15DB8851809371300CE1FCA /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAAA21809370800CE1FCA /* DDCliUtil.m */; };
+		E15DB8861809371300CE1FCA /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAAA51809370800CE1FCA /* DDGetoptLongParser.m */; };
+		E16BC8E918093F1300DC528C /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16BC8E818093F1300DC528C /* ServiceManagement.framework */; };
+		E16BC8ED18096AAE00DC528C /* RRMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E16BC8EC18096AAE00DC528C /* RRMConstants.m */; };
+		E16BC8FA18096F4A00DC528C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16BC8F918096F4A00DC528C /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +44,20 @@
 		C4FE7CE117E0DF2700376319 /* LoadRRMailScheduler.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = LoadRRMailScheduler.command; path = rrmailctl/LoadRRMailScheduler.command; sourceTree = "<group>"; };
 		C4FE7CE217E0DF2700376319 /* UnLoadRRMailScheduler.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = UnLoadRRMailScheduler.command; path = rrmailctl/UnLoadRRMailScheduler.command; sourceTree = "<group>"; };
 		C4FE7D1B17E213EE00376319 /* CheckSchedulerLoading.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = CheckSchedulerLoading.command; path = rrmailctl/CheckSchedulerLoading.command; sourceTree = "<group>"; };
+		E15DAA9D1809370800CE1FCA /* DDCliApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliApplication.h; sourceTree = "<group>"; };
+		E15DAA9E1809370800CE1FCA /* DDCliApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliApplication.m; sourceTree = "<group>"; };
+		E15DAA9F1809370800CE1FCA /* DDCliParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliParseException.h; sourceTree = "<group>"; };
+		E15DAAA01809370800CE1FCA /* DDCliParseException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliParseException.m; sourceTree = "<group>"; };
+		E15DAAA11809370800CE1FCA /* DDCliUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliUtil.h; sourceTree = "<group>"; };
+		E15DAAA21809370800CE1FCA /* DDCliUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliUtil.m; sourceTree = "<group>"; };
+		E15DAAA31809370800CE1FCA /* DDCommandLineInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCommandLineInterface.h; sourceTree = "<group>"; };
+		E15DAAA41809370800CE1FCA /* DDGetoptLongParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDGetoptLongParser.h; sourceTree = "<group>"; };
+		E15DAAA51809370800CE1FCA /* DDGetoptLongParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLongParser.m; sourceTree = "<group>"; };
+		E16BC8E718093A3B00DC528C /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		E16BC8E818093F1300DC528C /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		E16BC8EB18096AAE00DC528C /* RRMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMConstants.h; sourceTree = "<group>"; };
+		E16BC8EC18096AAE00DC528C /* RRMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMConstants.m; sourceTree = "<group>"; };
+		E16BC8F918096F4A00DC528C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E16BC8FA18096F4A00DC528C /* Security.framework in Frameworks */,
+				E16BC8E918093F1300DC528C /* ServiceManagement.framework in Frameworks */,
 				C4B71D0D17D61B3A00B180EE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,6 +77,8 @@
 		C4B71D0017D61B3A00B180EE = {
 			isa = PBXGroup;
 			children = (
+				E16BC8EA18096AAE00DC528C /* common */,
+				E15DAA741809370700CE1FCA /* vendors */,
 				C4B71D0E17D61B3A00B180EE /* rrmailctl */,
 				C4FE7D1B17E213EE00376319 /* CheckSchedulerLoading.command */,
 				C4FE7CE117E0DF2700376319 /* LoadRRMailScheduler.command */,
@@ -74,6 +99,8 @@
 		C4B71D0B17D61B3A00B180EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E16BC8F918096F4A00DC528C /* Security.framework */,
+				E16BC8E818093F1300DC528C /* ServiceManagement.framework */,
 				C4B71D0C17D61B3A00B180EE /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -85,6 +112,7 @@
 				C4B71D1A17D6226500B180EE /* RRMailConfigController.h */,
 				C4B71D1B17D6226500B180EE /* RRMailConfigController.m */,
 				C4B71D0F17D61B3A00B180EE /* main.m */,
+				E16BC8E718093A3B00DC528C /* Config.xcconfig */,
 				C4B71D1317D61B3A00B180EE /* ConfigureRRMail.1 */,
 				C4B71D1117D61B3A00B180EE /* Supporting Files */,
 			);
@@ -97,6 +125,49 @@
 				C4B71D1217D61B3A00B180EE /* rrmailctl-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E15DAA741809370700CE1FCA /* vendors */ = {
+			isa = PBXGroup;
+			children = (
+				E15DAA8F1809370700CE1FCA /* ddcli */,
+			);
+			name = vendors;
+			path = ../vendors;
+			sourceTree = "<group>";
+		};
+		E15DAA8F1809370700CE1FCA /* ddcli */ = {
+			isa = PBXGroup;
+			children = (
+				E15DAA9C1809370800CE1FCA /* lib */,
+			);
+			path = ddcli;
+			sourceTree = "<group>";
+		};
+		E15DAA9C1809370800CE1FCA /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				E15DAA9D1809370800CE1FCA /* DDCliApplication.h */,
+				E15DAA9E1809370800CE1FCA /* DDCliApplication.m */,
+				E15DAA9F1809370800CE1FCA /* DDCliParseException.h */,
+				E15DAAA01809370800CE1FCA /* DDCliParseException.m */,
+				E15DAAA11809370800CE1FCA /* DDCliUtil.h */,
+				E15DAAA21809370800CE1FCA /* DDCliUtil.m */,
+				E15DAAA31809370800CE1FCA /* DDCommandLineInterface.h */,
+				E15DAAA41809370800CE1FCA /* DDGetoptLongParser.h */,
+				E15DAAA51809370800CE1FCA /* DDGetoptLongParser.m */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		E16BC8EA18096AAE00DC528C /* common */ = {
+			isa = PBXGroup;
+			children = (
+				E16BC8EB18096AAE00DC528C /* RRMConstants.h */,
+				E16BC8EC18096AAE00DC528C /* RRMConstants.m */,
+			);
+			name = common;
+			path = ../common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +222,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4B71D1017D61B3A00B180EE /* main.m in Sources */,
+				E15DB8831809371300CE1FCA /* DDCliApplication.m in Sources */,
 				C4B71D1C17D6226500B180EE /* RRMailConfigController.m in Sources */,
+				E15DB8851809371300CE1FCA /* DDCliUtil.m in Sources */,
+				E16BC8ED18096AAE00DC528C /* RRMConstants.m in Sources */,
+				E15DB8841809371300CE1FCA /* DDCliParseException.m in Sources */,
+				E15DB8861809371300CE1FCA /* DDGetoptLongParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,10 +252,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "CURRENT_MARKETING_VERSION=\\\"${CURRENT_MARKETING_VERSION}\\\"";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -187,6 +260,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-DDEBUG";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -208,29 +282,63 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "CURRENT_MARKETING_VERSION=\\\"${CURRENT_MARKETING_VERSION}\\\"";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "-DDEBUG";
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 		C4B71D1817D61B3A00B180EE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E16BC8E718093A3B00DC528C /* Config.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rrmailctl/rrmailctl-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib",
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib/sasl2",
+					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate/lib,
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate-ios/lib",
+					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c/lib,
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c-ios/lib",
+					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan/lib,
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan-ios/lib",
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib",
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib/sasl2",
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/tidy-html5-ios/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		C4B71D1917D61B3A00B180EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E16BC8E718093A3B00DC528C /* Config.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rrmailctl/rrmailctl-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib",
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib/sasl2",
+					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate/lib,
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate-ios/lib",
+					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c/lib,
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c-ios/lib",
+					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan/lib,
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan-ios/lib",
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib",
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib/sasl2",
+					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/tidy-html5-ios/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
