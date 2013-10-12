@@ -3,7 +3,7 @@
 //  RRMailPrefsPane
 //
 //  Created by Florian BONNIEC on 9/4/13.
-//  Copyright (c) 2013 Florian BONNIEC. All rights reserved.
+//  Copyright (c) 2013 iNig-Services. All rights reserved.
 //
 
 #import "AddSourceServerAccountViewController.h"

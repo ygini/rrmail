@@ -19,8 +19,6 @@
 		C4B71CE217D4D79100B180EE /* RRMailPrefsPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B71CE017D4D79100B180EE /* RRMailPrefsPane.xib */; };
 		C4B71CEA17D4D7B200B180EE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B71CE817D4D7B200B180EE /* Security.framework */; };
 		C4B71CEB17D4D7B200B180EE /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B71CE917D4D7B200B180EE /* SecurityInterface.framework */; };
-		C4B71D1F17D7300F00B180EE /* RRMConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = C4B71D1D17D7300F00B180EE /* RRMConstants.h */; };
-		C4B71D2017D7300F00B180EE /* RRMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B71D1E17D7300F00B180EE /* RRMConstants.m */; };
 		C4B71D2617D741FC00B180EE /* DisplayInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B71D2317D741FC00B180EE /* DisplayInfoView.xib */; };
 		C4B71D3217D742C100B180EE /* AddSourceServerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B71D2F17D742C100B180EE /* AddSourceServerView.xib */; };
 		C4B71D3817D742F000B180EE /* AddSourceServerAccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B71D3517D742F000B180EE /* AddSourceServerAccountView.xib */; };
@@ -34,6 +32,8 @@
 		C4DE4F5D17DF17C600BED91F /* ConfirmDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DE4F5A17DF17C600BED91F /* ConfirmDeleteViewController.m */; };
 		C4DE4F5E17DF17C600BED91F /* ConfirmDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4DE4F5B17DF17C600BED91F /* ConfirmDeleteViewController.xib */; };
 		C4FE7CAF17E0A9EB00376319 /* RRMailPrefsPane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C4FE7CAE17E0A9EB00376319 /* RRMailPrefsPane.tiff */; };
+		E16BC8F518096D0200DC528C /* RRMConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = E16BC8F318096D0200DC528C /* RRMConstants.h */; };
+		E16BC8F618096D0200DC528C /* RRMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E16BC8F418096D0200DC528C /* RRMConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +56,6 @@
 		C4B71CE117D4D79100B180EE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RRMailPrefsPane.xib; sourceTree = "<group>"; };
 		C4B71CE817D4D7B200B180EE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C4B71CE917D4D7B200B180EE /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = System/Library/Frameworks/SecurityInterface.framework; sourceTree = SDKROOT; };
-		C4B71D1D17D7300F00B180EE /* RRMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMConstants.h; sourceTree = "<group>"; };
-		C4B71D1E17D7300F00B180EE /* RRMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMConstants.m; sourceTree = "<group>"; };
 		C4B71D2317D741FC00B180EE /* DisplayInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisplayInfoView.xib; sourceTree = "<group>"; };
 		C4B71D2F17D742C100B180EE /* AddSourceServerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSourceServerView.xib; sourceTree = "<group>"; };
 		C4B71D3517D742F000B180EE /* AddSourceServerAccountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSourceServerAccountView.xib; sourceTree = "<group>"; };
@@ -71,6 +69,8 @@
 		C4DE4F5A17DF17C600BED91F /* ConfirmDeleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmDeleteViewController.m; sourceTree = "<group>"; };
 		C4DE4F5B17DF17C600BED91F /* ConfirmDeleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmDeleteViewController.xib; sourceTree = "<group>"; };
 		C4FE7CAE17E0A9EB00376319 /* RRMailPrefsPane.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = RRMailPrefsPane.tiff; sourceTree = "<group>"; };
+		E16BC8F318096D0200DC528C /* RRMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMConstants.h; sourceTree = "<group>"; };
+		E16BC8F418096D0200DC528C /* RRMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +103,7 @@
 		C4B71CBE17D4D79100B180EE = {
 			isa = PBXGroup;
 			children = (
+				E16BC8F218096D0200DC528C /* common */,
 				C4B71CD417D4D79100B180EE /* RRMailPrefsPane */,
 				C4B71CCB17D4D79100B180EE /* Frameworks */,
 				C4B71CCA17D4D79100B180EE /* Products */,
@@ -149,7 +150,6 @@
 				C4B71CE017D4D79100B180EE /* RRMailPrefsPane.xib */,
 				C4FE7CAE17E0A9EB00376319 /* RRMailPrefsPane.tiff */,
 				C4B71D3917D7434E00B180EE /* ViewController */,
-				C4B71D3A17D7436800B180EE /* Constant */,
 				C4B71CD517D4D79100B180EE /* Supporting Files */,
 			);
 			path = RRMailPrefsPane;
@@ -184,13 +184,14 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		C4B71D3A17D7436800B180EE /* Constant */ = {
+		E16BC8F218096D0200DC528C /* common */ = {
 			isa = PBXGroup;
 			children = (
-				C4B71D1D17D7300F00B180EE /* RRMConstants.h */,
-				C4B71D1E17D7300F00B180EE /* RRMConstants.m */,
+				E16BC8F318096D0200DC528C /* RRMConstants.h */,
+				E16BC8F418096D0200DC528C /* RRMConstants.m */,
 			);
-			path = Constant;
+			name = common;
+			path = ../common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +201,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4B71D1F17D7300F00B180EE /* RRMConstants.h in Headers */,
+				E16BC8F518096D0200DC528C /* RRMConstants.h in Headers */,
 				C4B71DA317D8AE6A00B180EE /* AddSourceServerAccountViewController.h in Headers */,
 				C4B71DA517D8AE6A00B180EE /* AddSourceServerViewController.h in Headers */,
 				C4B71DA717D8AE6A00B180EE /* DisplayInfoViewController.h in Headers */,
@@ -291,13 +292,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4B71CDD17D4D79100B180EE /* RRMailPrefsPane.m in Sources */,
-				C4B71D2017D7300F00B180EE /* RRMConstants.m in Sources */,
 				C4B71DA417D8AE6A00B180EE /* AddSourceServerAccountViewController.m in Sources */,
 				C4B71DA617D8AE6A00B180EE /* AddSourceServerViewController.m in Sources */,
 				C4B71DA817D8AE6A00B180EE /* DisplayInfoViewController.m in Sources */,
 				C4DE4F5D17DF17C600BED91F /* ConfirmDeleteViewController.m in Sources */,
 				C43F541C17F1D09B00FCDF30 /* OnOffSwitchControl.m in Sources */,
 				C43F541E17F1D09B00FCDF30 /* OnOffSwitchControlCell.m in Sources */,
+				E16BC8F618096D0200DC528C /* RRMConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
