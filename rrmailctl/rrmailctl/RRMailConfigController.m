@@ -57,9 +57,7 @@
 					 nil];
 			[_info writeToURL:[self launchdPlistURL] atomically:YES];
 		}
-		
-		self.rrmailFullPath = [[_info valueForKey:@"ProgramArguments"] lastObject];
-    }
+	}
     return self;
 }
 
@@ -165,6 +163,10 @@
 		return EXIT_SUCCESS;
 	}
 	
+	if (self.rrmailFullPath) {
+		[self setRrmailPath:self.rrmailFullPath];
+	}
+	
 	if (self.startInterval) {
 		printf("%li\n", (long)[self currentIntervalTime]);
 		printHelp = NO;
@@ -262,7 +264,6 @@
 	if (manageLoadState) {
 		[self unloadLaunchService];
 	}
-	
 	
 	[_info setObject:@[self.rrmailFullPath] forKey:@"ProgramArguments"];
 	

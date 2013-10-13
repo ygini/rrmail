@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E108035D180ACA7000E525E4 /* rrmailctl in Copy Executables */ = {isa = PBXBuildFile; fileRef = E108035A180ACA6300E525E4 /* rrmailctl */; };
+		E1080366180ACC0C00E525E4 /* rrmail in Copy Executables */ = {isa = PBXBuildFile; fileRef = E1080363180ACAE000E525E4 /* rrmail */; };
+		E108036A180ACFDF00E525E4 /* NSString+keyPathComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = E1080368180ACFDF00E525E4 /* NSString+keyPathComponents.h */; };
+		E108036B180ACFDF00E525E4 /* NSString+keyPathComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = E1080369180ACFDF00E525E4 /* NSString+keyPathComponents.m */; };
 		E12F188C180AB80B0035ACDD /* INIGViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E12F188A180AB80B0035ACDD /* INIGViewController.h */; };
 		E12F188D180AB80B0035ACDD /* INIGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12F188B180AB80B0035ACDD /* INIGViewController.m */; };
 		E12F1892180AB95B0035ACDD /* RRMailCTL.h in Headers */ = {isa = PBXBuildFile; fileRef = E12F1890180AB95B0035ACDD /* RRMailCTL.h */; };
@@ -29,6 +33,37 @@
 		E1B92E93180AADEA00411164 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B92E92180AADEA00411164 /* Security.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E1080359180ACA6300E525E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1080355180ACA6200E525E4 /* rrmailctl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4B71D0917D61B3A00B180EE;
+			remoteInfo = rrmailctl;
+		};
+		E108035B180ACA6700E525E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1080355180ACA6200E525E4 /* rrmailctl.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C4B71D0817D61B3A00B180EE;
+			remoteInfo = rrmailctl;
+		};
+		E1080362180ACAE000E525E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E108035E180ACAE000E525E4 /* rrmail.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E12EF15817B2472B007414D1;
+			remoteInfo = rrmail;
+		};
+		E1080364180ACAE400E525E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E108035E180ACAE000E525E4 /* rrmail.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E12EF15717B2472B007414D1;
+			remoteInfo = rrmail;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		E146DDCD180AC266008A7438 /* Copy Executables */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -36,6 +71,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
+				E1080366180ACC0C00E525E4 /* rrmail in Copy Executables */,
+				E108035D180ACA7000E525E4 /* rrmailctl in Copy Executables */,
 			);
 			name = "Copy Executables";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +80,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E1080355180ACA6200E525E4 /* rrmailctl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = rrmailctl.xcodeproj; path = ../rrmailctl/rrmailctl.xcodeproj; sourceTree = "<group>"; };
+		E108035E180ACAE000E525E4 /* rrmail.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = rrmail.xcodeproj; path = ../rrmail/rrmail.xcodeproj; sourceTree = "<group>"; };
+		E1080368180ACFDF00E525E4 /* NSString+keyPathComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+keyPathComponents.h"; sourceTree = "<group>"; };
+		E1080369180ACFDF00E525E4 /* NSString+keyPathComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+keyPathComponents.m"; sourceTree = "<group>"; };
 		E12F188A180AB80B0035ACDD /* INIGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INIGViewController.h; sourceTree = "<group>"; };
 		E12F188B180AB80B0035ACDD /* INIGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIGViewController.m; sourceTree = "<group>"; };
 		E12F1890180AB95B0035ACDD /* RRMailCTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMailCTL.h; sourceTree = "<group>"; };
@@ -86,9 +127,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1080356180ACA6200E525E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E108035A180ACA6300E525E4 /* rrmailctl */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E108035F180ACAE000E525E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1080363180ACAE000E525E4 /* rrmail */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1080367180ACFCA00E525E4 /* NSString+keyPathComponents */ = {
+			isa = PBXGroup;
+			children = (
+				E1080368180ACFDF00E525E4 /* NSString+keyPathComponents.h */,
+				E1080369180ACFDF00E525E4 /* NSString+keyPathComponents.m */,
+			);
+			path = "NSString+keyPathComponents";
+			sourceTree = "<group>";
+		};
 		E12F1888180AB7FA0035ACDD /* AppKitAddition */ = {
 			isa = PBXGroup;
 			children = (
+				E1080367180ACFCA00E525E4 /* NSString+keyPathComponents */,
 				E12F1889180AB7FA0035ACDD /* INIGViewController */,
 			);
 			path = AppKitAddition;
@@ -143,6 +210,8 @@
 		E1B92E52180AA5D100411164 = {
 			isa = PBXGroup;
 			children = (
+				E108035E180ACAE000E525E4 /* rrmail.xcodeproj */,
+				E1080355180ACA6200E525E4 /* rrmailctl.xcodeproj */,
 				E146C280180AC11D008A7438 /* vendors */,
 				E12F1888180AB7FA0035ACDD /* AppKitAddition */,
 				E1B92E68180AA5D200411164 /* RRMailPrefPane */,
@@ -257,6 +326,7 @@
 				E12F188C180AB80B0035ACDD /* INIGViewController.h in Headers */,
 				E1B92E80180AA60D00411164 /* RRMailPrefPane.h in Headers */,
 				E1B92E8D180AA77700411164 /* RRMPrefPaneMainViewController.h in Headers */,
+				E108036A180ACFDF00E525E4 /* NSString+keyPathComponents.h in Headers */,
 				E146DD62180AC131008A7438 /* OnOffSwitchControlCell.h in Headers */,
 				E146DD5D180AC131008A7438 /* OnOffSwitchControl.h in Headers */,
 				E12F1892180AB95B0035ACDD /* RRMailCTL.h in Headers */,
@@ -280,6 +350,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				E1080365180ACAE400E525E4 /* PBXTargetDependency */,
+				E108035C180ACA6700E525E4 /* PBXTargetDependency */,
 			);
 			name = RRMailPrefPane;
 			productName = RRMailPrefPane;
@@ -292,6 +364,7 @@
 		E1B92E53180AA5D100411164 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = RRM;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "iNig-Services";
 			};
@@ -307,12 +380,39 @@
 			mainGroup = E1B92E52180AA5D100411164;
 			productRefGroup = E1B92E5E180AA5D100411164 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E108035F180ACAE000E525E4 /* Products */;
+					ProjectRef = E108035E180ACAE000E525E4 /* rrmail.xcodeproj */;
+				},
+				{
+					ProductGroup = E1080356180ACA6200E525E4 /* Products */;
+					ProjectRef = E1080355180ACA6200E525E4 /* rrmailctl.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E1B92E5C180AA5D100411164 /* RRMailPrefPane */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E108035A180ACA6300E525E4 /* rrmailctl */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = rrmailctl;
+			remoteRef = E1080359180ACA6300E525E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E1080363180ACAE000E525E4 /* rrmail */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = rrmail;
+			remoteRef = E1080362180ACAE000E525E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E1B92E5A180AA5D100411164 /* Resources */ = {
@@ -347,12 +447,26 @@
 				E1B92E8E180AA77700411164 /* RRMPrefPaneMainViewController.m in Sources */,
 				E146DD5E180AC131008A7438 /* OnOffSwitchControl.m in Sources */,
 				E146DD63180AC131008A7438 /* OnOffSwitchControlCell.m in Sources */,
+				E108036B180ACFDF00E525E4 /* NSString+keyPathComponents.m in Sources */,
 				E12F188D180AB80B0035ACDD /* INIGViewController.m in Sources */,
 				E1B92E81180AA60D00411164 /* RRMailPrefPane.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E108035C180ACA6700E525E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = rrmailctl;
+			targetProxy = E108035B180ACA6700E525E4 /* PBXContainerItemProxy */;
+		};
+		E1080365180ACAE400E525E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = rrmail;
+			targetProxy = E1080364180ACAE400E525E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E1B92E6B180AA5D200411164 /* InfoPlist.strings */ = {

@@ -45,7 +45,7 @@
 
 	NSRect frame = self.mainViewController.view.frame;
 	frame.origin.x = 20;
-	frame.origin.y = self.view.frame.size.height - frame.size.height - 20;
+	frame.origin.y = self.view.frame.size.height - frame.size.height;
 	self.mainViewController.view.frame = frame;
 	
 	[self.view addSubview:self.mainViewController.view];
