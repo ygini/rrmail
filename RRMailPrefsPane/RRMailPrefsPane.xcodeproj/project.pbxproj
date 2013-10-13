@@ -239,8 +239,9 @@
 		C4B71CBF17D4D79100B180EE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = RRM;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "Florian BONNIEC";
+				ORGANIZATIONNAME = "iNig-Services";
 			};
 			buildConfigurationList = C4B71CC217D4D79100B180EE /* Build configuration list for PBXProject "RRMailPrefsPane" */;
 			compatibilityVersion = "Xcode 3.2";

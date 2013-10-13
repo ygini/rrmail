@@ -190,8 +190,9 @@
 		C4B71D0117D61B3A00B180EE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = RRMail;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "Florian BONNIEC";
+				ORGANIZATIONNAME = "iNig-Services";
 			};
 			buildConfigurationList = C4B71D0417D61B3A00B180EE /* Build configuration list for PBXProject "rrmailctl" */;
 			compatibilityVersion = "Xcode 3.2";

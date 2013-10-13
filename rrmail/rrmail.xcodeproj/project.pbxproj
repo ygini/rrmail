@@ -243,8 +243,9 @@
 		E12EF15017B2472B007414D1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = RRM;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "Yoann Gini";
+				ORGANIZATIONNAME = "iNig-Services";
 			};
 			buildConfigurationList = E12EF15317B2472B007414D1 /* Build configuration list for PBXProject "rrmail" */;
 			compatibilityVersion = "Xcode 3.2";
