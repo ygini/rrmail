@@ -8,6 +8,9 @@
       location = "group:rrmailctl/rrmailctl.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:RRMailPrefPane/RRMailPrefPane.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:RRMailPrefsPane/RRMailPrefsPane.xcodeproj">
    </FileRef>
    <FileRef

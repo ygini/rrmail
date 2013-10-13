@@ -12,6 +12,8 @@
 	<dict>
 		<key>401897E4-B610-41B9-BE61-A204F2F0E42F</key>
 		<string>https://bitbucket.org/ygini/cocoasyslog.git</string>
+		<key>46C9BDDA-4840-4E92-BF3E-8E4D6392E1AC</key>
+		<string>https://github.com/mipmip/OnOffSwitchControl.git</string>
 		<key>7474D26C-DD83-4439-9CC8-445A0B6DA80A</key>
 		<string>https://bitbucket.org/ygini/reroutemail.git</string>
 		<key>EE562EBF-BDAD-49D1-8226-8267F88CCD7F</key>
@@ -23,6 +25,8 @@
 	<dict>
 		<key>401897E4-B610-41B9-BE61-A204F2F0E42F</key>
 		<string>../vendors/CocoaSyslog</string>
+		<key>46C9BDDA-4840-4E92-BF3E-8E4D6392E1AC</key>
+		<string>../vendors/OnOffSwitchControl</string>
 		<key>7474D26C-DD83-4439-9CC8-445A0B6DA80A</key>
 		<string>..</string>
 		<key>EE562EBF-BDAD-49D1-8226-8267F88CCD7F</key>
@@ -51,6 +55,14 @@
 			<string>EE562EBF-BDAD-49D1-8226-8267F88CCD7F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>mailcore2</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>46C9BDDA-4840-4E92-BF3E-8E4D6392E1AC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OnOffSwitchControl</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
