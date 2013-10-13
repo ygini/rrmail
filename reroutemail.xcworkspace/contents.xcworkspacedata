@@ -11,9 +11,6 @@
       location = "group:RRMailPrefPane/RRMailPrefPane.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:RRMailPrefsPane/RRMailPrefsPane.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:vendors/mailcore2/build-mac/mailcore2.xcodeproj">
    </FileRef>
 </Workspace>
