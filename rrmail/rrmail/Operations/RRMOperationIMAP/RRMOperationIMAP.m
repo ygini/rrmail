@@ -184,34 +184,36 @@
 		{
 			[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP-SMTP] Message %u transfered to %@ at %@", uid, [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
 
-			MCOIMAPOperation *changeFlagsIMAPOperation = [_imapSession storeFlagsOperationWithFolder:@"INBOX"
-																								uids:[MCOIndexSet indexSetWithIndex:uid]
-																								kind:MCOIMAPStoreFlagsRequestKindSet
-																							   flags:MCOMessageFlagDeleted];
-			
-			[changeFlagsIMAPOperation start:^(NSError * error)
-			 {
-				if(!error) {
-					[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP-SMTP] Message %u marked for deletion (%@ at %@)", uid, [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
-					MCOIMAPOperation *deleteIMAPOperation = [_imapSession expungeOperation:@"INBOX"];
-					[deleteIMAPOperation start:^(NSError *error) {
-						if(error)
-						{
-							[[CocoaSyslog sharedInstance] messageLevel3Error:@"[IMAP-SMTP] Unable to expunge inbox (%@ at %@)", [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
-							[[CocoaSyslog sharedInstance] messageLevel7Debug:@"[IMAP-SMTP] MailCore2 error message: %@", error];
-						}
-						else
-						{
-							[[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP-SMTP] Successfully expunged inbox (%@ at %@)", [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
-						}
-						[self decreaseMessageCount];
-					}];
-				} else {
-					[[CocoaSyslog sharedInstance] messageLevel3Error:@"[IMAP-SMTP] Unable to mark message %u for deletion (%@ at %@)", uid, [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
-					[[CocoaSyslog sharedInstance] messageLevel7Debug:@"[IMAP-SMTP] MailCore2 error message: %@", error];
-					[self decreaseMessageCount];
-				}
-			}];
+			if (![[_serverConfig objectForKey:kRRMSpecialDoNotDelete] boolValue]) {
+				MCOIMAPOperation *changeFlagsIMAPOperation = [_imapSession storeFlagsOperationWithFolder:@"INBOX"
+																									uids:[MCOIndexSet indexSetWithIndex:uid]
+																									kind:MCOIMAPStoreFlagsRequestKindSet
+																								   flags:MCOMessageFlagDeleted];
+				
+				[changeFlagsIMAPOperation start:^(NSError * error)
+				 {
+					 if(!error) {
+						 [[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP-SMTP] Message %u marked for deletion (%@ at %@)", uid, [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
+						 MCOIMAPOperation *deleteIMAPOperation = [_imapSession expungeOperation:@"INBOX"];
+						 [deleteIMAPOperation start:^(NSError *error) {
+							 if(error)
+							 {
+								 [[CocoaSyslog sharedInstance] messageLevel3Error:@"[IMAP-SMTP] Unable to expunge inbox (%@ at %@)", [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
+								 [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[IMAP-SMTP] MailCore2 error message: %@", error];
+							 }
+							 else
+							 {
+								 [[CocoaSyslog sharedInstance] messageLevel6Info:@"[IMAP-SMTP] Successfully expunged inbox (%@ at %@)", [_userSettings objectForKey:kRRMSourceServerLoginKey], [_smtpSession hostname]];
+							 }
+							 [self decreaseMessageCount];
+						 }];
+					 } else {
+						 [[CocoaSyslog sharedInstance] messageLevel3Error:@"[IMAP-SMTP] Unable to mark message %u for deletion (%@ at %@)", uid, [_userSettings objectForKey:kRRMTargetServerAccountKey], [_smtpSession hostname]];
+						 [[CocoaSyslog sharedInstance] messageLevel7Debug:@"[IMAP-SMTP] MailCore2 error message: %@", error];
+						 [self decreaseMessageCount];
+					 }
+				 }];
+			}
 			
         }
     }];

@@ -25,6 +25,7 @@ const NSString * kRRMSourceServerLoginKey							= @"sourceServerLogin";
 const NSString * kRRMSourceServerPasswordKey						= @"sourceServerPassword";
 const NSString * kRRMTargetServerAccountKey							= @"targetServerAccount";
 const NSString * kRRMTargetServerKey								= @"targetServer"; // Optional, default localhost
+const NSString * kRRMSpecialDoNotDelete								= @"doNotDelete";
 
 
 const NSString * kRRMLaunchdJobLabel								= @"com.rrmail.scheduler";

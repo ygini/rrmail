@@ -107,6 +107,7 @@
 											[serverConfig objectForKey:kRRMSourceServerAddressKey], kRRMSourceServerAddressKey,
 											[serverConfig objectForKey:kRRMSourceServerTCPPortKey], kRRMSourceServerTCPPortKey,
 											[serverConfig objectForKey:kRRMSourceServerRequireSSLKey], kRRMSourceServerRequireSSLKey,
+											[_configuration objectForKey:kRRMSpecialDoNotDelete], kRRMSpecialDoNotDelete,
 											nil];
 				
 				for (NSDictionary *userSettings in [serverConfig objectForKey:kRRMSourceServerAccountListKey]) {

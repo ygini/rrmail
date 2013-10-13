@@ -13,7 +13,7 @@
 
 @interface RRMailConfigController ()
 {
-	NSMutableDictionary *_info;
+	NSMutableDictionary *_launchInfo;
 }
 
 @property (assign, nonatomic) BOOL startInterval;
@@ -25,6 +25,8 @@
 @property (assign, nonatomic) BOOL status;
 @property (assign, nonatomic) BOOL version;
 @property (assign, nonatomic) BOOL help;
+@property (assign, nonatomic) BOOL doNotDelete;
+@property (assign, nonatomic) BOOL undoDoNotDelete;
 @property (retain, nonatomic) NSString *rrmailFullPath;
 @end
 
@@ -45,17 +47,17 @@
     if (self) {
 		NSMutableDictionary *jobDict = [NSMutableDictionary dictionaryWithContentsOfURL:[self launchdPlistURL]];
 		if (jobDict) {
-			_info = [jobDict mutableCopy];
+			_launchInfo = [jobDict mutableCopy];
 		}
 		else {
-			_info = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+			_launchInfo = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
 					 kRRMLaunchdJobLabel, @"Label",
 					 @[kRRMServiceFullPath], @"ProgramArguments",
 					 [NSNumber numberWithInt:180], @"StartInterval",
 					 @"_postfix", @"UserName",
 					 @"_postfix", @"GroupName",
 					 nil];
-			[_info writeToURL:[self launchdPlistURL] atomically:YES];
+			[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
 		}
 	}
     return self;
@@ -63,7 +65,7 @@
 
 - (void)dealloc
 {
-    [_info release], _info = nil;
+    [_launchInfo release], _launchInfo = nil;
     [_updateStartInterval release], _updateStartInterval = nil;
 	[super dealloc];
 }
@@ -86,6 +88,8 @@
         {@"version",				'v',    DDGetoptNoArgument},
         {@"help",					'h',    DDGetoptNoArgument},
         {@"rrmailFullPath",			0,		DDGetoptRequiredArgument},
+		{@"doNotDelete",			'd',	DDGetoptNoArgument},
+		{@"undoDoNotDelete",		'D',	DDGetoptNoArgument},
         {nil,						0,      0},
     };
     [optionsParser addOptionsFromTable: optionTable];
@@ -119,6 +123,11 @@
 - (BOOL)argumentCheckup
 {
 	BOOL returnValue = YES;
+	
+	if (self.doNotDelete && self.undoDoNotDelete) {
+		printf("Unlike Schrödinger's cat, your e-mail can't be deleted and not deleted in the same time\n");
+		returnValue = NO;
+	}
 	
 	if (self.load && self.unload) {
 		printf("Well… Do you want to load or unload the service?!\n");
@@ -161,6 +170,15 @@
 	if (self.status) {
 		[self printStatus];
 		return EXIT_SUCCESS;
+	}
+	
+	if (self.doNotDelete) {
+		[self deletePrevention:YES];
+		printHelp = NO;
+	}
+	else if (self.undoDoNotDelete) {
+		[self deletePrevention:NO];
+		printHelp = NO;
 	}
 	
 	if (self.rrmailFullPath) {
@@ -238,7 +256,7 @@
 
 - (NSInteger)currentIntervalTime
 {
-	return [[_info objectForKey:@"StartInterval"] integerValue];
+	return [[_launchInfo objectForKey:@"StartInterval"] integerValue];
 }
 
 - (void)setCurrentIntervalTime:(NSInteger)interval
@@ -249,9 +267,9 @@
 	}
 	
 
-	[_info setObject:[NSNumber numberWithInteger:interval] forKey:@"StartInterval"];
+	[_launchInfo setObject:[NSNumber numberWithInteger:interval] forKey:@"StartInterval"];
 	
-	[_info writeToURL:[self launchdPlistURL] atomically:YES];
+	[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
 	
 	if (manageLoadState) {
 		[self loadLaunchService];
@@ -265,13 +283,24 @@
 		[self unloadLaunchService];
 	}
 	
-	[_info setObject:@[self.rrmailFullPath] forKey:@"ProgramArguments"];
+	[_launchInfo setObject:@[self.rrmailFullPath] forKey:@"ProgramArguments"];
 	
-	[_info writeToURL:[self launchdPlistURL] atomically:YES];
+	[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
 	
 	if (manageLoadState) {
 		[self loadLaunchService];
 	}
+}
+
+- (void)deletePrevention:(BOOL)flag
+{
+	NSMutableDictionary *configuration = [NSMutableDictionary dictionaryWithContentsOfFile:(NSString*)kRRMServiceConfigPath];
+	[configuration setObject:[NSNumber numberWithBool:flag] forKey:kRRMSpecialDoNotDelete];
+	[configuration writeToFile:(NSString*)kRRMServiceConfigPath atomically:YES];
+	NSError *err = nil;
+	[[NSFileManager defaultManager]setAttributes:@{NSFilePosixPermissions: @0600}
+									ofItemAtPath:(NSString*)kRRMServiceConfigPath
+										   error:&err];
 }
 
 - (void)unloadLaunchService

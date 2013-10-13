@@ -11,11 +11,4 @@
 
 @interface RRMailConfigController : NSObject <DDCliApplicationDelegate>
 
-+(RRMailConfigController *)sharedInstance;
--(void) setCheckMailIntervalTime:(int)timeInterval;
--(void)updateRRMailConfig:(NSDictionary *)rrmailConfig;
--(void)loadUnloadSchedulerWithInit:(int)value;
--(BOOL)checkIfSchedulerIsLoading;
--(void)createRRMailConfigFile;
-
 @end
