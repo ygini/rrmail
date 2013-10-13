@@ -157,7 +157,7 @@
     [self.buttonSelectLogLevel removeAllItems];
     [self.buttonSelectLogLevel addItemsWithTitles:arrayLogLevel];
     
-    NSNumber * appLogLevel = [self._rrmailConfig valueForKey:@"appLogLevel"];
+    NSNumber * appLogLevel = [self._rrmailConfig valueForKey:@"logLevel"];
     
     [self.buttonSelectLogLevel selectItemAtIndex:appLogLevel.intValue];
     
@@ -321,7 +321,7 @@
     
     NSInteger i = [arrayLogLevel indexOfObject:self.buttonSelectLogLevel.titleOfSelectedItem];
     
-    [self._rrmailConfig setObject:[NSNumber numberWithInteger:i] forKey:@"appLogLevel"];
+    [self._rrmailConfig setObject:[NSNumber numberWithInteger:i] forKey:@"logLevel"];
     
     [self sendNewRRMailConfig];
 }

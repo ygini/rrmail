@@ -16,7 +16,7 @@
 -(NSError *)checkConfigurationAndAddDefaults
 {
     // Configure LogLevel
-    NSNumber * appLogLevel = [_configuration objectForKey:@"appLogLevel"];
+    NSNumber * appLogLevel = [_configuration objectForKey:@"logLevel"];
     
     if (appLogLevel != nil && appLogLevel.intValue >= 0 && appLogLevel.intValue <= 7) {
         [[CocoaSyslog sharedInstance] setAppLogLevel:appLogLevel.intValue];
