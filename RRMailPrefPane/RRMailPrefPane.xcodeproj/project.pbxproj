@@ -14,6 +14,9 @@
 		E10A5DC0180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = E10A5DBE180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.h */; };
 		E10A5DC1180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A5DBF180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.m */; };
 		E10A5DC5180AE87000C0DD80 /* YG-Label-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E10A5DC4180AE87000C0DD80 /* YG-Label-Logo.png */; };
+		E10A5DC7180AF5EC00C0DD80 /* RRMailPrefPane.png in Resources */ = {isa = PBXBuildFile; fileRef = E10A5DC6180AF5EC00C0DD80 /* RRMailPrefPane.png */; };
+		E10A5DC9180AF73300C0DD80 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10A5DC8180AF73300C0DD80 /* Sparkle.framework */; };
+		E10A5DCB180AF75600C0DD80 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E10A5DC8180AF73300C0DD80 /* Sparkle.framework */; };
 		E12F188C180AB80B0035ACDD /* INIGViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E12F188A180AB80B0035ACDD /* INIGViewController.h */; };
 		E12F188D180AB80B0035ACDD /* INIGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12F188B180AB80B0035ACDD /* INIGViewController.m */; };
 		E12F1892180AB95B0035ACDD /* RRMailCTL.h in Headers */ = {isa = PBXBuildFile; fileRef = E12F1890180AB95B0035ACDD /* RRMailCTL.h */; };
@@ -28,7 +31,6 @@
 		E1B92E6D180AA5D200411164 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1B92E6B180AA5D200411164 /* InfoPlist.strings */; };
 		E1B92E80180AA60D00411164 /* RRMailPrefPane.h in Headers */ = {isa = PBXBuildFile; fileRef = E1B92E7D180AA60D00411164 /* RRMailPrefPane.h */; };
 		E1B92E81180AA60D00411164 /* RRMailPrefPane.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B92E7E180AA60D00411164 /* RRMailPrefPane.m */; };
-		E1B92E82180AA60D00411164 /* RRMailPrefPane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1B92E7F180AA60D00411164 /* RRMailPrefPane.tiff */; };
 		E1B92E8D180AA77700411164 /* RRMPrefPaneMainViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E1B92E8A180AA77700411164 /* RRMPrefPaneMainViewController.h */; };
 		E1B92E8E180AA77700411164 /* RRMPrefPaneMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B92E8B180AA77700411164 /* RRMPrefPaneMainViewController.m */; };
 		E1B92E8F180AA77700411164 /* RRMPrefPaneMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1B92E8C180AA77700411164 /* RRMPrefPaneMainViewController.xib */; };
@@ -68,6 +70,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E10A5DCA180AF74700C0DD80 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E10A5DCB180AF75600C0DD80 /* Sparkle.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E146DDCD180AC266008A7438 /* Copy Executables */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,6 +103,8 @@
 		E10A5DBE180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INIGBoolToStringValueTransformer.h; sourceTree = "<group>"; };
 		E10A5DBF180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIGBoolToStringValueTransformer.m; sourceTree = "<group>"; };
 		E10A5DC4180AE87000C0DD80 /* YG-Label-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YG-Label-Logo.png"; sourceTree = "<group>"; };
+		E10A5DC6180AF5EC00C0DD80 /* RRMailPrefPane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RRMailPrefPane.png; sourceTree = "<group>"; };
+		E10A5DC8180AF73300C0DD80 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		E12F188A180AB80B0035ACDD /* INIGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INIGViewController.h; sourceTree = "<group>"; };
 		E12F188B180AB80B0035ACDD /* INIGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIGViewController.m; sourceTree = "<group>"; };
 		E12F1890180AB95B0035ACDD /* RRMailCTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMailCTL.h; sourceTree = "<group>"; };
@@ -98,7 +113,7 @@
 		E146D09C180AC12D008A7438 /* OnOffSwitchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControl.m; sourceTree = "<group>"; };
 		E146D0A3180AC12D008A7438 /* OnOffSwitchControlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnOffSwitchControlCell.h; sourceTree = "<group>"; };
 		E146D0A4180AC12D008A7438 /* OnOffSwitchControlCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControlCell.m; sourceTree = "<group>"; };
-		E1B92E5D180AA5D100411164 /* RRMailPrefPane.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RRMailPrefPane.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1B92E5D180AA5D100411164 /* RRMail.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RRMail.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B92E60180AA5D100411164 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E1B92E62180AA5D200411164 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
 		E1B92E65180AA5D200411164 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -110,7 +125,6 @@
 		E1B92E75180AA5D200411164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RRMailPrefPane.xib; sourceTree = "<group>"; };
 		E1B92E7D180AA60D00411164 /* RRMailPrefPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMailPrefPane.h; sourceTree = "<group>"; };
 		E1B92E7E180AA60D00411164 /* RRMailPrefPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMailPrefPane.m; sourceTree = "<group>"; };
-		E1B92E7F180AA60D00411164 /* RRMailPrefPane.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = RRMailPrefPane.tiff; sourceTree = "<group>"; };
 		E1B92E8A180AA77700411164 /* RRMPrefPaneMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMPrefPaneMainViewController.h; sourceTree = "<group>"; };
 		E1B92E8B180AA77700411164 /* RRMPrefPaneMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMPrefPaneMainViewController.m; sourceTree = "<group>"; };
 		E1B92E8C180AA77700411164 /* RRMPrefPaneMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RRMPrefPaneMainViewController.xib; sourceTree = "<group>"; };
@@ -125,6 +139,7 @@
 			files = (
 				E1B92E93180AADEA00411164 /* Security.framework in Frameworks */,
 				E1B92E91180AADE600411164 /* SecurityInterface.framework in Frameworks */,
+				E10A5DC9180AF73300C0DD80 /* Sparkle.framework in Frameworks */,
 				E1B92E61180AA5D100411164 /* Cocoa.framework in Frameworks */,
 				E1B92E63180AA5D200411164 /* PreferencePanes.framework in Frameworks */,
 			);
@@ -206,6 +221,7 @@
 		E146C280180AC11D008A7438 /* vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E10A5DC8180AF73300C0DD80 /* Sparkle.framework */,
 				E146D093180AC12D008A7438 /* OnOffSwitchControl */,
 			);
 			name = vendors;
@@ -239,7 +255,7 @@
 		E1B92E5E180AA5D100411164 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E1B92E5D180AA5D100411164 /* RRMailPrefPane.prefPane */,
+				E1B92E5D180AA5D100411164 /* RRMail.prefPane */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -294,7 +310,7 @@
 				E1B92E74180AA5D200411164 /* RRMailPrefPane.xib */,
 				E1B92E7D180AA60D00411164 /* RRMailPrefPane.h */,
 				E1B92E7E180AA60D00411164 /* RRMailPrefPane.m */,
-				E1B92E7F180AA60D00411164 /* RRMailPrefPane.tiff */,
+				E10A5DC6180AF5EC00C0DD80 /* RRMailPrefPane.png */,
 			);
 			path = PrefPane;
 			sourceTree = "<group>";
@@ -358,12 +374,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1B92E79180AA5D200411164 /* Build configuration list for PBXNativeTarget "RRMail" */;
 			buildPhases = (
+				E10A5DCC180AFB5800C0DD80 /* GitVersion */,
 				E1B92E57180AA5D100411164 /* Sources */,
 				E1B92E58180AA5D100411164 /* Frameworks */,
 				E1B92E59180AA5D100411164 /* Headers */,
 				E1B92E5A180AA5D100411164 /* Resources */,
 				E1B92E5B180AA5D100411164 /* Rez */,
 				E146DDCD180AC266008A7438 /* Copy Executables */,
+				E10A5DCA180AF74700C0DD80 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -373,7 +391,7 @@
 			);
 			name = RRMail;
 			productName = RRMailPrefPane;
-			productReference = E1B92E5D180AA5D100411164 /* RRMailPrefPane.prefPane */;
+			productReference = E1B92E5D180AA5D100411164 /* RRMail.prefPane */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -438,9 +456,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1B92E8F180AA77700411164 /* RRMPrefPaneMainViewController.xib in Resources */,
+				E10A5DC7180AF5EC00C0DD80 /* RRMailPrefPane.png in Resources */,
 				E10A5DC5180AE87000C0DD80 /* YG-Label-Logo.png in Resources */,
 				E1B92E6D180AA5D200411164 /* InfoPlist.strings in Resources */,
-				E1B92E82180AA60D00411164 /* RRMailPrefPane.tiff in Resources */,
 				E146DDD0180AC2B2008A7438 /* RRMailPrefPane.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +474,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E10A5DCC180AFB5800C0DD80 /* GitVersion */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = GitVersion;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -o errexit\nset -o nounset\n\nINFO_PLIST=\"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Info\"\n\nVERSION=$(git rev-list HEAD | wc -l)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $VERSION\" \"${INFOPLIST_FILE}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E1B92E57180AA5D100411164 /* Sources */ = {
@@ -582,6 +617,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = /;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/yoanngini/SVN/Perso/reroutemail/vendors,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Prefix.pch";
 				INFOPLIST_FILE = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Info.plist";
@@ -609,6 +648,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/yoanngini/SVN/Perso/reroutemail/vendors,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Prefix.pch";
 				INFOPLIST_FILE = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Info.plist";

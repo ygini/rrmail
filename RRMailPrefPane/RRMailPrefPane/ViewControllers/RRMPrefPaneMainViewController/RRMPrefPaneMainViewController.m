@@ -8,6 +8,8 @@
 
 #import "RRMPrefPaneMainViewController.h"
 
+#import <Sparkle/Sparkle.h>
+
 @interface RRMPrefPaneMainViewController ()
 
 @end
