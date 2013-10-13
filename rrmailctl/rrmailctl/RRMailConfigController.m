@@ -25,6 +25,7 @@
 @property (assign, nonatomic) BOOL status;
 @property (assign, nonatomic) BOOL version;
 @property (assign, nonatomic) BOOL help;
+@property (retain, nonatomic) NSString *rrmailFullPath;
 @end
 
 #ifdef DEBUG
@@ -56,6 +57,8 @@
 					 nil];
 			[_info writeToURL:[self launchdPlistURL] atomically:YES];
 		}
+		
+		self.rrmailFullPath = [[_info valueForKey:@"ProgramArguments"] lastObject];
     }
     return self;
 }
@@ -84,6 +87,7 @@
         {@"status",					's',    DDGetoptNoArgument},
         {@"version",				'v',    DDGetoptNoArgument},
         {@"help",					'h',    DDGetoptNoArgument},
+        {@"rrmailFullPath",			0,		DDGetoptRequiredArgument},
         {nil,						0,      0},
     };
     [optionsParser addOptionsFromTable: optionTable];
@@ -244,6 +248,23 @@
 	
 
 	[_info setObject:[NSNumber numberWithInteger:interval] forKey:@"StartInterval"];
+	
+	[_info writeToURL:[self launchdPlistURL] atomically:YES];
+	
+	if (manageLoadState) {
+		[self loadLaunchService];
+	}
+}
+
+- (void)setRrmailPath:(NSString*)path
+{
+	BOOL manageLoadState = [self serviceIsLoaded];
+	if (manageLoadState) {
+		[self unloadLaunchService];
+	}
+	
+	
+	[_info setObject:@[self.rrmailFullPath] forKey:@"ProgramArguments"];
 	
 	[_info writeToURL:[self launchdPlistURL] atomically:YES];
 	
