@@ -37,6 +37,10 @@
 																			  bundle:[NSBundle bundleForClass:[RRMPrefPaneMainViewController class]]];
 }
 
+- (IBAction)openInigServicesWebPage:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.inig-services.com/"]];
+}
+
 #pragma mark - SFAuthorizationView
 
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view

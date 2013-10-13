@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E1B92E5C180AA5D100411164"
                BuildableName = "RRMailPrefPane.prefPane"
-               BlueprintName = "RRMailPrefPane"
+               BlueprintName = "RRMail"
                ReferencedContainer = "container:RRMailPrefPane.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

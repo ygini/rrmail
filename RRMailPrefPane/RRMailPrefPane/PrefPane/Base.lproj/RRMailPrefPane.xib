@@ -38,8 +38,22 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button id="pzT-UP-t2m">
+                        <rect key="frame" x="380" y="13" width="274" height="53"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="YG-Label-Logo" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="Rpb-SG-esx">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <connections>
+                                <action selector="openInigServicesWebPage:" target="-2" id="Kog-s7-Nxq"/>
+                            </connections>
+                        </buttonCell>
+                    </button>
                 </subviews>
             </view>
         </window>
     </objects>
+    <resources>
+        <image name="YG-Label-Logo" width="774" height="152"/>
+    </resources>
 </document>

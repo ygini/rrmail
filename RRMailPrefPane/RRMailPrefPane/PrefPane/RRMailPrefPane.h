@@ -17,4 +17,5 @@
 
 - (void)mainViewDidLoad;
 
+- (IBAction)openInigServicesWebPage:(id)sender;
 @end
