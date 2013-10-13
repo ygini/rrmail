@@ -45,9 +45,7 @@
 
 -(void)setConfiguration:(NSMutableDictionary *)configuration
 {
-	[self willChangeValueForKey:@"configuration"];
 	[self silentSetConfiguration:configuration];
-	[self didChangeValueForKey:@"configuration"];
 }
 
 -(void)silentSetConfiguration:(NSMutableDictionary *)configuration

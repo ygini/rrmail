@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2F394C5E-D8E0-487C-8485-502DDB92DB3E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RRMailPrefsPane</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>62E3AC33-FEDF-47DD-BA33-E1F51100B64C</key>
+		<string>ssh://bitbucket.org/ygini/reroutemail.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RRMailPrefsPane/RRMailPrefsPane.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>62E3AC33-FEDF-47DD-BA33-E1F51100B64C</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://bitbucket.org/ygini/reroutemail.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>62E3AC33-FEDF-47DD-BA33-E1F51100B64C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>62E3AC33-FEDF-47DD-BA33-E1F51100B64C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>reroutemail</string>
+		</dict>
+	</array>
+</dict>
+</plist>

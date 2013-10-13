@@ -32,9 +32,6 @@
 	self.authorizationView.delegate = self;
 	
 	[self.authorizationView updateStatus:self]; // Shouldn't be needed with setAutoupdate:YES but without that, the lockpad is display only after the first mouse over
-	
-	self.mainViewController = [[RRMPrefPaneMainViewController alloc] initWithNibName:@"RRMPrefPaneMainViewController"
-																			  bundle:[NSBundle bundleForClass:[RRMPrefPaneMainViewController class]]];
 }
 
 - (IBAction)openInigServicesWebPage:(id)sender {
@@ -46,6 +43,9 @@
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view
 {
 	[RRMailCTL sharedInstance].authorization = view.authorization;
+
+	self.mainViewController = [[RRMPrefPaneMainViewController alloc] initWithNibName:@"RRMPrefPaneMainViewController"
+																			  bundle:[NSBundle bundleForClass:[RRMPrefPaneMainViewController class]]];
 
 	NSRect frame = self.mainViewController.view.frame;
 	frame.origin.x = 20;
@@ -60,6 +60,7 @@
 {
 	[self.helperTextField setHidden:NO];
 	[self.mainViewController.view removeFromSuperview];
+	self.mainViewController = nil;
 	
 	[RRMailCTL sharedInstance].authorization = nil;
 }
