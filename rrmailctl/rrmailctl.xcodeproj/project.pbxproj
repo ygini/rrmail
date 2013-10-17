@@ -293,20 +293,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rrmailctl/rrmailctl-Prefix.pch";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib/sasl2",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate-ios/lib",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c-ios/lib",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib/sasl2",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/tidy-html5-ios/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -318,20 +305,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rrmailctl/rrmailctl-Prefix.pch";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib/sasl2",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate-ios/lib",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c-ios/lib",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib/sasl2",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/tidy-html5-ios/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
