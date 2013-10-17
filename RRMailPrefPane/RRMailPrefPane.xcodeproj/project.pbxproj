@@ -15,8 +15,6 @@
 		E10A5DC1180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A5DBF180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.m */; };
 		E10A5DC5180AE87000C0DD80 /* YG-Label-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E10A5DC4180AE87000C0DD80 /* YG-Label-Logo.png */; };
 		E10A5DC7180AF5EC00C0DD80 /* RRMailPrefPane.png in Resources */ = {isa = PBXBuildFile; fileRef = E10A5DC6180AF5EC00C0DD80 /* RRMailPrefPane.png */; };
-		E10A5DC9180AF73300C0DD80 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10A5DC8180AF73300C0DD80 /* Sparkle.framework */; };
-		E10A5DCB180AF75600C0DD80 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E10A5DC8180AF73300C0DD80 /* Sparkle.framework */; };
 		E12F188C180AB80B0035ACDD /* INIGViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E12F188A180AB80B0035ACDD /* INIGViewController.h */; };
 		E12F188D180AB80B0035ACDD /* INIGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12F188B180AB80B0035ACDD /* INIGViewController.m */; };
 		E12F1892180AB95B0035ACDD /* RRMailCTL.h in Headers */ = {isa = PBXBuildFile; fileRef = E12F1890180AB95B0035ACDD /* RRMailCTL.h */; };
@@ -26,6 +24,8 @@
 		E146DD62180AC131008A7438 /* OnOffSwitchControlCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E146D0A3180AC12D008A7438 /* OnOffSwitchControlCell.h */; };
 		E146DD63180AC131008A7438 /* OnOffSwitchControlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E146D0A4180AC12D008A7438 /* OnOffSwitchControlCell.m */; };
 		E146DDD0180AC2B2008A7438 /* RRMailPrefPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1B92E74180AA5D200411164 /* RRMailPrefPane.xib */; };
+		E17BC6BB18101FB10012FA8A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17BC6BA18101FB10012FA8A /* Sparkle.framework */; };
+		E17BC6BC1810202E0012FA8A /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E17BC6BA18101FB10012FA8A /* Sparkle.framework */; };
 		E1B21C64180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = E1B21C61180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h */; };
 		E1B21C65180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B21C62180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.m */; };
 		E1B21C66180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1B21C63180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.xib */; };
@@ -81,7 +81,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E10A5DCB180AF75600C0DD80 /* Sparkle.framework in Copy Frameworks */,
+				E17BC6BC1810202E0012FA8A /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +109,6 @@
 		E10A5DBF180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIGBoolToStringValueTransformer.m; sourceTree = "<group>"; };
 		E10A5DC4180AE87000C0DD80 /* YG-Label-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YG-Label-Logo.png"; sourceTree = "<group>"; };
 		E10A5DC6180AF5EC00C0DD80 /* RRMailPrefPane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RRMailPrefPane.png; sourceTree = "<group>"; };
-		E10A5DC8180AF73300C0DD80 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		E12F188A180AB80B0035ACDD /* INIGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INIGViewController.h; sourceTree = "<group>"; };
 		E12F188B180AB80B0035ACDD /* INIGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIGViewController.m; sourceTree = "<group>"; };
 		E12F1890180AB95B0035ACDD /* RRMailCTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMailCTL.h; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		E146D09C180AC12D008A7438 /* OnOffSwitchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControl.m; sourceTree = "<group>"; };
 		E146D0A3180AC12D008A7438 /* OnOffSwitchControlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnOffSwitchControlCell.h; sourceTree = "<group>"; };
 		E146D0A4180AC12D008A7438 /* OnOffSwitchControlCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControlCell.m; sourceTree = "<group>"; };
+		E17BC6BA18101FB10012FA8A /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		E1B21C61180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMPrefPaneServerSettingsWindowController.h; sourceTree = "<group>"; };
 		E1B21C62180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMPrefPaneServerSettingsWindowController.m; sourceTree = "<group>"; };
 		E1B21C63180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RRMPrefPaneServerSettingsWindowController.xib; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 			files = (
 				E1B92E93180AADEA00411164 /* Security.framework in Frameworks */,
 				E1B92E91180AADE600411164 /* SecurityInterface.framework in Frameworks */,
-				E10A5DC9180AF73300C0DD80 /* Sparkle.framework in Frameworks */,
+				E17BC6BB18101FB10012FA8A /* Sparkle.framework in Frameworks */,
 				E1B92E61180AA5D100411164 /* Cocoa.framework in Frameworks */,
 				E1B92E63180AA5D200411164 /* PreferencePanes.framework in Frameworks */,
 			);
@@ -231,7 +231,7 @@
 		E146C280180AC11D008A7438 /* vendors */ = {
 			isa = PBXGroup;
 			children = (
-				E10A5DC8180AF73300C0DD80 /* Sparkle.framework */,
+				E17BC6BA18101FB10012FA8A /* Sparkle.framework */,
 				E146D093180AC12D008A7438 /* OnOffSwitchControl */,
 			);
 			name = vendors;
@@ -640,26 +640,13 @@
 				DSTROOT = /;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors,
+					"$(SRCROOT)/../vendors",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Prefix.pch";
 				INFOPLIST_FILE = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib/sasl2",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate-ios/lib",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c-ios/lib",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib/sasl2",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/tidy-html5-ios/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = prefPane;
 			};
@@ -671,26 +658,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors,
+					"$(SRCROOT)/../vendors",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Prefix.pch";
 				INFOPLIST_FILE = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/builds/workdir/20130828114733/src/libetpan/build-mac/libsasl-ios/lib/sasl2",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/ctemplate-ios/lib",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/icu4c-ios/lib",
-					/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan/lib,
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libetpan-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/libsasl-ios/lib/sasl2",
-					"/Users/yoanngini/SVN/Perso/reroutemail/vendors/mailcore2/Externals/tidy-html5-ios/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = prefPane;
 			};
