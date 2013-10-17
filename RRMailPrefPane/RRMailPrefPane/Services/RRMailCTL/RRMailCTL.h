@@ -13,7 +13,7 @@
 
 @property (strong) SFAuthorization *authorization;
 
-@property (weak, nonatomic) IBOutlet NSMutableDictionary *configuration;
+@property (strong, nonatomic) IBOutlet NSMutableDictionary *configuration;
 @property (weak, nonatomic) IBOutlet NSNumber *serviceIsLoaded;
 @property (weak, nonatomic) IBOutlet NSString *startInterval;
 

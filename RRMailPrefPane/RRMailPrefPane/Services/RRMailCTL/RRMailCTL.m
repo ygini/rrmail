@@ -11,10 +11,14 @@
 #import "NSString+keyPathComponents.h"
 
 @interface RRMailCTL ()
--(void)silentSetConfiguration:(NSMutableDictionary *)configuration;
+{
+	BOOL _isLoadingConfigurationFromDisk;
+}
 - (NSData*)runCommandWithArguments:(NSArray*)arguments andDataForSTDIN:(NSData*)stdinData waitForAnswer:(BOOL)waitForAnswer;
 - (NSString*)rrmailctlPath;
 - (NSString*)rrmailPath;
+- (void)loadConfiguration;
+- (void)saveConfigurationOnDisk;
 @end
 
 @implementation RRMailCTL
@@ -30,32 +34,21 @@
     return RRMailCTLsharedInstance;
 }
 
--(NSMutableDictionary *)configuration
+- (id)init
 {
-	if (self.authorization) {
-		NSData *rawConfig = [self runCommandWithArguments:@[@"--rrmailConfig"] andDataForSTDIN:nil waitForAnswer:YES];
-		return [NSPropertyListSerialization propertyListFromData:rawConfig
-												mutabilityOption:NSPropertyListMutableContainersAndLeaves
-														  format:NULL
-												errorDescription:nil];
-	}
-	
-	return nil;
+    self = [super init];
+    if (self) {
+		_isLoadingConfigurationFromDisk = NO;
+        [self addObserver:self forKeyPath:@"authorization" options:0 context:NULL];
+        [self addObserver:self forKeyPath:@"configuration" options:0 context:NULL];
+    }
+    return self;
 }
 
--(void)setConfiguration:(NSMutableDictionary *)configuration
+- (void)dealloc
 {
-	[self silentSetConfiguration:configuration];
-}
-
--(void)silentSetConfiguration:(NSMutableDictionary *)configuration
-{
-	if (self.authorization) {
-		NSData *rawConfig = [NSPropertyListSerialization dataFromPropertyList:configuration
-																	   format:NSPropertyListXMLFormat_v1_0
-															 errorDescription:nil];
-		[self runCommandWithArguments:@[@"--updateRrmailConfig"] andDataForSTDIN:rawConfig waitForAnswer:NO];
-	}
+    [self removeObserver:self forKeyPath:@"authorization"];
+    [self removeObserver:self forKeyPath:@"configuration"];
 }
 
 - (void)loadService
@@ -149,23 +142,39 @@
 	return [[NSBundle bundleForClass:[self class]] pathForAuxiliaryExecutable:@"rrmail"];
 }
 
--(void)setValue:(id)value forKeyPath:(NSString *)keyPath
+- (void)loadConfiguration
 {
-	NSMutableArray *keyPathComponents = [[keyPath keyPathComponents] mutableCopy];
-	if ([keyPathComponents count] > 1) {
-		if ([@"configuration" isEqualToString:[keyPathComponents objectAtIndex:0]]) {
-			[keyPathComponents removeObjectAtIndex:0];
-			NSString *adaptedKeyPath = [NSString stringWithKeyPathComponents:keyPathComponents];
-			NSMutableDictionary *configuration = self.configuration;
-			[configuration setValue:value forKeyPath:adaptedKeyPath];
-			[self silentSetConfiguration:configuration];
+	_isLoadingConfigurationFromDisk = YES;
+	NSData *rawConfig = [self runCommandWithArguments:@[@"--rrmailConfig"] andDataForSTDIN:nil waitForAnswer:YES];
+	self.configuration = [NSPropertyListSerialization propertyListFromData:rawConfig
+														  mutabilityOption:NSPropertyListMutableContainersAndLeaves
+																	format:NULL
+														  errorDescription:nil];
+	_isLoadingConfigurationFromDisk = NO;
+}
+
+- (void)saveConfigurationOnDisk
+{
+	if (self.authorization) {
+		NSData *rawConfig = [NSPropertyListSerialization dataFromPropertyList:self.configuration
+																	   format:NSPropertyListXMLFormat_v1_0
+															 errorDescription:nil];
+		[self runCommandWithArguments:@[@"--updateRrmailConfig"] andDataForSTDIN:rawConfig waitForAnswer:NO];
+	}
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+	if (self == object && [@"authorization" isEqualToString:keyPath]) {
+		if (self.authorization.authorizationRef) {
+			[self loadConfiguration];
 		}
 		else {
-			[super setValue:value forKeyPath:keyPath];
+			self.configuration = nil;
 		}
 	}
-	else {
-		[super setValue:value forKeyPath:keyPath];
+	else if (self == object && [@"configuration" isEqualToString:keyPath] && !_isLoadingConfigurationFromDisk){
+		[self saveConfigurationOnDisk];
 	}
 }
 
