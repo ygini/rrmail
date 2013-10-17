@@ -94,9 +94,6 @@
             }
         }
         
-        [strSSL release];
-        
-        
         // Check Source Server Type
         NSString * strSourceServerType = [_serverConfig objectForKey:kRRMSourceServerTypeKey];
         
@@ -204,9 +201,6 @@
             }
         }
         
-        [numberTCPPort release];
-    
-        
         // Check _userSettings configuration
         
         for (NSMutableDictionary * _userSettings in  [_serverConfig objectForKey:@"sourceServerAccountList"])
@@ -299,11 +293,11 @@
         hostRef = CFHostCreateWithName(kCFAllocatorDefault, (CFStringRef)hostname);
         result = CFHostStartInfoResolution(hostRef, kCFHostAddresses, NULL);
         
-        // pass an error instead of NULL here to find out why it failed
-        if (result == TRUE)
-        {
-            addresses = CFHostGetAddressing(hostRef, &result);
-        }
+//        // pass an error instead of NULL here to find out why it failed
+//        if (result == TRUE)
+//        {
+//            addresses = CFHostGetAddressing(hostRef, &result);
+//        }
         
         if (result == TRUE)
         {
