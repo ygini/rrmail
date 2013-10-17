@@ -8,6 +8,8 @@
 
 #import "RRMPrefPaneServerSettingsWindowController.h"
 
+#import <RRMConstants.h>
+
 @interface RRMPrefPaneServerSettingsWindowController ()
 
 - (IBAction)OKAction:(id)sender;
@@ -21,7 +23,18 @@
 {
 	RRMPrefPaneServerSettingsWindowController *window = [[self alloc] initWithWindowNibName:@"RRMPrefPaneServerSettingsWindowController"];
 	
-	window.serverInfo = [sourceInfo mutableCopy];
+	if (sourceInfo) {
+		window.serverInfo = [sourceInfo mutableCopy];
+	}
+	else {
+		window.serverInfo = [@{
+							   kRRMSourceServerAddressKey: @"mail.example.com",
+							   kRRMSourceServerMaxConcurrentOperationsKey: @10,
+							   kRRMSourceServerTCPPortKey: @993,
+							   kRRMSourceServerTypeKey: kRRMSourceServerTypeIMAPValue,
+							   kRRMSourceServerRequireSSLKey: @YES
+							  } mutableCopy];
+	}
 	
 	return window;
 }
