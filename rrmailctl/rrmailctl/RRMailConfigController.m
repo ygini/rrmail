@@ -317,6 +317,7 @@
 {
 	NSDictionary *jobDict = (NSDictionary *)SMJobCopyDictionary(TARGET_SM_DOMAIN, (CFStringRef)kRRMLaunchdJobLabel);
 	if (jobDict) {
+		[jobDict release];
 		return YES;
 	}
 	
