@@ -285,7 +285,7 @@
 {
     Boolean result;
     CFHostRef hostRef;
-    CFArrayRef addresses;
+//    CFArrayRef addresses;
     NSString *hostname = _hostName;
     
     if (hostname != nil)
