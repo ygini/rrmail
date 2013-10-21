@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C46D3C5018117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = C46D3C4D18117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.h */; };
+		C46D3C5118117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46D3C4E18117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.m */; };
+		C46D3C5218117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46D3C4F18117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.xib */; };
 		E108035D180ACA7000E525E4 /* rrmailctl in Copy Executables */ = {isa = PBXBuildFile; fileRef = E108035A180ACA6300E525E4 /* rrmailctl */; };
 		E1080366180ACC0C00E525E4 /* rrmail in Copy Executables */ = {isa = PBXBuildFile; fileRef = E1080363180ACAE000E525E4 /* rrmail */; };
 		E108036A180ACFDF00E525E4 /* NSString+keyPathComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = E1080368180ACFDF00E525E4 /* NSString+keyPathComponents.h */; };
@@ -101,6 +104,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C46D3C4D18117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMPrefPaneAccountSettingsWindowController.h; sourceTree = "<group>"; };
+		C46D3C4E18117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMPrefPaneAccountSettingsWindowController.m; sourceTree = "<group>"; };
+		C46D3C4F18117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RRMPrefPaneAccountSettingsWindowController.xib; sourceTree = "<group>"; };
 		E1080355180ACA6200E525E4 /* rrmailctl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = rrmailctl.xcodeproj; path = ../rrmailctl/rrmailctl.xcodeproj; sourceTree = "<group>"; };
 		E108035E180ACAE000E525E4 /* rrmail.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = rrmail.xcodeproj; path = ../rrmail/rrmail.xcodeproj; sourceTree = "<group>"; };
 		E1080368180ACFDF00E525E4 /* NSString+keyPathComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+keyPathComponents.h"; sourceTree = "<group>"; };
@@ -158,6 +164,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C46D3C4C181177CA000D9716 /* RRMPrefPaneAccountSettingsWindowController */ = {
+			isa = PBXGroup;
+			children = (
+				C46D3C4D18117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.h */,
+				C46D3C4E18117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.m */,
+				C46D3C4F18117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.xib */,
+			);
+			path = RRMPrefPaneAccountSettingsWindowController;
+			sourceTree = "<group>";
+		};
 		E1080356180ACA6200E525E4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +367,7 @@
 			children = (
 				E1B92E88180AA76700411164 /* RRMPrefPaneMainViewController */,
 				E1B21C60180B045F005A9F98 /* RRMPrefPaneServerSettingsWindowController */,
+				C46D3C4C181177CA000D9716 /* RRMPrefPaneAccountSettingsWindowController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -374,6 +391,7 @@
 			files = (
 				E12F188C180AB80B0035ACDD /* INIGViewController.h in Headers */,
 				E1B21C64180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h in Headers */,
+				C46D3C5018117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.h in Headers */,
 				E10A5DC0180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.h in Headers */,
 				E1B92E80180AA60D00411164 /* RRMailPrefPane.h in Headers */,
 				E1B92E8D180AA77700411164 /* RRMPrefPaneMainViewController.h in Headers */,
@@ -477,6 +495,7 @@
 				E10A5DC7180AF5EC00C0DD80 /* RRMailPrefPane.png in Resources */,
 				E1B21C66180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.xib in Resources */,
 				E10A5DC5180AE87000C0DD80 /* YG-Label-Logo.png in Resources */,
+				C46D3C5218117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.xib in Resources */,
 				E1B92E6D180AA5D200411164 /* InfoPlist.strings in Resources */,
 				E146DDD0180AC2B2008A7438 /* RRMailPrefPane.xib in Resources */,
 			);
@@ -520,6 +539,7 @@
 				E1B92E8E180AA77700411164 /* RRMPrefPaneMainViewController.m in Sources */,
 				E10A5DC1180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.m in Sources */,
 				E1B21C6F180B1043005A9F98 /* RRMConstants.m in Sources */,
+				C46D3C5118117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.m in Sources */,
 				E146DD5E180AC131008A7438 /* OnOffSwitchControl.m in Sources */,
 				E1B21C65180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.m in Sources */,
 				E146DD63180AC131008A7438 /* OnOffSwitchControlCell.m in Sources */,

@@ -498,6 +498,7 @@
 						<string key="NSFrame">{{210, 10}, {426, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="441066224">
@@ -920,6 +921,7 @@
 				<bool key="NSEditable">YES</bool>
 				<bool key="NSAutomaticallyPreparesContent">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
+				<bool key="NSAvoidsEmptySelection">YES</bool>
 				<bool key="NSPreservesSelection">YES</bool>
 				<bool key="NSSelectsInsertedObjects">YES</bool>
 				<bool key="NSFilterRestrictsInsertion">YES</bool>
@@ -929,6 +931,7 @@
 				<bool key="NSEditable">YES</bool>
 				<bool key="NSAutomaticallyPreparesContent">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
+				<bool key="NSAvoidsEmptySelection">YES</bool>
 				<bool key="NSPreservesSelection">YES</bool>
 				<bool key="NSSelectsInsertedObjects">YES</bool>
 				<bool key="NSFilterRestrictsInsertion">YES</bool>
@@ -984,6 +987,90 @@
 						<reference key="destination" ref="696260729"/>
 					</object>
 					<int key="connectionID">466</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">editSelectedAccount:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="514638110"/>
+					</object>
+					<int key="connectionID">468</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">addAccount:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="704775713"/>
+					</object>
+					<int key="connectionID">469</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">deleteSelectedAccount:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="700256353"/>
+					</object>
+					<int key="connectionID">470</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selection</string>
+						<reference key="source" ref="696260729"/>
+						<reference key="destination" ref="673964319"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="696260729"/>
+							<reference key="NSDestination" ref="673964319"/>
+							<string key="NSLabel">enabled: selection</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selection</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNotNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">475</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectedObjects.lastObject</string>
+						<reference key="source" ref="514638110"/>
+						<reference key="destination" ref="615429087"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="514638110"/>
+							<reference key="NSDestination" ref="615429087"/>
+							<string key="NSLabel">enabled: selectedObjects.lastObject</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectedObjects.lastObject</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNotNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">485</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selection</string>
+						<reference key="source" ref="700256353"/>
+						<reference key="destination" ref="615429087"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="700256353"/>
+							<reference key="NSDestination" ref="615429087"/>
+							<string key="NSLabel">enabled: selection</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selection</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNotNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">478</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1318,7 +1405,6 @@
 							<reference ref="552802990"/>
 							<reference ref="907498711"/>
 							<reference ref="633920515"/>
-							<reference ref="1036806966"/>
 							<reference ref="696260729"/>
 							<reference ref="574198044"/>
 							<reference ref="661951890"/>
@@ -1339,6 +1425,7 @@
 							<reference ref="918666320"/>
 							<reference ref="271722060"/>
 							<reference ref="700256353"/>
+							<reference ref="1036806966"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1913,7 +2000,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">466</int>
+			<int key="maxID">489</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1945,17 +2032,32 @@
 					<string key="className">RRMPrefPaneMainViewController</string>
 					<string key="superclassName">INIGViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="addAccount:">id</string>
 						<string key="addServer:">id</string>
+						<string key="deleteSelectedAccount:">id</string>
 						<string key="deleteSelectedServer:">id</string>
+						<string key="editSelectedAccount:">id</string>
 						<string key="editSelectedServer:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="addAccount:">
+							<string key="name">addAccount:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="addServer:">
 							<string key="name">addServer:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="deleteSelectedAccount:">
+							<string key="name">deleteSelectedAccount:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="deleteSelectedServer:">
 							<string key="name">deleteSelectedServer:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="editSelectedAccount:">
+							<string key="name">editSelectedAccount:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="editSelectedServer:">
