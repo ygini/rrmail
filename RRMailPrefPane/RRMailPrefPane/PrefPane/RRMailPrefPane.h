@@ -18,4 +18,5 @@
 - (void)mainViewDidLoad;
 
 - (IBAction)openInigServicesWebPage:(id)sender;
+- (IBAction)openPaypalWebPage:(id)sender;
 @end

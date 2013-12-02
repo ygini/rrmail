@@ -13,6 +13,8 @@
 #import "RRMPrefPaneMainViewController.h"
 #import "RRMailCTL.h"
 
+#import <Sparkle/Sparkle.h>
+
 @interface RRMailPrefPane ()
 
 @property (strong) RRMPrefPaneMainViewController *mainViewController;
@@ -25,6 +27,8 @@
 
 - (void)mainViewDidLoad
 {
+	[[SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]] checkForUpdatesInBackground];
+	
 	AuthorizationItem authItems = {kAuthorizationRightExecute, 0, NULL, 0};
     AuthorizationRights authRights = {1, &authItems};
     [self.authorizationView setAuthorizationRights:&authRights];
@@ -36,6 +40,10 @@
 
 - (IBAction)openInigServicesWebPage:(id)sender {
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.inig-services.com/"]];
+}
+
+- (IBAction)openPaypalWebPage:(id)sender {
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3VYYYK2GCCTAA"]];
 }
 
 #pragma mark - SFAuthorizationView

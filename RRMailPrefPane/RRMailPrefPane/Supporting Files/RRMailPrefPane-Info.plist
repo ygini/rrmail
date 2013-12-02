@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>81</string>
+	<string>85</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2013 iNig-Services. All rights reserved.</string>
 	<key>NSMainNibFile</key>
@@ -35,7 +35,7 @@
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>https://appcast.reroutemail.net/appcast.xml</string>
+	<string>http://appcast.rrmail.fr/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUShowReleaseNotes</key>

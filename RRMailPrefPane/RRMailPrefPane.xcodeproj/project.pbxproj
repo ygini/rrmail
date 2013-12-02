@@ -44,6 +44,8 @@
 		E1B92E8F180AA77700411164 /* RRMPrefPaneMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1B92E8C180AA77700411164 /* RRMPrefPaneMainViewController.xib */; };
 		E1B92E91180AADE600411164 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B92E90180AADE600411164 /* SecurityInterface.framework */; };
 		E1B92E93180AADEA00411164 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B92E92180AADEA00411164 /* Security.framework */; };
+		E1BEAD0B184D15870071A41A /* paypal-donate-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BEAD0A184D15870071A41A /* paypal-donate-button.png */; };
+		E1BEAD0D184D1E480071A41A /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = E1BEAD0C184D1E480071A41A /* dsa_pub.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +148,8 @@
 		E1B92E8C180AA77700411164 /* RRMPrefPaneMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RRMPrefPaneMainViewController.xib; sourceTree = "<group>"; };
 		E1B92E90180AADE600411164 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = System/Library/Frameworks/SecurityInterface.framework; sourceTree = SDKROOT; };
 		E1B92E92180AADEA00411164 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E1BEAD0A184D15870071A41A /* paypal-donate-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paypal-donate-button.png"; sourceTree = "<group>"; };
+		E1BEAD0C184D1E480071A41A /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +347,8 @@
 		E1B92E69180AA5D200411164 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E1BEAD0C184D1E480071A41A /* dsa_pub.pem */,
+				E1BEAD0A184D15870071A41A /* paypal-donate-button.png */,
 				E10A5DC4180AE87000C0DD80 /* YG-Label-Logo.png */,
 				E1B92E6A180AA5D200411164 /* RRMailPrefPane-Info.plist */,
 				E1B92E6B180AA5D200411164 /* InfoPlist.strings */,
@@ -494,6 +500,8 @@
 				E1B92E8F180AA77700411164 /* RRMPrefPaneMainViewController.xib in Resources */,
 				E10A5DC7180AF5EC00C0DD80 /* RRMailPrefPane.png in Resources */,
 				E1B21C66180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.xib in Resources */,
+				E1BEAD0B184D15870071A41A /* paypal-donate-button.png in Resources */,
+				E1BEAD0D184D1E480071A41A /* dsa_pub.pem in Resources */,
 				E10A5DC5180AE87000C0DD80 /* YG-Label-Logo.png in Resources */,
 				C46D3C5218117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.xib in Resources */,
 				E1B92E6D180AA5D200411164 /* InfoPlist.strings in Resources */,

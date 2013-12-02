@@ -19,6 +19,8 @@
 @property (strong) IBOutlet NSArrayController *serverList;
 @property (strong) IBOutlet NSArrayController *accountList;
 
+@property (strong) IBOutletCollection(NSControl) NSArray *controlsWhenNoServer;
+
 - (IBAction)editSelectedServer:(id)sender;
 @end
 
