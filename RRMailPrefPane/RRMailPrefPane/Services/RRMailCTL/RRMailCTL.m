@@ -134,12 +134,12 @@
 
 - (NSString*)rrmailctlPath
 {
-	return [[NSBundle bundleForClass:[self class]] pathForAuxiliaryExecutable:@"rrmailctl"];
+	return [[NSBundle bundleForClass:[self class]] pathForResource:@"rrmailctl" ofType:@""];
 }
 
 - (NSString*)rrmailPath
 {
-	return [[NSBundle bundleForClass:[self class]] pathForAuxiliaryExecutable:@"rrmail"];
+	return [[NSBundle bundleForClass:[self class]] pathForResource:@"rrmail" ofType:@""];
 }
 
 - (void)loadConfiguration

@@ -95,7 +95,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 6;
+			dstSubfolderSpec = 7;
 			files = (
 				E1080366180ACC0C00E525E4 /* rrmail in Copy Executables */,
 				E108035D180ACA7000E525E4 /* rrmailctl in Copy Executables */,
