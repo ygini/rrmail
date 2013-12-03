@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C447094317CB87EE003A79B2 /* RRMController+CheckConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C447094217CB87EE003A79B2 /* RRMController+CheckConfiguration.m */; };
+		C4CB42FA17B90CB000DC72C2 /* libMailCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CB42F917B90CB000DC72C2 /* libMailCore.a */; };
+		E111E3D217C3C95700AA40E7 /* CocoaSyslog.m in Sources */ = {isa = PBXBuildFile; fileRef = E111E3D117C3C95700AA40E7 /* CocoaSyslog.m */; };
+		E12EF15C17B2472B007414D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12EF15B17B2472B007414D1 /* Foundation.framework */; };
+		E12EF15F17B2472B007414D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E12EF15E17B2472B007414D1 /* main.m */; };
+		E16BC8F118096AB600DC528C /* RRMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E16BC8F018096AB600DC528C /* RRMConstants.m */; };
+		E188A5E917B24CE8006DE441 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E188A5E817B24CE8006DE441 /* Security.framework */; };
+		E188A5ED17B24D85006DE441 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E188A5EC17B24D85006DE441 /* CFNetwork.framework */; };
+		E188A5EF17B24DCC006DE441 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E188A5EE17B24DCC006DE441 /* libcrypto.dylib */; };
+		E188A5F117B24DD5006DE441 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E188A5F017B24DD5006DE441 /* libssl.dylib */; };
+		E18B1BB817B264E00007D731 /* RRMController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18B1BB717B264E00007D731 /* RRMController.m */; };
+		E18B1BBD17B275010007D731 /* RRMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E18B1BBC17B275010007D731 /* RRMOperation.m */; };
+		E18B1BC117B275330007D731 /* RRMOperationPOP3.m in Sources */ = {isa = PBXBuildFile; fileRef = E18B1BC017B275330007D731 /* RRMOperationPOP3.m */; };
+		E1E8CD6F17BD5E5500979984 /* RRMOperationIMAP.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8CD6E17BD5E5500979984 /* RRMOperationIMAP.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C4CB434217B91C6F00DC72C2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E12EF15617B2472B007414D1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C447094117CB87EE003A79B2 /* RRMController+CheckConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRMController+CheckConfiguration.h"; sourceTree = "<group>"; };
+		C447094217CB87EE003A79B2 /* RRMController+CheckConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRMController+CheckConfiguration.m"; sourceTree = "<group>"; };
+		C4CB42F917B90CB000DC72C2 /* libMailCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMailCore.a; path = "../../Library/Developer/Xcode/DerivedData/reroutemail-elycicnwifipzcbycpxukgdhwvwe/Build/Products/Debug/libMailCore.a"; sourceTree = "<group>"; };
+		C4CB433F17B91B5500DC72C2 /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../../Library/Developer/Xcode/DerivedData/reroutemail-elycicnwifipzcbycpxukgdhwvwe/Build/Products/Debug/MailCore.framework"; sourceTree = "<group>"; };
+		C4E2D9CC17BA2A3D00A03791 /* SampleConf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleConf.plist; sourceTree = "<group>"; };
+		E111E3D017C3C95700AA40E7 /* CocoaSyslog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaSyslog.h; sourceTree = "<group>"; };
+		E111E3D117C3C95700AA40E7 /* CocoaSyslog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaSyslog.m; sourceTree = "<group>"; };
+		E12EF15817B2472B007414D1 /* rrmail */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rrmail; sourceTree = BUILT_PRODUCTS_DIR; };
+		E12EF15B17B2472B007414D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E12EF15E17B2472B007414D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E16BC8EF18096AB600DC528C /* RRMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMConstants.h; sourceTree = "<group>"; };
+		E16BC8F018096AB600DC528C /* RRMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMConstants.m; sourceTree = "<group>"; };
+		E1880D7A17B247E300EC588F /* rrmail.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = rrmail.1; sourceTree = "<group>"; };
+		E1880D7C17B247E300EC588F /* rrmail-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rrmail-Prefix.pch"; sourceTree = "<group>"; };
+		E188A5E817B24CE8006DE441 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E188A5EC17B24D85006DE441 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E188A5EE17B24DCC006DE441 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		E188A5F017B24DD5006DE441 /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
+		E18B1BB617B264E00007D731 /* RRMController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMController.h; sourceTree = "<group>"; };
+		E18B1BB717B264E00007D731 /* RRMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMController.m; sourceTree = "<group>"; };
+		E18B1BBB17B275010007D731 /* RRMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMOperation.h; sourceTree = "<group>"; };
+		E18B1BBC17B275010007D731 /* RRMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMOperation.m; sourceTree = "<group>"; };
+		E18B1BBF17B275330007D731 /* RRMOperationPOP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMOperationPOP3.h; sourceTree = "<group>"; };
+		E18B1BC017B275330007D731 /* RRMOperationPOP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMOperationPOP3.m; sourceTree = "<group>"; };
+		E18B1BC217B27B030007D731 /* RRMOperationMail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRMOperationMail.h; sourceTree = "<group>"; };
+		E1A2414F17CE032800557CA4 /* RRMController_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRMController_Internal.h; sourceTree = "<group>"; };
+		E1E8CD6D17BD5E5500979984 /* RRMOperationIMAP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMOperationIMAP.h; sourceTree = "<group>"; };
+		E1E8CD6E17BD5E5500979984 /* RRMOperationIMAP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMOperationIMAP.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E12EF15517B2472B007414D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4CB42FA17B90CB000DC72C2 /* libMailCore.a in Frameworks */,
+				E188A5F117B24DD5006DE441 /* libssl.dylib in Frameworks */,
+				E188A5EF17B24DCC006DE441 /* libcrypto.dylib in Frameworks */,
+				E188A5ED17B24D85006DE441 /* CFNetwork.framework in Frameworks */,
+				E188A5E917B24CE8006DE441 /* Security.framework in Frameworks */,
+				E12EF15C17B2472B007414D1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E111E3CC17C3C93000AA40E7 /* CocoaSyslog */ = {
+			isa = PBXGroup;
+			children = (
+				E111E3D017C3C95700AA40E7 /* CocoaSyslog.h */,
+				E111E3D117C3C95700AA40E7 /* CocoaSyslog.m */,
+			);
+			name = CocoaSyslog;
+			path = ../../vendors/CocoaSyslog/CocoaSyslog/CocoaSyslog;
+			sourceTree = "<group>";
+		};
+		E12EF14F17B2472B007414D1 = {
+			isa = PBXGroup;
+			children = (
+				E12EF15D17B2472B007414D1 /* rrmail */,
+				E12EF15A17B2472B007414D1 /* Frameworks */,
+				E12EF15917B2472B007414D1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E12EF15917B2472B007414D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E12EF15817B2472B007414D1 /* rrmail */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E12EF15A17B2472B007414D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E188A5F017B24DD5006DE441 /* libssl.dylib */,
+				E188A5EE17B24DCC006DE441 /* libcrypto.dylib */,
+				C4CB42F917B90CB000DC72C2 /* libMailCore.a */,
+				E188A5EC17B24D85006DE441 /* CFNetwork.framework */,
+				E188A5E817B24CE8006DE441 /* Security.framework */,
+				E12EF15B17B2472B007414D1 /* Foundation.framework */,
+				C4CB433F17B91B5500DC72C2 /* MailCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E12EF15D17B2472B007414D1 /* rrmail */ = {
+			isa = PBXGroup;
+			children = (
+				E16BC8EE18096AB600DC528C /* common */,
+				E111E3CC17C3C93000AA40E7 /* CocoaSyslog */,
+				E1880D7917B247E300EC588F /* Documentation */,
+				E1880D7B17B247E300EC588F /* Supporting Files */,
+				E18B1BB417B264470007D731 /* Controllers */,
+				E18B1BB517B264470007D731 /* Operations */,
+				E12EF15E17B2472B007414D1 /* main.m */,
+			);
+			path = rrmail;
+			sourceTree = "<group>";
+		};
+		E16BC8EE18096AB600DC528C /* common */ = {
+			isa = PBXGroup;
+			children = (
+				E16BC8EF18096AB600DC528C /* RRMConstants.h */,
+				E16BC8F018096AB600DC528C /* RRMConstants.m */,
+			);
+			name = common;
+			path = ../../common;
+			sourceTree = "<group>";
+		};
+		E1880D7917B247E300EC588F /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				E1880D7A17B247E300EC588F /* rrmail.1 */,
+				C4E2D9CC17BA2A3D00A03791 /* SampleConf.plist */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		E1880D7B17B247E300EC588F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1880D7C17B247E300EC588F /* rrmail-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E18B1BB417B264470007D731 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E18B1BB617B264E00007D731 /* RRMController.h */,
+				E1A2414F17CE032800557CA4 /* RRMController_Internal.h */,
+				E18B1BB717B264E00007D731 /* RRMController.m */,
+				C447094117CB87EE003A79B2 /* RRMController+CheckConfiguration.h */,
+				C447094217CB87EE003A79B2 /* RRMController+CheckConfiguration.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E18B1BB517B264470007D731 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				E18B1BBB17B275010007D731 /* RRMOperation.h */,
+				E18B1BBC17B275010007D731 /* RRMOperation.m */,
+				E18B1BC217B27B030007D731 /* RRMOperationMail.h */,
+				E1E8CD6C17BD5E3700979984 /* RRMOperationIMAP */,
+				E18B1BBE17B275260007D731 /* RRMOperationPOP3 */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		E18B1BBE17B275260007D731 /* RRMOperationPOP3 */ = {
+			isa = PBXGroup;
+			children = (
+				E18B1BBF17B275330007D731 /* RRMOperationPOP3.h */,
+				E18B1BC017B275330007D731 /* RRMOperationPOP3.m */,
+			);
+			path = RRMOperationPOP3;
+			sourceTree = "<group>";
+		};
+		E1E8CD6C17BD5E3700979984 /* RRMOperationIMAP */ = {
+			isa = PBXGroup;
+			children = (
+				E1E8CD6D17BD5E5500979984 /* RRMOperationIMAP.h */,
+				E1E8CD6E17BD5E5500979984 /* RRMOperationIMAP.m */,
+			);
+			path = RRMOperationIMAP;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E12EF15717B2472B007414D1 /* rrmail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E12EF16617B2472B007414D1 /* Build configuration list for PBXNativeTarget "rrmail" */;
+			buildPhases = (
+				E12EF15417B2472B007414D1 /* Sources */,
+				E12EF15517B2472B007414D1 /* Frameworks */,
+				E12EF15617B2472B007414D1 /* CopyFiles */,
+				C4CB434217B91C6F00DC72C2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = rrmail;
+			productName = rrmail;
+			productReference = E12EF15817B2472B007414D1 /* rrmail */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E12EF15017B2472B007414D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RRM;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "iNig-Services";
+			};
+			buildConfigurationList = E12EF15317B2472B007414D1 /* Build configuration list for PBXProject "rrmail" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E12EF14F17B2472B007414D1;
+			productRefGroup = E12EF15917B2472B007414D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E12EF15717B2472B007414D1 /* rrmail */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E12EF15417B2472B007414D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E12EF15F17B2472B007414D1 /* main.m in Sources */,
+				E18B1BB817B264E00007D731 /* RRMController.m in Sources */,
+				E18B1BBD17B275010007D731 /* RRMOperation.m in Sources */,
+				E18B1BC117B275330007D731 /* RRMOperationPOP3.m in Sources */,
+				E1E8CD6F17BD5E5500979984 /* RRMOperationIMAP.m in Sources */,
+				E111E3D217C3C95700AA40E7 /* CocoaSyslog.m in Sources */,
+				E16BC8F118096AB600DC528C /* RRMConstants.m in Sources */,
+				C447094317CB87EE003A79B2 /* RRMController+CheckConfiguration.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E12EF16417B2472B007414D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E12EF16517B2472B007414D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E12EF16717B2472B007414D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "rrmail/Supporting Files/rrmail-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-lctemplate",
+					"-letpan",
+					"-licudata",
+					"-licui18n",
+					"-licuuc",
+					"-lxml2",
+					"-lsasl2",
+					"-liconv",
+					"-ltidy",
+					"-lz",
+					"-lc++",
+					"-stdlib=libc++",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E12EF16817B2472B007414D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "rrmail/Supporting Files/rrmail-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-lctemplate",
+					"-letpan",
+					"-licudata",
+					"-licui18n",
+					"-licuuc",
+					"-lxml2",
+					"-lsasl2",
+					"-liconv",
+					"-ltidy",
+					"-lz",
+					"-lc++",
+					"-stdlib=libc++",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E12EF15317B2472B007414D1 /* Build configuration list for PBXProject "rrmail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E12EF16417B2472B007414D1 /* Debug */,
+				E12EF16517B2472B007414D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E12EF16617B2472B007414D1 /* Build configuration list for PBXNativeTarget "rrmail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E12EF16717B2472B007414D1 /* Debug */,
+				E12EF16817B2472B007414D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E12EF15017B2472B007414D1 /* Project object */;
+}

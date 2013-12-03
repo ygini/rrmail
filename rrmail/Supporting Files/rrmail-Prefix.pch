@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'rrmail' target in the 'rrmail' project
-//
-
-#ifdef __OBJC__
-	#import <Foundation/Foundation.h>
-#endif
