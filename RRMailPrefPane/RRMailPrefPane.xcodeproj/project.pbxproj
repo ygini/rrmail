@@ -121,6 +121,7 @@
 		E12F188B180AB80B0035ACDD /* INIGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIGViewController.m; sourceTree = "<group>"; };
 		E12F1890180AB95B0035ACDD /* RRMailCTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMailCTL.h; sourceTree = "<group>"; };
 		E12F1891180AB95B0035ACDD /* RRMailCTL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMailCTL.m; sourceTree = "<group>"; };
+		E1383B9D184EF9AC0075C661 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RRMailPrefPane.xib; sourceTree = "<group>"; };
 		E146D09B180AC12D008A7438 /* OnOffSwitchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnOffSwitchControl.h; sourceTree = "<group>"; };
 		E146D09C180AC12D008A7438 /* OnOffSwitchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControl.m; sourceTree = "<group>"; };
 		E146D0A3180AC12D008A7438 /* OnOffSwitchControlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnOffSwitchControlCell.h; sourceTree = "<group>"; };
@@ -140,7 +141,6 @@
 		E1B92E6A180AA5D200411164 /* RRMailPrefPane-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RRMailPrefPane-Info.plist"; sourceTree = "<group>"; };
 		E1B92E6C180AA5D200411164 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E1B92E6E180AA5D200411164 /* RRMailPrefPane-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RRMailPrefPane-Prefix.pch"; sourceTree = "<group>"; };
-		E1B92E75180AA5D200411164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RRMailPrefPane.xib; sourceTree = "<group>"; };
 		E1B92E7D180AA60D00411164 /* RRMailPrefPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMailPrefPane.h; sourceTree = "<group>"; };
 		E1B92E7E180AA60D00411164 /* RRMailPrefPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMailPrefPane.m; sourceTree = "<group>"; };
 		E1B92E8A180AA77700411164 /* RRMPrefPaneMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMPrefPaneMainViewController.h; sourceTree = "<group>"; };
@@ -584,7 +584,7 @@
 		E1B92E74180AA5D200411164 /* RRMailPrefPane.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E1B92E75180AA5D200411164 /* Base */,
+				E1383B9D184EF9AC0075C661 /* en */,
 			);
 			name = RRMailPrefPane.xib;
 			sourceTree = "<group>";
@@ -675,6 +675,7 @@
 				INFOPLIST_FILE = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = prefPane;
 			};
@@ -693,6 +694,7 @@
 				INFOPLIST_FILE = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = prefPane;
 			};
