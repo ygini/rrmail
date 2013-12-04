@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1080" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="RRMailPrefPane">
+            <connections>
+                <outlet property="_window" destination="12" id="26"/>
+                <outlet property="authorizationView" destination="oMe-ZJ-1gB" id="Owf-8d-vTb"/>
+                <outlet property="helperTextField" destination="shG-ld-KEL" id="gtA-hi-W9B"/>
+                <outlet property="view" destination="6" id="zqM-kV-M1F"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="&lt;&lt; do not localize >>" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" oneShot="NO" releasedWhenClosed="NO" wantsToBeColor="NO" visibleAtLaunch="NO" animationBehavior="default" id="12" userLabel="PrefPane">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="176" y="715" width="668" height="419"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <value key="minSize" type="size" width="224.66399999999999" height="10"/>
+            <view key="contentView" id="6">
+                <rect key="frame" x="0.0" y="0.0" width="668" height="419"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView id="oMe-ZJ-1gB" customClass="SFAuthorizationView">
+                        <rect key="frame" x="20" y="20" width="303" height="46"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </customView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="shG-ld-KEL">
+                        <rect key="frame" x="17" y="201" width="634" height="17"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="You must unlock the lockpad to see service status and configuration" id="UsI-3z-wSb">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button id="pzT-UP-t2m">
+                        <rect key="frame" x="380" y="13" width="274" height="53"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="YG-Label-Logo" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="Rpb-SG-esx">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <connections>
+                                <action selector="openInigServicesWebPage:" target="-2" id="Kog-s7-Nxq"/>
+                            </connections>
+                        </buttonCell>
+                    </button>
+                    <button id="5ye-OK-Djo">
+                        <rect key="frame" x="20" y="367" width="79" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="paypal-donate-button" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="KWa-2w-SmR">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="openPaypalWebPage:" target="-2" id="qye-Uq-SKd"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+        </window>
+    </objects>
+    <resources>
+        <image name="YG-Label-Logo" width="774" height="152"/>
+        <image name="paypal-donate-button" width="197" height="78"/>
+    </resources>
+</document>
