@@ -27,6 +27,9 @@
 		E146DD62180AC131008A7438 /* OnOffSwitchControlCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E146D0A3180AC12D008A7438 /* OnOffSwitchControlCell.h */; };
 		E146DD63180AC131008A7438 /* OnOffSwitchControlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E146D0A4180AC12D008A7438 /* OnOffSwitchControlCell.m */; };
 		E146DDD0180AC2B2008A7438 /* RRMailPrefPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1B92E74180AA5D200411164 /* RRMailPrefPane.xib */; };
+		E177BD0F18535AEE0021CF20 /* SampleConf.plist in Resources */ = {isa = PBXBuildFile; fileRef = E177BD0E18535AEE0021CF20 /* SampleConf.plist */; };
+		E177BD13185361E70021CF20 /* INIGNumberToStringValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = E177BD11185361E70021CF20 /* INIGNumberToStringValueTransformer.h */; };
+		E177BD14185361E70021CF20 /* INIGNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E177BD12185361E70021CF20 /* INIGNumberToStringValueTransformer.m */; };
 		E17BC6BB18101FB10012FA8A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17BC6BA18101FB10012FA8A /* Sparkle.framework */; };
 		E17BC6BC1810202E0012FA8A /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E17BC6BA18101FB10012FA8A /* Sparkle.framework */; };
 		E1B21C64180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = E1B21C61180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h */; };
@@ -126,6 +129,9 @@
 		E146D09C180AC12D008A7438 /* OnOffSwitchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControl.m; sourceTree = "<group>"; };
 		E146D0A3180AC12D008A7438 /* OnOffSwitchControlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnOffSwitchControlCell.h; sourceTree = "<group>"; };
 		E146D0A4180AC12D008A7438 /* OnOffSwitchControlCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControlCell.m; sourceTree = "<group>"; };
+		E177BD0E18535AEE0021CF20 /* SampleConf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleConf.plist; sourceTree = "<group>"; };
+		E177BD11185361E70021CF20 /* INIGNumberToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INIGNumberToStringValueTransformer.h; sourceTree = "<group>"; };
+		E177BD12185361E70021CF20 /* INIGNumberToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIGNumberToStringValueTransformer.m; sourceTree = "<group>"; };
 		E17BC6BA18101FB10012FA8A /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		E1B21C61180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMPrefPaneServerSettingsWindowController.h; sourceTree = "<group>"; };
 		E1B21C62180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMPrefPaneServerSettingsWindowController.m; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 		E12F1888180AB7FA0035ACDD /* AppKitAddition */ = {
 			isa = PBXGroup;
 			children = (
+				E177BD10185361E70021CF20 /* INIGNumberToStringValueTransformer */,
 				E10A5DBD180AE4C500C0DD80 /* INIGBoolToStringValueTransformer */,
 				E1080367180ACFCA00E525E4 /* NSString+keyPathComponents */,
 				E12F1889180AB7FA0035ACDD /* INIGViewController */,
@@ -267,6 +274,15 @@
 				E146D0A4180AC12D008A7438 /* OnOffSwitchControlCell.m */,
 			);
 			path = OnOffSwitchControl;
+			sourceTree = "<group>";
+		};
+		E177BD10185361E70021CF20 /* INIGNumberToStringValueTransformer */ = {
+			isa = PBXGroup;
+			children = (
+				E177BD11185361E70021CF20 /* INIGNumberToStringValueTransformer.h */,
+				E177BD12185361E70021CF20 /* INIGNumberToStringValueTransformer.m */,
+			);
+			path = INIGNumberToStringValueTransformer;
 			sourceTree = "<group>";
 		};
 		E1B21C60180B045F005A9F98 /* RRMPrefPaneServerSettingsWindowController */ = {
@@ -347,6 +363,7 @@
 		E1B92E69180AA5D200411164 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E177BD0E18535AEE0021CF20 /* SampleConf.plist */,
 				E1BEAD0C184D1E480071A41A /* dsa_pub.pem */,
 				E1BEAD0A184D15870071A41A /* paypal-donate-button.png */,
 				E10A5DC4180AE87000C0DD80 /* YG-Label-Logo.png */,
@@ -399,6 +416,7 @@
 				E1B21C64180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h in Headers */,
 				C46D3C5018117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.h in Headers */,
 				E10A5DC0180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.h in Headers */,
+				E177BD13185361E70021CF20 /* INIGNumberToStringValueTransformer.h in Headers */,
 				E1B92E80180AA60D00411164 /* RRMailPrefPane.h in Headers */,
 				E1B92E8D180AA77700411164 /* RRMPrefPaneMainViewController.h in Headers */,
 				E108036A180ACFDF00E525E4 /* NSString+keyPathComponents.h in Headers */,
@@ -505,6 +523,7 @@
 				E10A5DC5180AE87000C0DD80 /* YG-Label-Logo.png in Resources */,
 				C46D3C5218117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.xib in Resources */,
 				E1B92E6D180AA5D200411164 /* InfoPlist.strings in Resources */,
+				E177BD0F18535AEE0021CF20 /* SampleConf.plist in Resources */,
 				E146DDD0180AC2B2008A7438 /* RRMailPrefPane.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,6 +567,7 @@
 				E10A5DC1180AE4D700C0DD80 /* INIGBoolToStringValueTransformer.m in Sources */,
 				E1B21C6F180B1043005A9F98 /* RRMConstants.m in Sources */,
 				C46D3C5118117837000D9716 /* RRMPrefPaneAccountSettingsWindowController.m in Sources */,
+				E177BD14185361E70021CF20 /* INIGNumberToStringValueTransformer.m in Sources */,
 				E146DD5E180AC131008A7438 /* OnOffSwitchControl.m in Sources */,
 				E1B21C65180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.m in Sources */,
 				E146DD63180AC131008A7438 /* OnOffSwitchControlCell.m in Sources */,

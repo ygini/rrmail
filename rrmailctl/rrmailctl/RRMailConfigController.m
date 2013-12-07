@@ -360,7 +360,7 @@
 {
 	[[[NSFileHandle fileHandleWithStandardInput] readDataToEndOfFile] writeToFile:(NSString*)kRRMServiceConfigPath atomically:YES];
 	NSError *err = nil;
-	[[NSFileManager defaultManager]setAttributes:@{NSFilePosixPermissions: @0600}
+	[[NSFileManager defaultManager]setAttributes:@{NSFilePosixPermissions: @0660}
 									ofItemAtPath:(NSString*)kRRMServiceConfigPath
 										   error:&err];
 }

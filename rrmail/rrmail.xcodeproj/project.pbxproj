@@ -49,7 +49,6 @@
 		C447094217CB87EE003A79B2 /* RRMController+CheckConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRMController+CheckConfiguration.m"; sourceTree = "<group>"; };
 		C4CB42F917B90CB000DC72C2 /* libMailCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMailCore.a; path = "../../Library/Developer/Xcode/DerivedData/reroutemail-elycicnwifipzcbycpxukgdhwvwe/Build/Products/Debug/libMailCore.a"; sourceTree = "<group>"; };
 		C4CB433F17B91B5500DC72C2 /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../../Library/Developer/Xcode/DerivedData/reroutemail-elycicnwifipzcbycpxukgdhwvwe/Build/Products/Debug/MailCore.framework"; sourceTree = "<group>"; };
-		C4E2D9CC17BA2A3D00A03791 /* SampleConf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleConf.plist; sourceTree = "<group>"; };
 		E111E3D017C3C95700AA40E7 /* CocoaSyslog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaSyslog.h; sourceTree = "<group>"; };
 		E111E3D117C3C95700AA40E7 /* CocoaSyslog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaSyslog.m; sourceTree = "<group>"; };
 		E12EF15817B2472B007414D1 /* rrmail */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rrmail; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				E1880D7A17B247E300EC588F /* rrmail.1 */,
-				C4E2D9CC17BA2A3D00A03791 /* SampleConf.plist */,
 			);
 			path = Documentation;
 			sourceTree = "<group>";

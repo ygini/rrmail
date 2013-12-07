@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logLevel</key>
+	<integer>4</integer>
+	<key>serverList</key>
+	<array>
+		<dict>
+			<key>sourceServerAccountList</key>
+			<array>
+				<dict>
+					<key>sourceServerLogin</key>
+					<string>alice@example.com</string>
+					<key>sourceServerPassword</key>
+					<string>SourcePassword</string>
+					<key>targetServer</key>
+					<string>office.example.com</string>
+					<key>targetServerAccount</key>
+					<string>alice@example.com</string>
+				</dict>
+				<dict>
+					<key>sourceServerLogin</key>
+					<string>bob@example.com</string>
+					<key>sourceServerPassword</key>
+					<string>SourcePassword</string>
+					<key>targetServer</key>
+					<string>office.example.com</string>
+					<key>targetServerAccount</key>
+					<string>bob@example.com</string>
+				</dict>
+			</array>
+			<key>sourceServerAddress</key>
+			<string>mail.example.com</string>
+			<key>sourceServerMaxConcurrentOperations</key>
+			<integer>10</integer>
+			<key>sourceServerRequireSSL</key>
+			<true/>
+			<key>sourceServerTCPPort</key>
+			<integer>993</integer>
+			<key>sourceServerType</key>
+			<string>imap</string>
+		</dict>
+	</array>
+</dict>
+</plist>

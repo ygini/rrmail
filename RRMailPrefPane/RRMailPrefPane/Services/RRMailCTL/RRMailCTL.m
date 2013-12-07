@@ -150,6 +150,11 @@
 														  mutabilityOption:NSPropertyListMutableContainersAndLeaves
 																	format:NULL
 														  errorDescription:nil];
+	
+	if (0 == [self.configuration count]) {
+		self.configuration = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"SampleConf" ofType:@"plist"]];
+	}
+	
 	_isLoadingConfigurationFromDisk = NO;
 }
 
