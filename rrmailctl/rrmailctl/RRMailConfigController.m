@@ -113,14 +113,13 @@
 	[self printVersion];
     printf("\n"
            "  -i, --startInterval						Get the start interval in seconds\n"
-           "  -i, --startInterval						Get the start interval in seconds\n"
-           "  -I, --updateStartInterval <time>				Update the start interval in seconds\n"
-           "  -l, --load							Load the launchd service\n"
-           "  -u, --unload							Unload the launchd service\n"
+           "  -I, --updateStartInterval <time>			Update the start interval in seconds\n"
+           "  -l, --load								Load the launchd service\n"
+           "  -u, --unload								Unload the launchd service\n"
            "  -d, --doNotDelete							Do not delete e-mail from the source after forwarding (for pre-prod only)\n"
            "  -D, --undoDoNotDelete						Remove the do not delete flag\n"
-           "  -v, --version							Display version and exit\n"
-           "  -h, --help							Display this help and exit\n"
+           "  -v, --version								Display version and exit\n"
+           "  -h, --help								Display this help and exit\n"
            "\n");
 }
 
