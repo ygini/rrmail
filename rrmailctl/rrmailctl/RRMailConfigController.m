@@ -63,8 +63,6 @@
 					 kRRMLaunchdJobLabel, @"Label",
 					 @[kRRMServiceFullPath], @"ProgramArguments",
 					 [NSNumber numberWithInt:180], @"StartInterval",
-					 @"_postfix", @"UserName",
-					 @"_postfix", @"GroupName",
 					 nil];
 			[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
 		}
