@@ -44,6 +44,7 @@ extern const NSString * kRRMTargetServerKey; // Optional, default localhost
 extern const NSString * kRRMSpecialDoNotDelete;
 
 extern const NSString * kRRMLaunchdJobLabel;
+extern const NSString * kRRMBadLaunchdJobLabel;
 extern const NSString * kRRMServiceFullPath;
 
 extern const NSString * kRRMServiceConfigPath;

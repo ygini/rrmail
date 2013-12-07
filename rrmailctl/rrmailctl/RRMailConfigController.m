@@ -45,6 +45,15 @@
 {
     self = [super init];
     if (self) {
+		
+		// Fix name problem on the first releases.
+		if ([[NSFileManager defaultManager] fileExistsAtPath:[[self badLaunchdPlistURL] path]]) {
+			NSMutableDictionary *oldJobDict = [NSMutableDictionary dictionaryWithContentsOfURL:[self badLaunchdPlistURL]];
+			[oldJobDict setObject:kRRMLaunchdJobLabel forKey:@"Label"];
+			[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
+			[[NSFileManager defaultManager] removeItemAtPath:[[self badLaunchdPlistURL] path] error:nil];
+		}
+		
 		NSMutableDictionary *jobDict = [NSMutableDictionary dictionaryWithContentsOfURL:[self launchdPlistURL]];
 		if (jobDict) {
 			_launchInfo = [jobDict mutableCopy];
@@ -110,6 +119,8 @@
            "  -I, --updateStartInterval <time>				Update the start interval in seconds\n"
            "  -l, --load							Load the launchd service\n"
            "  -u, --unload							Unload the launchd service\n"
+           "  -d, --doNotDelete							Do not delete e-mail from the source after forwarding (for pre-prod only)\n"
+           "  -D, --undoDoNotDelete						Remove the do not delete flag\n"
            "  -v, --version							Display version and exit\n"
            "  -h, --help							Display this help and exit\n"
            "\n");
@@ -245,13 +256,28 @@
 	static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 		launchdPlistURL = [[[[self launchdFolderURL]
-						 URLByAppendingPathComponent:(NSString*)kRRMLaunchdJobLabel]
-						URLByAppendingPathExtension:@"plist"]
-		retain];
+							 URLByAppendingPathComponent:(NSString*)kRRMLaunchdJobLabel]
+							URLByAppendingPathExtension:@"plist"]
+						   retain];
     });
 	
 	return launchdPlistURL;
+	
+}
 
+- (NSURL*)badLaunchdPlistURL
+{
+	static NSURL *launchdPlistURL= nil;
+	static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+		launchdPlistURL = [[[[self launchdFolderURL]
+							 URLByAppendingPathComponent:(NSString*)kRRMBadLaunchdJobLabel]
+							URLByAppendingPathExtension:@"plist"]
+						   retain];
+    });
+	
+	return launchdPlistURL;
+	
 }
 
 - (NSInteger)currentIntervalTime

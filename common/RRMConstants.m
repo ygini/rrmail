@@ -28,7 +28,8 @@ const NSString * kRRMTargetServerKey								= @"targetServer"; // Optional, defa
 const NSString * kRRMSpecialDoNotDelete								= @"doNotDelete";
 
 
-const NSString * kRRMLaunchdJobLabel								= @"com.rrmail.scheduler";
+const NSString * kRRMBadLaunchdJobLabel								= @"com.rrmail.scheduler";
+const NSString * kRRMLaunchdJobLabel								= @"fr.rrmail.scheduler";
 const NSString * kRRMServiceFullPath								= @"/usr/local/bin/rrmail";
 const NSString * kRRMCommandLineFullPath							= @"/usr/local/bin/rrmailctl";
 
