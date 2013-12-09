@@ -69,12 +69,7 @@
 {
 	NSData *rawState = [self runCommandWithArguments:@[@"-s"] andDataForSTDIN:nil waitForAnswer:YES];
 	NSString *state = [NSString stringWithCString:[rawState bytes] encoding:NSASCIIStringEncoding];
-	if ([@"onl" isEqualToString:[state substringToIndex:3]]) {
-		NSLog(@"OK");
-	}
-	else{
-		NSLog(@"Pas OK");
-	}
+
 	return [NSNumber numberWithBool:[@"onl" isEqualToString:[state substringToIndex:3]]];
 }
 
@@ -97,6 +92,13 @@
 -(void)setStartInterval:(NSString *)startInterval
 {
 	[self runCommandWithArguments:@[@"-I", startInterval] andDataForSTDIN:nil waitForAnswer:NO];
+}
+
+- (NSString*)environement
+{
+	NSData *raw = [self runCommandWithArguments:@[@"--environment"] andDataForSTDIN:nil waitForAnswer:YES];
+	NSString *environement = [NSString stringWithCString:[raw bytes] encoding:NSUTF8StringEncoding];
+	return environement;
 }
 
 #pragma mark - SPI

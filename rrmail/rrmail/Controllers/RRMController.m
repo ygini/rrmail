@@ -193,7 +193,6 @@
                                                                        mutabilityOption:0
                                                                                  format:NULL
                                                                        errorDescription:&errorDescription];
-        //	NSDictionary *configuration = [[NSDictionary alloc] initWithContentsOfFile:_configurationFilePath];
         
         if (!configuration) {
             if (!errorDescription) {

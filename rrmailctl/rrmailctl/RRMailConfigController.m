@@ -27,6 +27,7 @@
 @property (assign, nonatomic) BOOL help;
 @property (assign, nonatomic) BOOL doNotDelete;
 @property (assign, nonatomic) BOOL undoDoNotDelete;
+@property (assign, nonatomic) BOOL environment;
 @property (retain, nonatomic) NSString *rrmailFullPath;
 @end
 
@@ -45,7 +46,6 @@
 {
     self = [super init];
     if (self) {
-		
 		// Fix name problem on the first releases.
 		if ([[NSFileManager defaultManager] fileExistsAtPath:[[self badLaunchdPlistURL] path]]) {
 			BOOL manageLoadState = [self badServiceIsLoaded];
@@ -107,6 +107,7 @@
         {@"rrmailFullPath",			0,		DDGetoptRequiredArgument},
 		{@"doNotDelete",			'd',	DDGetoptNoArgument},
 		{@"undoDoNotDelete",		'D',	DDGetoptNoArgument},
+		{@"environment",			0,		DDGetoptNoArgument},
         {nil,						0,      0},
     };
     [optionsParser addOptionsFromTable: optionTable];
@@ -188,6 +189,11 @@
 	
 	if (self.status) {
 		[self printStatus];
+		return EXIT_SUCCESS;
+	}
+	
+	if (self.environment) {
+		[self printEnvironment];
 		return EXIT_SUCCESS;
 	}
 	
@@ -339,7 +345,8 @@
 
 - (void)unloadLaunchService
 {
-	NSTask * task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"unload", @"-w", @"-F", [[self launchdPlistURL] path]]];
+
+	NSTask * task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"unload", [[self launchdPlistURL] path]]];
 	[task waitUntilExit];
 	int status = [task terminationStatus];
 	if (status) {
@@ -359,7 +366,7 @@
 
 - (void)loadLaunchService
 {
-	NSTask * task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"load", @"-w", @"-F", [[self launchdPlistURL] path]]];
+	NSTask * task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"load", [[self launchdPlistURL] path]]];
 	[task waitUntilExit];
 	int status = [task terminationStatus];
 	if (status) {
@@ -415,6 +422,12 @@
 	else {
 		printf("offline\n");
 	}
+}
+
+- (void)printEnvironment
+{
+	NSDictionary * environment = [[NSProcessInfo processInfo] environment];
+	printf("%s\n", [[environment description] UTF8String]);
 }
 
 @end
