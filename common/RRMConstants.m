@@ -11,6 +11,7 @@ const NSString * kRRMControllerDefaultConfigFile					= @"/etc/rrmail.plist";
 const NSString * kRRMErrorDomain									= @"kRRMErrorDomain";
 
 const NSString * kRRMErrorFilePathKey								= @"kRRMErrorFilePathKey";
+const NSString * kRRMErrorDescription                               = @"kRRMErrorDescription";
 
 const NSString * kRRMServerListKey									= @"serverList";
 const NSString * kRRMSourceServerAddressKey							= @"sourceServerAddress";

@@ -26,6 +26,7 @@ typedef enum {
 
 
 extern const NSString * kRRMErrorFilePathKey;
+extern const NSString * kRRMErrorDescription;
 
 extern const NSString * kRRMServerListKey;
 extern const NSString * kRRMSourceServerAddressKey;

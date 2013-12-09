@@ -685,7 +685,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Prefix.pch";
 				INFOPLIST_FILE = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
+				INSTALL_PATH = /Library/PreferencePanes;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -704,7 +704,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Prefix.pch";
 				INFOPLIST_FILE = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
+				INSTALL_PATH = /Library/PreferencePanes;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -184,25 +184,40 @@
 	OSSpinLockLock(&_configurationLock);
  
     NSError *error = nil;
-	NSDictionary *configuration = [[NSDictionary alloc] initWithContentsOfFile:_configurationFilePath];
-	
-	if (!configuration) {
-		error = [NSError errorWithDomain:(NSString*)kRRMErrorDomain
-											 code:kRRMErrorCodeUnableToReadConfigFile
-										 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-												   _configurationFilePath, kRRMErrorFilePathKey,
-												   nil]];
-	}
-    else
-    {
-        [_configuration release], _configuration = nil;
-        _configuration = [configuration copy];
+    NSString *errorDescription = nil;
+    NSData* data = [[NSData alloc] initWithContentsOfFile:_configurationFilePath
+                                                  options:0
+                                                    error:&error];
+    if (!error) {
+        NSDictionary *configuration = [NSPropertyListSerialization propertyListFromData:data
+                                                                       mutabilityOption:0
+                                                                                 format:NULL
+                                                                       errorDescription:&errorDescription];
+        //	NSDictionary *configuration = [[NSDictionary alloc] initWithContentsOfFile:_configurationFilePath];
         
-        error = [self checkConfigurationAndAddDefaults];
-        
-        [configuration release];
+        if (!configuration) {
+            if (!errorDescription) {
+                errorDescription = @"No error description";
+            }
+            error = [NSError errorWithDomain:(NSString*)kRRMErrorDomain
+                                        code:kRRMErrorCodeUnableToReadConfigFile
+                                    userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+                                              _configurationFilePath, kRRMErrorFilePathKey,
+                                              errorDescription, kRRMErrorDescription,
+                                              nil]];
+        }
+        else
+        {
+            [_configuration release], _configuration = nil;
+            _configuration = [configuration copy];
+            
+            error = [self checkConfigurationAndAddDefaults];
+            
+            [configuration release];
+        }
     }
 
+    [data release];
 	OSSpinLockUnlock(&_configurationLock);
 
 	return error;
