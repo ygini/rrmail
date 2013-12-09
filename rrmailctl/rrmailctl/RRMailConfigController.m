@@ -48,10 +48,19 @@
 		
 		// Fix name problem on the first releases.
 		if ([[NSFileManager defaultManager] fileExistsAtPath:[[self badLaunchdPlistURL] path]]) {
+			BOOL manageLoadState = [self badServiceIsLoaded];
+			if (manageLoadState) {
+				[self unloadBadLaunchService];
+			}
+			[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
 			NSMutableDictionary *oldJobDict = [NSMutableDictionary dictionaryWithContentsOfURL:[self badLaunchdPlistURL]];
 			[oldJobDict setObject:kRRMLaunchdJobLabel forKey:@"Label"];
 			[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
 			[[NSFileManager defaultManager] removeItemAtPath:[[self badLaunchdPlistURL] path] error:nil];
+			
+			if (manageLoadState) {
+				[self loadLaunchService];
+			}
 		}
 		
 		NSMutableDictionary *jobDict = [NSMutableDictionary dictionaryWithContentsOfURL:[self launchdPlistURL]];
@@ -60,9 +69,10 @@
 		}
 		else {
 			_launchInfo = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-					 kRRMLaunchdJobLabel, @"Label",
-					 @[kRRMServiceFullPath], @"ProgramArguments",
-					 [NSNumber numberWithInt:180], @"StartInterval",
+						   kRRMLaunchdJobLabel, @"Label",
+						   [NSNumber numberWithBool:YES], @"RunAtLoad",
+						   @[kRRMServiceFullPath], @"ProgramArguments",
+						   [NSNumber numberWithInt:180], @"StartInterval",
 					 nil];
 			[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
 		}
@@ -116,6 +126,7 @@
            "  -I, --updateStartInterval <time>			Update the start interval in seconds\n"
            "  -l, --load								Load the launchd service\n"
            "  -u, --unload								Unload the launchd service\n"
+           "  -s, --status								Show the actual loading status\n"
            "  -d, --doNotDelete							Do not delete e-mail from the source after forwarding (for pre-prod only)\n"
            "  -D, --undoDoNotDelete						Remove the do not delete flag\n"
            "  -v, --version								Display version and exit\n"
@@ -328,17 +339,48 @@
 
 - (void)unloadLaunchService
 {
-	[NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"unload", [[self launchdPlistURL] path]]];
+	NSTask * task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"unload", @"-w", @"-F", [[self launchdPlistURL] path]]];
+	[task waitUntilExit];
+	int status = [task terminationStatus];
+	if (status) {
+		printf("launchctl exited with status %d\n", status);
+	}
+}
+
+- (void)unloadBadLaunchService
+{
+	NSTask * task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"unload", @"-w", @"-F", [[self badLaunchdPlistURL] path]]];
+	[task waitUntilExit];
+	int status = [task terminationStatus];
+	if (status) {
+		printf("launchctl exited with status %d\n", status);
+	}
 }
 
 - (void)loadLaunchService
 {
-	[NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"load", [[self launchdPlistURL] path]]];
+	NSTask * task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"load", @"-w", @"-F", [[self launchdPlistURL] path]]];
+	[task waitUntilExit];
+	int status = [task terminationStatus];
+	if (status) {
+		printf("launchctl exited with status %d\n", status);
+	}
 }
 
 - (BOOL)serviceIsLoaded
 {
 	NSDictionary *jobDict = (NSDictionary *)SMJobCopyDictionary(TARGET_SM_DOMAIN, (CFStringRef)kRRMLaunchdJobLabel);
+	if (jobDict) {
+		[jobDict release];
+		return YES;
+	}
+	
+	return NO;
+}
+
+- (BOOL)badServiceIsLoaded
+{
+	NSDictionary *jobDict = (NSDictionary *)SMJobCopyDictionary(TARGET_SM_DOMAIN, (CFStringRef)kRRMBadLaunchdJobLabel);
 	if (jobDict) {
 		[jobDict release];
 		return YES;

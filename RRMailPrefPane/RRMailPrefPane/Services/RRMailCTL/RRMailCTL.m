@@ -68,8 +68,14 @@
 - (NSNumber *)serviceIsLoaded
 {
 	NSData *rawState = [self runCommandWithArguments:@[@"-s"] andDataForSTDIN:nil waitForAnswer:YES];
-	NSString *state = [NSString stringWithCString:[rawState bytes] encoding:NSUTF8StringEncoding];
-	return [NSNumber numberWithBool:[@"online" isEqualToString:state]];
+	NSString *state = [NSString stringWithCString:[rawState bytes] encoding:NSASCIIStringEncoding];
+	if ([@"onl" isEqualToString:[state substringToIndex:3]]) {
+		NSLog(@"OK");
+	}
+	else{
+		NSLog(@"Pas OK");
+	}
+	return [NSNumber numberWithBool:[@"onl" isEqualToString:[state substringToIndex:3]]];
 }
 
 -(void)setServiceIsLoaded:(NSNumber *)wantToLoadService
