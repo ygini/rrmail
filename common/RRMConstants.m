@@ -11,6 +11,7 @@ const NSString * kRRMControllerDefaultConfigFile					= @"/etc/rrmail.plist";
 const NSString * kRRMErrorDomain									= @"kRRMErrorDomain";
 
 const NSString * kRRMErrorFilePathKey								= @"kRRMErrorFilePathKey";
+const NSString * kRRMErrorDescription                               = @"kRRMErrorDescription";
 
 const NSString * kRRMServerListKey									= @"serverList";
 const NSString * kRRMSourceServerAddressKey							= @"sourceServerAddress";
@@ -28,7 +29,8 @@ const NSString * kRRMTargetServerKey								= @"targetServer"; // Optional, defa
 const NSString * kRRMSpecialDoNotDelete								= @"doNotDelete";
 
 
-const NSString * kRRMLaunchdJobLabel								= @"com.rrmail.scheduler";
+const NSString * kRRMBadLaunchdJobLabel								= @"com.rrmail.scheduler";
+const NSString * kRRMLaunchdJobLabel								= @"fr.rrmail.scheduler";
 const NSString * kRRMServiceFullPath								= @"/usr/local/bin/rrmail";
 const NSString * kRRMCommandLineFullPath							= @"/usr/local/bin/rrmailctl";
 

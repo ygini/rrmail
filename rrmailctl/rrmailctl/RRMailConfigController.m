@@ -27,6 +27,7 @@
 @property (assign, nonatomic) BOOL help;
 @property (assign, nonatomic) BOOL doNotDelete;
 @property (assign, nonatomic) BOOL undoDoNotDelete;
+@property (assign, nonatomic) BOOL environment;
 @property (retain, nonatomic) NSString *rrmailFullPath;
 @end
 
@@ -45,17 +46,33 @@
 {
     self = [super init];
     if (self) {
+		// Fix name problem on the first releases.
+		if ([[NSFileManager defaultManager] fileExistsAtPath:[[self badLaunchdPlistURL] path]]) {
+			BOOL manageLoadState = [self badServiceIsLoaded];
+			if (manageLoadState) {
+				[self unloadBadLaunchService];
+			}
+			[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
+			NSMutableDictionary *oldJobDict = [NSMutableDictionary dictionaryWithContentsOfURL:[self badLaunchdPlistURL]];
+			[oldJobDict setObject:kRRMLaunchdJobLabel forKey:@"Label"];
+			[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
+			[[NSFileManager defaultManager] removeItemAtPath:[[self badLaunchdPlistURL] path] error:nil];
+			
+			if (manageLoadState) {
+				[self loadLaunchService];
+			}
+		}
+		
 		NSMutableDictionary *jobDict = [NSMutableDictionary dictionaryWithContentsOfURL:[self launchdPlistURL]];
 		if (jobDict) {
 			_launchInfo = [jobDict mutableCopy];
 		}
 		else {
 			_launchInfo = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-					 kRRMLaunchdJobLabel, @"Label",
-					 @[kRRMServiceFullPath], @"ProgramArguments",
-					 [NSNumber numberWithInt:180], @"StartInterval",
-					 @"_postfix", @"UserName",
-					 @"_postfix", @"GroupName",
+						   kRRMLaunchdJobLabel, @"Label",
+						   [NSNumber numberWithBool:YES], @"RunAtLoad",
+						   @[kRRMServiceFullPath], @"ProgramArguments",
+						   [NSNumber numberWithInt:180], @"StartInterval",
 					 nil];
 			[_launchInfo writeToURL:[self launchdPlistURL] atomically:YES];
 		}
@@ -90,6 +107,7 @@
         {@"rrmailFullPath",			0,		DDGetoptRequiredArgument},
 		{@"doNotDelete",			'd',	DDGetoptNoArgument},
 		{@"undoDoNotDelete",		'D',	DDGetoptNoArgument},
+		{@"environment",			0,		DDGetoptNoArgument},
         {nil,						0,      0},
     };
     [optionsParser addOptionsFromTable: optionTable];
@@ -106,12 +124,14 @@
 	[self printVersion];
     printf("\n"
            "  -i, --startInterval						Get the start interval in seconds\n"
-           "  -i, --startInterval						Get the start interval in seconds\n"
-           "  -I, --updateStartInterval <time>				Update the start interval in seconds\n"
-           "  -l, --load							Load the launchd service\n"
-           "  -u, --unload							Unload the launchd service\n"
-           "  -v, --version							Display version and exit\n"
-           "  -h, --help							Display this help and exit\n"
+           "  -I, --updateStartInterval <time>			Update the start interval in seconds\n"
+           "  -l, --load								Load the launchd service\n"
+           "  -u, --unload								Unload the launchd service\n"
+           "  -s, --status								Show the actual loading status\n"
+           "  -d, --doNotDelete							Do not delete e-mail from the source after forwarding (for pre-prod only)\n"
+           "  -D, --undoDoNotDelete						Remove the do not delete flag\n"
+           "  -v, --version								Display version and exit\n"
+           "  -h, --help								Display this help and exit\n"
            "\n");
 }
 
@@ -169,6 +189,11 @@
 	
 	if (self.status) {
 		[self printStatus];
+		return EXIT_SUCCESS;
+	}
+	
+	if (self.environment) {
+		[self printEnvironment];
 		return EXIT_SUCCESS;
 	}
 	
@@ -245,13 +270,28 @@
 	static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 		launchdPlistURL = [[[[self launchdFolderURL]
-						 URLByAppendingPathComponent:(NSString*)kRRMLaunchdJobLabel]
-						URLByAppendingPathExtension:@"plist"]
-		retain];
+							 URLByAppendingPathComponent:(NSString*)kRRMLaunchdJobLabel]
+							URLByAppendingPathExtension:@"plist"]
+						   retain];
     });
 	
 	return launchdPlistURL;
+	
+}
 
+- (NSURL*)badLaunchdPlistURL
+{
+	static NSURL *launchdPlistURL= nil;
+	static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+		launchdPlistURL = [[[[self launchdFolderURL]
+							 URLByAppendingPathComponent:(NSString*)kRRMBadLaunchdJobLabel]
+							URLByAppendingPathExtension:@"plist"]
+						   retain];
+    });
+	
+	return launchdPlistURL;
+	
 }
 
 - (NSInteger)currentIntervalTime
@@ -305,17 +345,49 @@
 
 - (void)unloadLaunchService
 {
-	[NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"unload", [[self launchdPlistURL] path]]];
+
+	NSTask * task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"unload", [[self launchdPlistURL] path]]];
+	[task waitUntilExit];
+	int status = [task terminationStatus];
+	if (status) {
+		printf("launchctl exited with status %d\n", status);
+	}
+}
+
+- (void)unloadBadLaunchService
+{
+	NSTask * task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"unload", @"-w", @"-F", [[self badLaunchdPlistURL] path]]];
+	[task waitUntilExit];
+	int status = [task terminationStatus];
+	if (status) {
+		printf("launchctl exited with status %d\n", status);
+	}
 }
 
 - (void)loadLaunchService
 {
-	[NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"load", [[self launchdPlistURL] path]]];
+	NSTask * task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:@[@"load", [[self launchdPlistURL] path]]];
+	[task waitUntilExit];
+	int status = [task terminationStatus];
+	if (status) {
+		printf("launchctl exited with status %d\n", status);
+	}
 }
 
 - (BOOL)serviceIsLoaded
 {
 	NSDictionary *jobDict = (NSDictionary *)SMJobCopyDictionary(TARGET_SM_DOMAIN, (CFStringRef)kRRMLaunchdJobLabel);
+	if (jobDict) {
+		[jobDict release];
+		return YES;
+	}
+	
+	return NO;
+}
+
+- (BOOL)badServiceIsLoaded
+{
+	NSDictionary *jobDict = (NSDictionary *)SMJobCopyDictionary(TARGET_SM_DOMAIN, (CFStringRef)kRRMBadLaunchdJobLabel);
 	if (jobDict) {
 		[jobDict release];
 		return YES;
@@ -337,7 +409,7 @@
 {
 	[[[NSFileHandle fileHandleWithStandardInput] readDataToEndOfFile] writeToFile:(NSString*)kRRMServiceConfigPath atomically:YES];
 	NSError *err = nil;
-	[[NSFileManager defaultManager]setAttributes:@{NSFilePosixPermissions: @0600}
+	[[NSFileManager defaultManager]setAttributes:@{NSFilePosixPermissions: @0660}
 									ofItemAtPath:(NSString*)kRRMServiceConfigPath
 										   error:&err];
 }
@@ -350,6 +422,12 @@
 	else {
 		printf("offline\n");
 	}
+}
+
+- (void)printEnvironment
+{
+	NSDictionary * environment = [[NSProcessInfo processInfo] environment];
+	printf("%s\n", [[environment description] UTF8String]);
 }
 
 @end

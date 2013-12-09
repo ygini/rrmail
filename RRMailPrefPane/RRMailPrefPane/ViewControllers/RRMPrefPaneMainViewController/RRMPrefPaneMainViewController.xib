@@ -48,7 +48,7 @@
 					<object class="NSButton" id="907498711">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">265</int>
-						<string key="NSFrame">{{535, 297}, {100, 27}}</string>
+						<string key="NSFrame">{{521, 297}, {117, 27}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="551912819"/>
@@ -57,7 +57,7 @@
 						<object class="NSButtonCell" key="NSCell" id="166609926">
 							<int key="NSCellFlags">-2080374784</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents"/>
+							<string key="NSContents">Load at startup</string>
 							<object class="NSFont" key="NSSupport" id="730513591">
 								<string key="NSName">.LucidaGrandeUI</string>
 								<double key="NSSize">13</double>
@@ -65,7 +65,7 @@
 							</object>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="907498711"/>
-							<int key="NSButtonFlags">1211912448</int>
+							<int key="NSButtonFlags">1210863872</int>
 							<int key="NSButtonFlags2">2</int>
 							<object class="NSCustomResource" key="NSNormalImage">
 								<string key="NSClassName">NSImage</string>
@@ -503,6 +503,7 @@
 						<string key="NSFrame">{{210, 10}, {426, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="441066224">
@@ -1099,10 +1100,14 @@
 							<string key="NSLabel">value: self.rrmailctl.startInterval</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">self.rrmailctl.startInterval</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValidatesImmediately</string>
+								<boolean value="YES" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">372</int>
+					<int key="connectionID">492</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1419,7 +1424,6 @@
 							<reference ref="235064059"/>
 							<reference ref="107055127"/>
 							<reference ref="552802990"/>
-							<reference ref="907498711"/>
 							<reference ref="633920515"/>
 							<reference ref="696260729"/>
 							<reference ref="574198044"/>
@@ -1442,6 +1446,7 @@
 							<reference ref="271722060"/>
 							<reference ref="700256353"/>
 							<reference ref="1036806966"/>
+							<reference ref="907498711"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1963,7 +1968,6 @@
 				<string key="200.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="201.CustomClassName">OnOffSwitchControl</string>
 				<string key="201.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="202.CustomClassName">OnOffSwitchControlCell</string>
 				<string key="202.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="203.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="204.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2016,7 +2020,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">489</int>
+			<int key="maxID">492</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2034,14 +2038,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/OnOffSwitchControl.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OnOffSwitchControlCell</string>
-					<string key="superclassName">NSButtonCell</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OnOffSwitchControlCell.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -2151,7 +2147,7 @@
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
-			<real value="1080" key="NS.object.0"/>
+			<real value="1070" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.InterfaceBuilder3</string>

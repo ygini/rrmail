@@ -21,5 +21,6 @@
 
 - (void)loadService;
 - (void)unloadService;
+- (NSString*)environement;
 
 @end

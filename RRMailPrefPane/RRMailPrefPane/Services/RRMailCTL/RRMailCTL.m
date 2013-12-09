@@ -68,8 +68,9 @@
 - (NSNumber *)serviceIsLoaded
 {
 	NSData *rawState = [self runCommandWithArguments:@[@"-s"] andDataForSTDIN:nil waitForAnswer:YES];
-	NSString *state = [NSString stringWithCString:[rawState bytes] encoding:NSUTF8StringEncoding];
-	return [NSNumber numberWithBool:[@"online" isEqualToString:state]];
+	NSString *state = [NSString stringWithCString:[rawState bytes] encoding:NSASCIIStringEncoding];
+
+	return [NSNumber numberWithBool:[@"onl" isEqualToString:[state substringToIndex:3]]];
 }
 
 -(void)setServiceIsLoaded:(NSNumber *)wantToLoadService
@@ -91,6 +92,13 @@
 -(void)setStartInterval:(NSString *)startInterval
 {
 	[self runCommandWithArguments:@[@"-I", startInterval] andDataForSTDIN:nil waitForAnswer:NO];
+}
+
+- (NSString*)environement
+{
+	NSData *raw = [self runCommandWithArguments:@[@"--environment"] andDataForSTDIN:nil waitForAnswer:YES];
+	NSString *environement = [NSString stringWithCString:[raw bytes] encoding:NSUTF8StringEncoding];
+	return environement;
 }
 
 #pragma mark - SPI
@@ -150,6 +158,11 @@
 														  mutabilityOption:NSPropertyListMutableContainersAndLeaves
 																	format:NULL
 														  errorDescription:nil];
+	
+	if (0 == [self.configuration count]) {
+		self.configuration = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"SampleConf" ofType:@"plist"]];
+	}
+	
 	_isLoadingConfigurationFromDisk = NO;
 }
 

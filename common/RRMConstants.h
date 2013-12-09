@@ -26,6 +26,7 @@ typedef enum {
 
 
 extern const NSString * kRRMErrorFilePathKey;
+extern const NSString * kRRMErrorDescription;
 
 extern const NSString * kRRMServerListKey;
 extern const NSString * kRRMSourceServerAddressKey;
@@ -44,6 +45,7 @@ extern const NSString * kRRMTargetServerKey; // Optional, default localhost
 extern const NSString * kRRMSpecialDoNotDelete;
 
 extern const NSString * kRRMLaunchdJobLabel;
+extern const NSString * kRRMBadLaunchdJobLabel;
 extern const NSString * kRRMServiceFullPath;
 
 extern const NSString * kRRMServiceConfigPath;

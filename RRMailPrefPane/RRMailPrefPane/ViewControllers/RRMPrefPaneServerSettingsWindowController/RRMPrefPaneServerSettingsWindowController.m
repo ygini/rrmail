@@ -28,11 +28,12 @@
 	}
 	else {
 		window.serverInfo = [@{
-							   kRRMSourceServerAddressKey: @"mail.example.com",
+							   kRRMSourceServerAddressKey: @"",
 							   kRRMSourceServerMaxConcurrentOperationsKey: @10,
-							   kRRMSourceServerTCPPortKey: @993,
-							   kRRMSourceServerTypeKey: kRRMSourceServerTypeIMAPValue,
-							   kRRMSourceServerRequireSSLKey: @YES
+							   kRRMSourceServerTCPPortKey: @110,
+							   kRRMSourceServerTypeKey: kRRMSourceServerTypePOP3Value,
+							   kRRMSourceServerRequireSSLKey: @NO,
+							   kRRMSourceServerAccountListKey: [NSMutableArray array]
 							  } mutableCopy];
 	}
 	
