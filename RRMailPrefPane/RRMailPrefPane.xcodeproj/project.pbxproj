@@ -687,7 +687,7 @@
 				INFOPLIST_FILE = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Info.plist";
 				INSTALL_PATH = /Library/PreferencePanes;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = prefPane;
 			};
@@ -706,7 +706,7 @@
 				INFOPLIST_FILE = "RRMailPrefPane/Supporting Files/RRMailPrefPane-Info.plist";
 				INSTALL_PATH = /Library/PreferencePanes;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = prefPane;
 			};
