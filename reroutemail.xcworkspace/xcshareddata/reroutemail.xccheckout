@@ -10,12 +10,20 @@
 	<string>reroutemail</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>2CBEF7A201F0410ACEE334254B9F358D3F82DF03</key>
+		<string>github.com:ygini/rrmail.git</string>
+		<key>33EAE6DB221296C94D87CE13551AA01F402ED1B7</key>
+		<string>https://github.com/mipmip/OnOffSwitchControl.git</string>
 		<key>401897E4-B610-41B9-BE61-A204F2F0E42F</key>
 		<string>https://bitbucket.org/ygini/cocoasyslog.git</string>
 		<key>46C9BDDA-4840-4E92-BF3E-8E4D6392E1AC</key>
 		<string>https://github.com/mipmip/OnOffSwitchControl.git</string>
+		<key>6FB895031A45EE06AC489AD94557CAA670E749FC</key>
+		<string>github.com:ygini/CocoaSyslog.git</string>
 		<key>7474D26C-DD83-4439-9CC8-445A0B6DA80A</key>
 		<string>https://bitbucket.org/ygini/reroutemail.git</string>
+		<key>7ACF23A507BCFA5964C32B48177971421D05CCCE</key>
+		<string>https://github.com/MailCore/mailcore2.git</string>
 		<key>EE562EBF-BDAD-49D1-8226-8267F88CCD7F</key>
 		<string>https://github.com/MailCore/mailcore2.git</string>
 	</dict>
@@ -23,21 +31,29 @@
 	<string>reroutemail.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>401897E4-B610-41B9-BE61-A204F2F0E42F</key>
-		<string>../vendors/CocoaSyslog</string>
-		<key>46C9BDDA-4840-4E92-BF3E-8E4D6392E1AC</key>
-		<string>../vendors/OnOffSwitchControl</string>
-		<key>7474D26C-DD83-4439-9CC8-445A0B6DA80A</key>
+		<key>2CBEF7A201F0410ACEE334254B9F358D3F82DF03</key>
 		<string>..</string>
+		<key>33EAE6DB221296C94D87CE13551AA01F402ED1B7</key>
+		<string>..vendors/OnOffSwitchControl/</string>
+		<key>401897E4-B610-41B9-BE61-A204F2F0E42F</key>
+		<string>../../reroutemail/vendors/CocoaSyslog</string>
+		<key>46C9BDDA-4840-4E92-BF3E-8E4D6392E1AC</key>
+		<string>../../reroutemail/vendors/OnOffSwitchControl</string>
+		<key>6FB895031A45EE06AC489AD94557CAA670E749FC</key>
+		<string>..vendors/CocoaSyslog/</string>
+		<key>7474D26C-DD83-4439-9CC8-445A0B6DA80A</key>
+		<string>../../reroutemail</string>
+		<key>7ACF23A507BCFA5964C32B48177971421D05CCCE</key>
+		<string>..vendors/mailcore2/</string>
 		<key>EE562EBF-BDAD-49D1-8226-8267F88CCD7F</key>
-		<string>../vendors/mailcore2</string>
+		<string>../../reroutemail/vendors/mailcore2</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/ygini/reroutemail.git</string>
+	<string>github.com:ygini/rrmail.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>7474D26C-DD83-4439-9CC8-445A0B6DA80A</string>
+	<string>2CBEF7A201F0410ACEE334254B9F358D3F82DF03</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -52,9 +68,33 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6FB895031A45EE06AC489AD94557CAA670E749FC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CocoaSyslog</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>EE562EBF-BDAD-49D1-8226-8267F88CCD7F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>mailcore2</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7ACF23A507BCFA5964C32B48177971421D05CCCE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mailcore2</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>33EAE6DB221296C94D87CE13551AA01F402ED1B7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OnOffSwitchControl</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -71,6 +111,14 @@
 			<string>7474D26C-DD83-4439-9CC8-445A0B6DA80A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>reroutemail</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2CBEF7A201F0410ACEE334254B9F358D3F82DF03</string>
+			<key>IDESourceControlWCCName</key>
+			<string>rrmail</string>
 		</dict>
 	</array>
 </dict>
