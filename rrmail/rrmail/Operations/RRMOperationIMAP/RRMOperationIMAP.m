@@ -95,8 +95,7 @@
     NSString *folder = @"INBOX";
     MCOIndexSet *uids = [MCOIndexSet indexSetWithRange:MCORangeMake(1, UINT64_MAX)];
     
-    MCOIMAPFetchMessagesOperation *fetchHeadersOperation = [_imapSession fetchMessagesByUIDOperationWithFolder:folder requestKind:requestKind uids:uids];
-	
+    MCOIMAPFetchMessagesOperation *fetchHeadersOperation = [_imapSession fetchMessagesOperationWithFolder:folder requestKind:requestKind uids:uids];
     
     [fetchHeadersOperation start:^(NSError * error, NSArray * fetchedHeaders, MCOIndexSet * vanishedMessages)
 	 {
@@ -145,7 +144,7 @@
 	}];
 	
     for (MCOIMAPMessage * header in fetchedAndOrderedHeaders) {
-        MCOIMAPFetchContentOperation * op = [_imapSession fetchMessageByUIDOperationWithFolder:@"INBOX" uid:[header uid]];
+        MCOIMAPFetchContentOperation * op = [_imapSession fetchMessageOperationWithFolder:@"INBOX" uid:[header uid]];
         [op start:^(NSError * error, NSData * data)
 		{
             if ([error code] != MCOErrorNone)
