@@ -40,11 +40,22 @@
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <PathRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "com.apple.systempreferences"
          FilePath = "/Applications/System Preferences.app">
       </PathRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E1B92E5C180AA5D100411164"
+            BuildableName = "RRMail.prefPane"
+            BlueprintName = "RRMail"
+            ReferencedContainer = "container:RRMailPrefPane.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "$(HOME)/Library/PreferencePanes/RRMailPrefPane.prefPane"
+            argument = "/Library/PreferencePanes/RRMail.prefPane"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
