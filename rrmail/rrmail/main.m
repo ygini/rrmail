@@ -14,10 +14,7 @@
 int main(int argc, const char * argv[])
 {
 	@autoreleasepool {
-		[[CocoaSyslog sharedInstance] setApplicationIdentity:@"rrmail"];
-		[[CocoaSyslog sharedInstance] setConsoleOutput:YES];
-		[[CocoaSyslog sharedInstance] setFacility:CSLLogFacilityMail];
-		[[CocoaSyslog sharedInstance] openLog];
+        [[CocoaSyslog sharedInstance] prepareApplicationIdentity:@"rrmail" andFacility:CSLLogFacilityMail withConsoleOutput:YES];
 		
 		[[CocoaSyslog sharedInstance] messageLevel6Info:@"Application did start"];
 		
