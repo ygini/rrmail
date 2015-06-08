@@ -347,9 +347,6 @@
 				OTHER_LDFLAGS = (
 					"-lctemplate",
 					"-letpan",
-					"-licudata",
-					"-licui18n",
-					"-licuuc",
 					"-lxml2",
 					"-lsasl2",
 					"-liconv",
@@ -358,6 +355,9 @@
 					"-lc++",
 					"-stdlib=libc++",
 					"-ObjC",
+					"-lcrypto",
+					"-lssl",
+					"-lresolv",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -374,9 +374,6 @@
 				OTHER_LDFLAGS = (
 					"-lctemplate",
 					"-letpan",
-					"-licudata",
-					"-licui18n",
-					"-licuuc",
 					"-lxml2",
 					"-lsasl2",
 					"-liconv",
@@ -385,6 +382,9 @@
 					"-lc++",
 					"-stdlib=libc++",
 					"-ObjC",
+					"-lcrypto",
+					"-lssl",
+					"-lresolv",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
