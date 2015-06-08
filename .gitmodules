@@ -3,7 +3,7 @@
 	url = https://github.com/MailCore/mailcore2.git
 [submodule "vendors/CocoaSyslog"]
 	path = vendors/CocoaSyslog
-	url = git@bitbucket.org:ygini/cocoasyslog.git
+url=git@github.com:ygini/CocoaSyslog.git
 [submodule "vendors/OnOffSwitchControl"]
 	path = vendors/OnOffSwitchControl
 	url = https://github.com/mipmip/OnOffSwitchControl.git
