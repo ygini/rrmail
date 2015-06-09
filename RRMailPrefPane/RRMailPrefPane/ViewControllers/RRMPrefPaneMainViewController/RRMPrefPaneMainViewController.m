@@ -242,4 +242,8 @@
 	}
 }
 
+- (IBAction)logLevelDidChange:(id)sender {
+    [self.rrmailctl saveConfigurationOnDisk];
+}
+
 @end

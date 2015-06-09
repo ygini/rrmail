@@ -14,7 +14,7 @@
 	
 	OSSpinLock _configurationLock;
 	OSSpinLock _operationQueueLock;
-	NSMutableDictionary *_configuration;
+	NSDictionary *_configuration;
 	
 	NSMutableDictionary *_operationQueues;
 }

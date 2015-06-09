@@ -455,7 +455,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RRM;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "iNig-Services";
 			};
 			buildConfigurationList = E1B92E56180AA5D100411164 /* Build configuration list for PBXProject "RRMailPrefPane" */;

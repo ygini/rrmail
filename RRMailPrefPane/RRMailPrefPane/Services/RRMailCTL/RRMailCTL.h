@@ -23,4 +23,6 @@
 - (void)unloadService;
 - (NSString*)environement;
 
+- (void)saveConfigurationOnDisk;
+
 @end
