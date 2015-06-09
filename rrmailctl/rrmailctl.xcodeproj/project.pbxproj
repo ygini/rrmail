@@ -11,10 +11,10 @@
 		C4B71D1017D61B3A00B180EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B71D0F17D61B3A00B180EE /* main.m */; };
 		C4B71D1417D61B3A00B180EE /* ConfigureRRMail.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4B71D1317D61B3A00B180EE /* ConfigureRRMail.1 */; };
 		C4B71D1C17D6226500B180EE /* RRMailConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B71D1B17D6226500B180EE /* RRMailConfigController.m */; };
-		E15DB8831809371300CE1FCA /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAA9E1809370800CE1FCA /* DDCliApplication.m */; };
-		E15DB8841809371300CE1FCA /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAAA01809370800CE1FCA /* DDCliParseException.m */; };
-		E15DB8851809371300CE1FCA /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAAA21809370800CE1FCA /* DDCliUtil.m */; };
-		E15DB8861809371300CE1FCA /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAAA51809370800CE1FCA /* DDGetoptLongParser.m */; };
+		E15DB8831809371300CE1FCA /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAA9E1809370800CE1FCA /* DDCliApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E15DB8841809371300CE1FCA /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAAA01809370800CE1FCA /* DDCliParseException.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E15DB8851809371300CE1FCA /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAAA21809370800CE1FCA /* DDCliUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E15DB8861809371300CE1FCA /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DAAA51809370800CE1FCA /* DDGetoptLongParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E16BC8E918093F1300DC528C /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16BC8E818093F1300DC528C /* ServiceManagement.framework */; };
 		E16BC8ED18096AAE00DC528C /* RRMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E16BC8EC18096AAE00DC528C /* RRMConstants.m */; };
 		E16BC8FA18096F4A00DC528C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16BC8F918096F4A00DC528C /* Security.framework */; };

@@ -290,7 +290,7 @@
     
     if (hostname != nil)
     {
-        hostRef = CFHostCreateWithName(kCFAllocatorDefault, (CFStringRef)hostname);
+        hostRef = CFHostCreateWithName(kCFAllocatorDefault, (__bridge CFStringRef)hostname);
         result = CFHostStartInfoResolution(hostRef, kCFHostAddresses, NULL);
         
 //        // pass an error instead of NULL here to find out why it failed

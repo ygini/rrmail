@@ -50,15 +50,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_imapSession release], _imapSession = nil;
-    [_smtpSession release], _smtpSession = nil;
-    [_serverConfig release], _serverConfig = nil;
-	[_userSettings release], _userSettings = nil;
-    [super dealloc];
-}
-
 #pragma mark RRMOperation
 
 - (void)operationGo {
@@ -161,7 +152,6 @@
         }];
     }
 	
-	[fetchedAndOrderedHeaders release];
 }
 
 - (void)transferData:(NSData*)fetchedData withOriginalIMAPMessageUID:(uint32_t)uid
@@ -216,7 +206,6 @@
 			
         }
     }];
-	[messageParser release];
 }
 
 #pragma mark - Internal

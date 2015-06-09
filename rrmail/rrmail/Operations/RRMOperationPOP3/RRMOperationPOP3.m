@@ -51,15 +51,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_popSession release], _popSession = nil;
-    [_smtpSession release], _smtpSession = nil;
-    [_serverConfig release], _serverConfig = nil;
-	[_userSettings release], _userSettings = nil;
-    [super dealloc];
-}
-
 #pragma mark RRMOperation
 
 - (void)operationGo {
@@ -157,7 +148,6 @@
         }];
     }
     
-    [fetchedAndOrderedMessage release];
 }
 
 
@@ -201,7 +191,6 @@
          }
      }];
     
-	[messageParser release];
 }
 
 

@@ -376,7 +376,7 @@
 
 - (BOOL)serviceIsLoaded
 {
-	NSDictionary *jobDict = (NSDictionary *)SMJobCopyDictionary(TARGET_SM_DOMAIN, (CFStringRef)kRRMLaunchdJobLabel);
+	NSDictionary *jobDict = (NSDictionary *)SMJobCopyDictionary(TARGET_SM_DOMAIN, (__bridge CFStringRef)kRRMLaunchdJobLabel);
 	if (jobDict) {
 		[jobDict release];
 		return YES;
@@ -387,7 +387,7 @@
 
 - (BOOL)badServiceIsLoaded
 {
-	NSDictionary *jobDict = (NSDictionary *)SMJobCopyDictionary(TARGET_SM_DOMAIN, (CFStringRef)kRRMBadLaunchdJobLabel);
+	NSDictionary *jobDict = (NSDictionary *)SMJobCopyDictionary(TARGET_SM_DOMAIN, (__bridge CFStringRef)kRRMBadLaunchdJobLabel);
 	if (jobDict) {
 		[jobDict release];
 		return YES;

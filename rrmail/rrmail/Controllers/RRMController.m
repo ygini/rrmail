@@ -48,13 +48,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_configurationFilePath release], _configurationFilePath = nil;
-	[_operationQueues release], _operationQueues = nil;
-    [super dealloc];
-}
-
 #pragma mark API
 
 -(void)startOperations
@@ -100,7 +93,6 @@
 					operationQueue = [[NSOperationQueue alloc] init];
 					[operationQueue setMaxConcurrentOperationCount:[maxConcurrentOperations integerValue]];
 					[_operationQueues setObject:operationQueue forKey:serverAddress];
-					[operationQueue release];
 				}
 				
 				serverConfigForOperation = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -116,7 +108,6 @@
 																							andUserSettings:userSettings];
 					
 					[operationQueue addOperation:operationMail];
-					[operationMail release];
 				}
 			}
 			else
@@ -207,16 +198,12 @@
         }
         else
         {
-            [_configuration release], _configuration = nil;
             _configuration = [configuration copy];
             
             error = [self checkConfigurationAndAddDefaults];
-            
-            [configuration release];
         }
     }
 
-    [data release];
 	OSSpinLockUnlock(&_configurationLock);
 
 	return error;
