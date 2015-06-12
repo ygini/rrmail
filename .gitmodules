@@ -7,3 +7,6 @@ url=git@github.com:ygini/CocoaSyslog.git
 [submodule "vendors/OnOffSwitchControl"]
 	path = vendors/OnOffSwitchControl
 	url = https://github.com/mipmip/OnOffSwitchControl.git
+[submodule "vendors/GHUpdate"]
+	path = vendors/GHUpdate
+	url = git@github.com:ygini/GHUpdate.git

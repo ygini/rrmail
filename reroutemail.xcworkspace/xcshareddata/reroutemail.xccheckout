@@ -24,6 +24,8 @@
 		<string>https://bitbucket.org/ygini/reroutemail.git</string>
 		<key>7ACF23A507BCFA5964C32B48177971421D05CCCE</key>
 		<string>https://github.com/MailCore/mailcore2.git</string>
+		<key>E7F8A6102A9F396B3EC95C705FE6D16C1CA5563D</key>
+		<string>github.com:ygini/GHUpdate.git</string>
 		<key>EE562EBF-BDAD-49D1-8226-8267F88CCD7F</key>
 		<string>https://github.com/MailCore/mailcore2.git</string>
 	</dict>
@@ -45,6 +47,8 @@
 		<string>../../reroutemail</string>
 		<key>7ACF23A507BCFA5964C32B48177971421D05CCCE</key>
 		<string>..vendors/mailcore2</string>
+		<key>E7F8A6102A9F396B3EC95C705FE6D16C1CA5563D</key>
+		<string>../vendors/GHUpdate</string>
 		<key>EE562EBF-BDAD-49D1-8226-8267F88CCD7F</key>
 		<string>../../reroutemail/vendors/mailcore2</string>
 	</dict>
@@ -76,7 +80,15 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>7ACF23A507BCFA5964C32B48177971421D05CCCE</string>
+			<string>E7F8A6102A9F396B3EC95C705FE6D16C1CA5563D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GHUpdate</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EE562EBF-BDAD-49D1-8226-8267F88CCD7F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>mailcore2</string>
 		</dict>
@@ -84,7 +96,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>EE562EBF-BDAD-49D1-8226-8267F88CCD7F</string>
+			<string>7ACF23A507BCFA5964C32B48177971421D05CCCE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>mailcore2</string>
 		</dict>

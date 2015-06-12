@@ -26,8 +26,8 @@
 		E177BD0F18535AEE0021CF20 /* SampleConf.plist in Resources */ = {isa = PBXBuildFile; fileRef = E177BD0E18535AEE0021CF20 /* SampleConf.plist */; };
 		E177BD13185361E70021CF20 /* INIGNumberToStringValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = E177BD11185361E70021CF20 /* INIGNumberToStringValueTransformer.h */; };
 		E177BD14185361E70021CF20 /* INIGNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E177BD12185361E70021CF20 /* INIGNumberToStringValueTransformer.m */; };
-		E17BC6BB18101FB10012FA8A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17BC6BA18101FB10012FA8A /* Sparkle.framework */; };
-		E17BC6BC1810202E0012FA8A /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E17BC6BA18101FB10012FA8A /* Sparkle.framework */; };
+		E196D0491B2B161A00F05562 /* GHUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E196D0461B2B160200F05562 /* GHUpdate.framework */; };
+		E196D04A1B2B165F00F05562 /* GHUpdate.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E196D0461B2B160200F05562 /* GHUpdate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E1B21C64180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = E1B21C61180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h */; };
 		E1B21C65180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B21C62180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.m */; };
 		E1B21C66180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1B21C63180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.xib */; };
@@ -76,6 +76,27 @@
 			remoteGlobalIDString = E12EF15717B2472B007414D1;
 			remoteInfo = rrmail;
 		};
+		E196D0451B2B160200F05562 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E196D0401B2B160200F05562 /* GHUpdate.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E196D01A1B2B075700F05562;
+			remoteInfo = GHUpdate;
+		};
+		E196D0471B2B160200F05562 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E196D0401B2B160200F05562 /* GHUpdate.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E196D0251B2B075700F05562;
+			remoteInfo = GHUpdateTests;
+		};
+		E196D04E1B2B16E000F05562 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E196D0401B2B160200F05562 /* GHUpdate.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E196D0191B2B075700F05562;
+			remoteInfo = GHUpdate;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,7 +106,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E17BC6BC1810202E0012FA8A /* Sparkle.framework in Copy Frameworks */,
+				E196D04A1B2B165F00F05562 /* GHUpdate.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,7 +149,7 @@
 		E177BD0E18535AEE0021CF20 /* SampleConf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleConf.plist; sourceTree = "<group>"; };
 		E177BD11185361E70021CF20 /* INIGNumberToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INIGNumberToStringValueTransformer.h; sourceTree = "<group>"; };
 		E177BD12185361E70021CF20 /* INIGNumberToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INIGNumberToStringValueTransformer.m; sourceTree = "<group>"; };
-		E17BC6BA18101FB10012FA8A /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		E196D0401B2B160200F05562 /* GHUpdate.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUpdate.xcodeproj; path = ../vendors/GHUpdate/GHUpdate.xcodeproj; sourceTree = "<group>"; };
 		E1B21C61180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMPrefPaneServerSettingsWindowController.h; sourceTree = "<group>"; };
 		E1B21C62180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMPrefPaneServerSettingsWindowController.m; sourceTree = "<group>"; };
 		E1B21C63180B0472005A9F98 /* RRMPrefPaneServerSettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RRMPrefPaneServerSettingsWindowController.xib; sourceTree = "<group>"; };
@@ -159,9 +180,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E196D0491B2B161A00F05562 /* GHUpdate.framework in Frameworks */,
 				E1B92E93180AADEA00411164 /* Security.framework in Frameworks */,
 				E1B92E91180AADE600411164 /* SecurityInterface.framework in Frameworks */,
-				E17BC6BB18101FB10012FA8A /* Sparkle.framework in Frameworks */,
 				E1B92E61180AA5D100411164 /* Cocoa.framework in Frameworks */,
 				E1B92E63180AA5D200411164 /* PreferencePanes.framework in Frameworks */,
 			);
@@ -254,7 +275,6 @@
 		E146C280180AC11D008A7438 /* vendors */ = {
 			isa = PBXGroup;
 			children = (
-				E17BC6BA18101FB10012FA8A /* Sparkle.framework */,
 				E146D093180AC12D008A7438 /* OnOffSwitchControl */,
 			);
 			name = vendors;
@@ -281,6 +301,15 @@
 			path = INIGNumberToStringValueTransformer;
 			sourceTree = "<group>";
 		};
+		E196D0411B2B160200F05562 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E196D0461B2B160200F05562 /* GHUpdate.framework */,
+				E196D0481B2B160200F05562 /* GHUpdateTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E1B21C60180B045F005A9F98 /* RRMPrefPaneServerSettingsWindowController */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +333,7 @@
 		E1B92E52180AA5D100411164 = {
 			isa = PBXGroup;
 			children = (
+				E196D0401B2B160200F05562 /* GHUpdate.xcodeproj */,
 				E108035E180ACAE000E525E4 /* rrmail.xcodeproj */,
 				E1080355180ACA6200E525E4 /* rrmailctl.xcodeproj */,
 				E1B21C6B180B1043005A9F98 /* common */,
@@ -440,6 +470,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E196D04F1B2B16E000F05562 /* PBXTargetDependency */,
 				E1080365180ACAE400E525E4 /* PBXTargetDependency */,
 				E108035C180ACA6700E525E4 /* PBXTargetDependency */,
 			);
@@ -472,6 +503,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = E196D0411B2B160200F05562 /* Products */;
+					ProjectRef = E196D0401B2B160200F05562 /* GHUpdate.xcodeproj */;
+				},
+				{
 					ProductGroup = E108035F180ACAE000E525E4 /* Products */;
 					ProjectRef = E108035E180ACAE000E525E4 /* rrmail.xcodeproj */;
 				},
@@ -500,6 +535,20 @@
 			fileType = "compiled.mach-o.executable";
 			path = rrmail;
 			remoteRef = E1080362180ACAE000E525E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E196D0461B2B160200F05562 /* GHUpdate.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GHUpdate.framework;
+			remoteRef = E196D0451B2B160200F05562 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E196D0481B2B160200F05562 /* GHUpdateTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GHUpdateTests.xctest;
+			remoteRef = E196D0471B2B160200F05562 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -581,6 +630,11 @@
 			isa = PBXTargetDependency;
 			name = rrmail;
 			targetProxy = E1080364180ACAE400E525E4 /* PBXContainerItemProxy */;
+		};
+		E196D04F1B2B16E000F05562 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GHUpdate;
+			targetProxy = E196D04E1B2B16E000F05562 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

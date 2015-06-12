@@ -13,7 +13,7 @@
 #import "RRMPrefPaneMainViewController.h"
 #import "RRMailCTL.h"
 
-#import <Sparkle/Sparkle.h>
+#import <GHUpdate/GHUpdate.h>
 
 @interface RRMailPrefPane ()
 
@@ -27,7 +27,14 @@
 
 - (void)mainViewDidLoad
 {
-	[[SUUpdater updaterForBundle:[NSBundle bundleForClass:[self class]]] checkForUpdatesInBackground];
+    NSDictionary *appInfos = [[NSBundle bundleWithIdentifier:@"com.inig-services.RRMail"] infoDictionary];
+    
+    NSString *repos = [appInfos objectForKey:@"GHUpdateRepos"];
+    NSString *owner = [appInfos objectForKey:@"GHUpdateOwner"];
+    NSString *version = [appInfos objectForKey:@"CFBundleShortVersionString"];
+    
+    [GHUpdater checkAndUpdateFromRepos:repos by:owner withCurrentVersion:version];
+
 	
 	AuthorizationItem authItems = {kAuthorizationRightExecute, 0, NULL, 0};
     AuthorizationRights authRights = {1, &authItems};

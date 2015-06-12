@@ -8,7 +8,6 @@
 
 #import "RRMPrefPaneMainViewController.h"
 
-#import <Sparkle/Sparkle.h>
 #import "RRMConstants.h"
 #import "RRMPrefPaneServerSettingsWindowController.h"
 #import "RRMPrefPaneAccountSettingsWindowController.h"
