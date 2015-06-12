@@ -92,7 +92,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>33EAE6DB221296C94D87CE13551AA01F402ED1B7</string>
+			<string>46C9BDDA-4840-4E92-BF3E-8E4D6392E1AC</string>
 			<key>IDESourceControlWCCName</key>
 			<string>OnOffSwitchControl</string>
 		</dict>
@@ -100,7 +100,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>46C9BDDA-4840-4E92-BF3E-8E4D6392E1AC</string>
+			<string>33EAE6DB221296C94D87CE13551AA01F402ED1B7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>OnOffSwitchControl</string>
 		</dict>

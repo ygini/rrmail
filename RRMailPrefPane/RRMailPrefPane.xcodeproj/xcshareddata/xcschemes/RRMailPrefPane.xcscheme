@@ -55,7 +55,7 @@
       </MacroExpansion>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Library/PreferencePanes/RRMail.prefPane"
+            argument = "$(INSTALL_PATH)/RRMail.prefPane"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
